@@ -1,0 +1,32 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Shlashurai.Player.Input
+{
+    public class InputHandler : MonoBehaviour
+    {
+        [SerializeField] private PlayerInput m_playerInput = null;
+        [SerializeField] private InputValues m_values = null;
+        [SerializeField] private string m_keyboardAndMouseControlSchemeName = "Keyboard&Mouse";
+
+        private Vector2 m_center = Vector2.zero;
+
+        public void OnMove(InputValue value) => m_values.Move = value.Get<Vector2>();
+
+        public void OnLook(InputValue value)
+        {
+            var input = value.Get<Vector2>();
+            if (m_playerInput.currentControlScheme == m_keyboardAndMouseControlSchemeName)
+            {
+                m_center.Set(Screen.width / 2, Screen.height / 2);
+                input -= m_center;
+                input.Normalize();
+            }
+             
+            m_values.Look = input;
+        }
+
+        public void OnSlash(InputValue value) => m_values.Slash = value.isPressed;
+        public void OnAttack(InputValue value) => m_values.Attack = value.isPressed;
+    }
+}
