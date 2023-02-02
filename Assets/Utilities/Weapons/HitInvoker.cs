@@ -20,7 +20,7 @@ namespace Weapons
         {
             var hit = other.gameObject.GetComponent<IDamageable>();
             if (hit == null) return;
-            hit.DealDamage(_damage);
+            hit.ReceiveDamage(_damage);
             OnHit.Invoke(_damage, other.gameObject);
         }
     }
