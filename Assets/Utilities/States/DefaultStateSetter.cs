@@ -1,21 +1,8 @@
-﻿using UnityEngine;
-
-namespace Utilities.States
+﻿namespace Utilities.States
 {
-    public class DefaultStateSetter : MonoBehaviour
+    public class DefaultStateSetter : StateSetter
     {
-        [SerializeField] private GameObject _stateMachineHostingGameObject = null;
-        private IStateMachine _stateManager = null;
-        [SerializeField] private State _defaultState = null;
-
-        private void Awake()
-        {
-            _stateManager = _stateMachineHostingGameObject.GetComponent<IStateMachine>();
-        }
-
-        private void Start()
-        {
-            _stateManager.EnterState(_defaultState);
-        }
+        
+        private void OnEnable() => SetState();
     }
 }
