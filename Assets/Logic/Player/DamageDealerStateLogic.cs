@@ -1,6 +1,7 @@
 ﻿using Shlashurai.Player.Input;
 using UnityEngine;
 using Utilities.States;
+using Weapons;
 
 namespace Shlashurai.Player.Logic
 {
@@ -13,7 +14,8 @@ namespace Shlashurai.Player.Logic
         [SerializeField] private Transform m_model = null;
         [SerializeField] private Animator m_animator = null;
         [SerializeField] private string m_attackTriggerName = string.Empty;
-        [SerializeField] private float m_damage = 5f;
+        [SerializeField] private Damage m_damage = new Damage(5f);
+        [SerializeField] private LayerMask m_dealDamageLayer = new LayerMask();
         
         private readonly Collider[] m_colliders = new Collider[10];
         private int m_attackTriggerHash = 0;
@@ -35,7 +37,7 @@ namespace Shlashurai.Player.Logic
             m_counter = m_attackInterval;
             m_animator.SetTrigger(m_attackTriggerHash);
             
-            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders);
+            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders, m_dealDamageLayer);
             if (count <= 0) return;
 
             var position = m_model.position;

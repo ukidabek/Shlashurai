@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using Shlashurai.Player.Logic;
 using UnityEngine;
 using UnityEngine.AI;
 using Utilities.General;
 using Utilities.States;
+using Weapons;
 
 namespace Shlashurai.Enemy.Logic
 {
@@ -16,23 +16,28 @@ namespace Shlashurai.Enemy.Logic
         [SerializeField] private AnimatorParameterDefinition m_attackTrigger = null;
         [SerializeField] private Transform m_model;
         [SerializeField] private float m_radius = 5f;
-        [SerializeField] private float m_damage = 5f;
+        [SerializeField] private Damage m_damage = new Damage(5f);
+        [SerializeField] private LayerMask m_dealDamageMask = new LayerMask();
 
         private readonly Collider[] m_colliders = new Collider[10];
 
-        
+
         private bool m_attackFinished = false;
         private Coroutine m_coroutine = null;
 
+        private CoroutineManager m_coroutineManager;
+
         public bool Condition => m_attackFinished;
+
+        private void Awake()
+        {
+            m_coroutineManager = new CoroutineManager(this);
+        }
 
         public override void Activate()
         {
             base.Activate();
-            if(m_coroutine != null)
-                StopCoroutine(m_coroutine);
-
-            m_coroutine = StartCoroutine(AttackCoroutine());
+            m_coroutineManager.Run(AttackCoroutine());
             m_attackFinished = false;
             m_navMeshAgent.SetDestination(transform.position);
         }
@@ -43,7 +48,7 @@ namespace Shlashurai.Enemy.Logic
             
             m_attackTrigger.SetTrigger(m_animator);
             
-            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders);
+            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders, m_dealDamageMask);
             if (count > 0)
             {
                 var position = m_model.position;
