@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Profiling;
 
-namespace Logic.Interactions
+namespace Utilities.Interactions
 {
     public class InteractionDetector : InteractionDetectorBase
     {

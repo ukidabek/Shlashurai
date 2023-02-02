@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Utilities.General.ObjectGroups
+namespace Utilities.ObjectGroups
 {
     public class GameObjectPusher : ObjectGroupWorker
     {

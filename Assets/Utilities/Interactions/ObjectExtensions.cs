@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.Interactions
+namespace Utilities.Interactions
 {
     public static class ObjectExtensions
     {

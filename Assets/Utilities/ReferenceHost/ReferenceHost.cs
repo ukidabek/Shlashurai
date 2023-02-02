@@ -1,7 +1,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Logic.General
+namespace Utilities.ReferenceHost
 {
     public abstract class ReferenceHost<T> : ScriptableObject where T : Object
     {

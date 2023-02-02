@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.ObjectMap
+namespace Utilities.ObjectMap
 {
     public interface IObjectDictionary
     {

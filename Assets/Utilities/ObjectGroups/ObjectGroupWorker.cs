@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utilities.General.ObjectGroups
+namespace Utilities.ObjectGroups
 {
     public abstract class ObjectGroupWorker : MonoBehaviour
     {

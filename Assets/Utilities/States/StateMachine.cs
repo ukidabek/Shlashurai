@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Logic.States
+namespace Utilities.States
 {
     public class StateMachine : IStateMachine
     {

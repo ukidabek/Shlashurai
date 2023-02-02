@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.Events
+namespace Utilities.Events
 {
     public abstract class EventHandlerBase<T> : MonoBehaviour where T : MonoBehaviour
     {

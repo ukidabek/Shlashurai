@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Logic.Interactions
+namespace Utilities.Interactions
 {
     public class InteractionSelector : InteractionSelectorBase
     {

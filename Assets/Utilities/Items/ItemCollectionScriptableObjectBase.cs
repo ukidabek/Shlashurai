@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
 
-namespace Logic.Items
+namespace Utilities.Items
 {
     public class ItemCollectionScriptableObjectBase<T> : ScriptableObject, IItemCollection<T> where T:IItemSlot, new()
     {

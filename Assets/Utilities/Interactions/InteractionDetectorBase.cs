@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Logic.Interactions
+namespace Utilities.Interactions
 {
     public abstract class InteractionDetectorBase : MonoBehaviour
     {

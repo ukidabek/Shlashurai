@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.ObjectMap
+namespace Utilities.ObjectMap
 {
     [CreateAssetMenu(fileName = "ObjectDictionaryKey", menuName = "ObjectDictionary/Key")]
     public class Key : ScriptableObject
