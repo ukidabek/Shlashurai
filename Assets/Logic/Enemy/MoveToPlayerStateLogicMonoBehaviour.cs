@@ -1,7 +1,7 @@
-﻿using Logic.General;
-using Logic.States;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using Utilities.ReferenceHost;
+using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {

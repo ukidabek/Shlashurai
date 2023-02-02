@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using Logic.States;
 using Shlashurai.Player.Logic;
 using UnityEngine;
 using UnityEngine.AI;
 using Utilities.General;
+using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {
