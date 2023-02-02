@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Utilities.States;
+using Weapons;
 
 namespace Shlashurai.Player.Logic
 {
@@ -7,8 +8,9 @@ namespace Shlashurai.Player.Logic
     {
         [SerializeField] private OnCollisionEnterHandler m_hitHandler = null;
         [SerializeField] private float m_radius = 5f;
-        [SerializeField] private float m_damage = 5f;
-        
+        [SerializeField] private Damage m_damage = new Damage(5f);
+        [SerializeField] private LayerMask m_dealDamageMask = new LayerMask();
+
         private readonly Collider[] m_colliders = new Collider[10];
         
         public override void Activate()
@@ -25,7 +27,7 @@ namespace Shlashurai.Player.Logic
 
         private void OnControllerColliderHit(Collision obj)
         {
-            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders);
+            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders, m_dealDamageMask);
             if (count <= 0) return;
             for (var i = 0; i < count; i++)
             {
