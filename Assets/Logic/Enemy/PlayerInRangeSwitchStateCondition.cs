@@ -1,6 +1,6 @@
-﻿using Logic.General;
-using Logic.States;
-using UnityEngine;
+﻿using UnityEngine;
+using Utilities.ReferenceHost;
+using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {

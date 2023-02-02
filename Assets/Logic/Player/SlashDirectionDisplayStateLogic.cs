@@ -1,5 +1,5 @@
-using Logic.States;
 using UnityEngine;
+using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
