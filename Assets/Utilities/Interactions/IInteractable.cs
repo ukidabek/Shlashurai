@@ -1,4 +1,4 @@
-﻿namespace Logic.Interactions
+﻿namespace Utilities.Interactions
 {
     public interface IInteractable
     {

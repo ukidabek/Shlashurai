@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.States
+namespace Utilities.States
 {
     public class DefaultStateSetter : MonoBehaviour
     {

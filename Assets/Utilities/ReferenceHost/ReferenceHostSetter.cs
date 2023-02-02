@@ -2,7 +2,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Logic.General
+namespace Utilities.ReferenceHost
 {
     public abstract class ReferenceHostSetter<T, T1> : MonoBehaviour where T : ReferenceHost<T1> where T1 : Object
     {

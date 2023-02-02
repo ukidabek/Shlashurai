@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Logic.States
+namespace Utilities.States
 {
     public abstract class StateTransitionLogicBase : MonoBehaviour, IStateTransitionLogic
     {

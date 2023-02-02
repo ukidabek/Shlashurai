@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Logic.Interactions
+namespace Utilities.Interactions
 {
     public class InteractionManager
     {

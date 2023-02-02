@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Logic.Events
+namespace Utilities.Events
 {
     public abstract class EventBase<T> : ScriptableObject
     {

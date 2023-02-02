@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.Items
+namespace Utilities.Items
 {
     public interface IConsumable
     {

@@ -1,4 +1,4 @@
-﻿namespace Logic.States
+﻿namespace Utilities.States
 {
     public interface IOnLateUpdateLogic
     {

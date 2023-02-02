@@ -1,4 +1,4 @@
-﻿namespace Logic.Items
+﻿namespace Utilities.Items
 {
     public interface IItemSlot
     {

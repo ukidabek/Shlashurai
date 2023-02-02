@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Logic.ObjectMap
+namespace Utilities.ObjectMap
 {
     public class ObjectDictionary : MonoBehaviour, IObjectDictionary
     {

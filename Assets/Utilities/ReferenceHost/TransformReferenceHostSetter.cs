@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Logic.General
+namespace Utilities.ReferenceHost
 {
     public class TransformReferenceHostSetter : ReferenceHostSetter<TransformReferenceHost, Transform>
     {

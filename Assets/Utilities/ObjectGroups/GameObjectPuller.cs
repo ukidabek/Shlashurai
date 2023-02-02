@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Utilities.General.ObjectGroups
+namespace Utilities.ObjectGroups
 {
     public class GameObjectPuller : ObjectGroupWorker
     {

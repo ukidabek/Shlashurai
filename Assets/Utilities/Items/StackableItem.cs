@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.Items
+namespace Utilities.Items
 {
     [CreateAssetMenu(fileName = "StackableItem", menuName = "Equipment/Items/StackableItem")]
     public class StackableItem : ItemBase

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Logic.Interactions
+namespace Utilities.Interactions
 {
     public interface IInteractionSelector
     {

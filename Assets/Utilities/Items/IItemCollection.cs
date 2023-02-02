@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Logic.Items
+namespace Utilities.Items
 {
     public interface IItemCollection<T> where T:IItemSlot
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Utilities.General.ObjectGroups
+namespace Utilities.ObjectGroups
 {
     [CreateAssetMenu(menuName = "ObjectGroup")]
     public class ObjectGroup : ScriptableObject
