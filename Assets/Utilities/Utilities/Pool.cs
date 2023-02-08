@@ -1,77 +1,90 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Utilities.General
 {
-    [Serializable]
-    public class Pool<T> where T : Component
+	[Serializable]
+    public class Pool<T> where T : UnityEngine.Object
     {
-        [SerializeField] private T prefab = null;
-        [SerializeField] private Transform parrent = null;
-        [SerializeField] private int maxCount = -1;
-
-        private List<T> list = new List<T>();
-
+        [SerializeField] protected T m_prefab = null;
+        [SerializeField] protected Transform m_parent = null;
+    
+        protected List<T> m_poolElements = new List<T>();
+    
         public Func<T, bool> ValidateIfPoolElementInactive = null;
+        public Func<T, Transform, T> CreatePoolElement = null;
+        public Action<T> DisablePoolElement = null;
+    
+        
         public Action<T> OnPoolElementSelected = null;
         public Action<T> OnPoolElementCreated = null;
         public Action<T> OnPoolElementDisabled = null;
-
-        public List<T> ActiveObjectList => list
-            .Where(component => !ValidateIfPoolElementInactive(component))
-            .ToList();
-        
-        private Pool()
+    
+        protected IEnumerable<T> m_activeObject = null;
+        public IEnumerable<T> ActiveObject => m_activeObject; 
+    
+        protected Pool()
         {
-            ValidateIfPoolElementInactive = component => !component.gameObject.activeSelf;
+            Initialize();
         }
-        
-        public Pool(T prefab, Transform parrent, int initialCount = 5, int maxCount = -1) : this()
+    
+        public Pool(T prefab, Transform parent = null, int initialCount = 5) : this()
         {
-            this.prefab = prefab;
-            this.parrent = parrent;
-            this.maxCount = maxCount;
+            m_prefab = prefab;
+            m_parent = parent;
 
             for (int i = 0; i < initialCount; i++)
                 CreateNewInstance();
         }
 
-        private T CreateNewInstance()
+		protected virtual void Initialize()
+		{
+			m_activeObject = m_poolElements.Where(component => !ValidateIfPoolElementInactive(component));
+		}
+
+		private T CreateNewInstance()
         {
-            T instance = GameObject.Instantiate(prefab, parrent, false);
-            instance.gameObject.SetActive(false);
-            list.Add(instance);
+            T instance = CreatePoolElement(m_prefab, m_parent);
             OnPoolElementCreated?.Invoke(instance);
+			m_poolElements.Add(instance);
             return instance;
         }
-
+    
         public T Get()
         {
-            T instance = null;
-            for (int i = 0; i < list.Count; i++)
+            T poolElement = null;
+            for (int i = 0; i < m_poolElements.Count; i++)
             {
-                if (ValidateIfPoolElementInactive.Invoke(list[i]))
+                if (ValidateIfPoolElementInactive(m_poolElements[i]))
                 {
-                    instance = list[i];
-                    list.RemoveAt(i);
-                    list.Add(instance);
+                    poolElement = m_poolElements[i];
+                    m_poolElements.RemoveAt(i);
+                    m_poolElements.Add(poolElement);
                     break;
                 }
             }
-            instance = instance == null ? CreateNewInstance() : instance;
-            OnPoolElementSelected?.Invoke(instance);
-            return instance;
+    
+            poolElement = poolElement == null ? CreateNewInstance() : poolElement;
+            OnPoolElementSelected?.Invoke(poolElement);
+            return poolElement;
         }
-
+    
+        public void Return(T poolElement)
+        {
+            if (!m_poolElements.Contains(poolElement)) return;
+            
+            DisablePoolElement(poolElement);
+            OnPoolElementDisabled?.Invoke(poolElement);
+        }
+    
         public void DeactivateAllObjects()
         {
-            foreach (var component in list)
+            foreach (var poolElement in m_poolElements)
             {
-                OnPoolElementDisabled?.Invoke(component);
-                component.gameObject.SetActive(false);
+                DisablePoolElement(poolElement);
+                OnPoolElementDisabled?.Invoke(poolElement);
             }
         }
     }
