@@ -39,7 +39,7 @@ namespace Shlashurai.Player.Logic
             m_hitHandler.OnControllerColliderHitCallback += OnControllerColliderHit;
         }
 
-        private void OnControllerColliderHit(Collision obj)
+        private void OnControllerColliderHit(Collision other)
         {
             Condition = true;
             m_animator.SetTrigger(m_triggerNameHans);
