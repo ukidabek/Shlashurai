@@ -5,17 +5,19 @@ namespace Utilities.States
 {
     public class StateSetter : MonoBehaviour
     {
-        [SerializeField] protected GameObject _stateMachineHostingGameObject = null;
-        private IStateMachine _stateManager = null;
+#if UNITY_EDITOR
+        [SerializeField] private string m_description;
+#endif
+        [SerializeField] protected Object _stateMachineObject = null;
         [FormerlySerializedAs("_defaultState")] [SerializeField] protected State m_state = null;
-
-        private void Awake()
-        {
-            _stateManager = _stateMachineHostingGameObject.GetComponent<IStateMachine>();
-        }
+      
+        private IStateMachine _stateManager = null;
 
         public void SetState()
         {
+            if(_stateManager == null) 
+                _stateManager = _stateMachineObject as IStateMachine;
+
             _stateManager.EnterState(m_state);
         }
     }

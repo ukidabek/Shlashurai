@@ -8,9 +8,7 @@ namespace Utilities.States
     public class State : MonoBehaviour, IState
     {
         [SerializeField] private Object[] m_logic = null;
-        public IEnumerable<IStateLogic> Logic { get; private set; }
-
-        private void Awake() => Logic = m_logic.OfType<IStateLogic>();
+        public IEnumerable<IStateLogic> Logic => m_logic.OfType<IStateLogic>();
 
         public void Enter()
         {

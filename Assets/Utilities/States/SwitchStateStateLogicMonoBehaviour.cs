@@ -9,7 +9,6 @@ namespace Utilities.States
     {
         private enum ConditionMode { All, Any }
 
-        private StateSwitcher _stateSwitcher = null;
         
         [SerializeField] private ConditionMode _mode = ConditionMode.All;
         [SerializeField] private Object _stateMachineInstance = null;
@@ -17,7 +16,10 @@ namespace Utilities.States
         [SerializeField] private State _stateToEnter = null;
         
         [SerializeField] private Object[] _conditionsObjects = null;
+
         private IEnumerable<ISwitchStateCondition> _stateConditions = null;
+        private IStateMachine m_stateMachine = null;
+
 
         private bool Condition
         {
@@ -34,13 +36,15 @@ namespace Utilities.States
 
         private void Awake()
         {
-            _stateSwitcher = new StateSwitcher(_stateMachineInstance, _stateToEnter);
-            _stateConditions = _conditionsObjects.OfType<ISwitchStateCondition>();
+            m_stateMachine = _stateMachineInstance as IStateMachine;
         }
 
         public override void Activate()
         {
-            foreach (var switchStateCondition in _stateConditions) 
+			if (_stateConditions == null)
+				_stateConditions = _conditionsObjects.OfType<ISwitchStateCondition>();
+
+			foreach (var switchStateCondition in _stateConditions) 
                 switchStateCondition.Activate();
         }
 
@@ -53,7 +57,15 @@ namespace Utilities.States
         public virtual void OnUpdate(float deltaTime)
         {
             if (Condition) 
-                _stateSwitcher.Switch();
+                Switch();
         }
-    }
+
+		public void Switch()
+		{
+			var stateToEnter = _stateToEnter as IState;
+			if (_stateToEnter == null || m_stateMachine.CurrentState == stateToEnter)
+				return;
+			m_stateMachine.EnterState(_stateToEnter);
+		}
+	}
 }
