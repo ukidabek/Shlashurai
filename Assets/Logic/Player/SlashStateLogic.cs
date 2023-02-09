@@ -3,7 +3,7 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-    public class SlashStateLogic : StateLogicMonoBehaviour, IOnFixUpdateLogic, ISwitchStateCondition
+    public class SlashStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic, IOnFixUpdateLogic, ISwitchStateCondition
     {
         [SerializeField] private Rigidbody m_controller = null;
         [SerializeField] private OnCollisionEnterHandler m_hitHandler = null;
@@ -52,13 +52,17 @@ namespace Shlashurai.Player.Logic
             Condition = false;
         }
 
-        public void OnFixUpdate(float deltaTime)
+		public void OnUpdate(float deltaTime)
+		{
+			var distance = Vector3.Distance(m_controller.transform.position, m_endPosition);
+			if (distance <= m_stopDistance)
+				Condition = true;
+		}
+
+		public void OnFixUpdate(float deltaTime)
         {
             var movement = m_direction * m_slashSpeed;
             m_controller.velocity = movement;
-            var distance = Vector3.Distance(m_controller.transform.position, m_endPosition);
-            if (distance <= m_stopDistance)
-                Condition = true;
         }
-    }
+	}
 }

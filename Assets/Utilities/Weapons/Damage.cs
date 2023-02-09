@@ -7,14 +7,14 @@ namespace Weapons
     [Serializable]
     public struct Damage : IDamage
     {
-        [SerializeField] private float _amount;
-        public float Amount => _amount;
+        [SerializeField] private float m_amount;
+        public float Amount => m_amount;
 
-    
-        
         public Damage(float amount)
         {
-            _amount = amount;
+            m_amount = amount;
         }
-    }
+
+		public void SetAmount(float amount) => m_amount = amount;
+	}
 }

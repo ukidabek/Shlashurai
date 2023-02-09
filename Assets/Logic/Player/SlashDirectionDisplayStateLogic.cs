@@ -3,7 +3,8 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-    public class SlashDirectionDisplayStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
+
+	public class SlashDirectionDisplayStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
     {
         [SerializeField] private Transform m_root = null;
         [SerializeField] private LineRenderer m_lineRenderer = null;
