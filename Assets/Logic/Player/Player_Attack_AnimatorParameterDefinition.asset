@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7270d011288d48629e551325f4aaeab0, type: 3}
-  m_Name: AnimationParameter
+  m_Name: Player_Attack_AnimatorParameterDefinition
   m_EditorClassIdentifier: 
-  _animator: {fileID: 9100000, guid: 4cf7f86ba9d6e8d4cac45d7fc172ef77, type: 2}
+  _animator: {fileID: 9100000, guid: 07313fdc8aea6eb4a99813e098c131c3, type: 2}
   _name: Attack
   _hash: 1080829965
