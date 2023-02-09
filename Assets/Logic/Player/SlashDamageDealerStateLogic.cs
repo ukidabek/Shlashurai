@@ -8,10 +8,11 @@ namespace Shlashurai.Player.Logic
     {
         [SerializeField] private OnCollisionEnterHandler m_hitHandler = null;
         [SerializeField] private float m_radius = 5f;
-        [SerializeField] private Damage m_damage = new Damage(5f);
-        [SerializeField] private LayerMask m_dealDamageMask = new LayerMask();
+        [SerializeField] private Transform m_model = null;
 
-        private readonly Collider[] m_colliders = new Collider[10];
+		[SerializeField] private DamageDealingHandler m_damageDealingHandler = new DamageDealingHandler();
+
+
         
         public override void Activate()
         {
@@ -27,13 +28,9 @@ namespace Shlashurai.Player.Logic
 
         private void OnControllerColliderHit(Collision obj)
         {
-            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_colliders, m_dealDamageMask);
-            if (count <= 0) return;
-            for (var i = 0; i < count; i++)
-            {
-                var damageable = m_colliders[i].GetComponent<IDamageable>();
-                damageable?.ReceiveDamage(m_damage);
-            }
+			var position = m_model.position;
+			var forward = m_model.forward;
+			m_damageDealingHandler.DealDamage(position, forward);
         }
     }
 }
