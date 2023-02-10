@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7270d011288d48629e551325f4aaeab0, type: 3}
-  m_Name: Player_ForwardMovement_AnimatorParameterDefinition
+  m_Name: Player_RightMovement_AnimatorParameterDefinition
   m_EditorClassIdentifier: 
   _animator: {fileID: 9100000, guid: 07313fdc8aea6eb4a99813e098c131c3, type: 2}
-  _name: Forward
-  _hash: 673977882
+  _name: Right
+  _hash: 1963678224
   m_useDampTime: 1
-  m_dampTime: 1
+  m_dampTime: 0.25
