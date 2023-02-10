@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_movementParameterDefinition: {fileID: 11400000, guid: 4c2ca0a9ef7288f4680d4875ecec90ef, type: 2}
+  m_forwardMovementParameterDefinition: {fileID: 0}
   m_animator: {fileID: 1344336503465047811}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
 --- !u!1 &3125090705079944432
@@ -903,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_movementParameterDefinition: {fileID: 11400000, guid: 4c2ca0a9ef7288f4680d4875ecec90ef, type: 2}
+  m_forwardMovementParameterDefinition: {fileID: 11400000, guid: fbd2dded4a97740498dcdac54139cc5a, type: 2}
   m_animator: {fileID: 1344336503465047811}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
 --- !u!1 &9173726811042883594
