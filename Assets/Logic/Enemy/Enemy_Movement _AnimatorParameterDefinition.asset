@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7270d011288d48629e551325f4aaeab0, type: 3}
-  m_Name: Enemy_Movement_AnimatorParameterDefinition
+  m_Name: Enemy_Movement _AnimatorParameterDefinition
   m_EditorClassIdentifier: 
   _animator: {fileID: 9100000, guid: 4cf7f86ba9d6e8d4cac45d7fc172ef77, type: 2}
   _name: Movement
