@@ -8,7 +8,6 @@ namespace Shlashurai.Player.Logic
 	public class PlayerAttackStateLogic : AttackStateLogicBase, IOnUpdateLogic
 	{
 		[SerializeField] private InputValues m_inputValues = null;
-		[SerializeField] private float m_radius = 5f;
 		[SerializeField] private float m_attackInterval = 0.3f;
 		[SerializeField] private float m_counter = 0f;
 		[SerializeField] private Transform m_model = null;

@@ -1,36 +1,20 @@
-﻿using UnityEngine;
-using Utilities.States;
-using Weapons;
+﻿using Shlashurai.Logic;
+using UnityEngine;
 
 namespace Shlashurai.Player.Logic
 {
-    public class SlashDamageDealerStateLogic : StateLogicMonoBehaviour
-    {
-        [SerializeField] private OnCollisionEnterHandler m_hitHandler = null;
-        [SerializeField] private float m_radius = 5f;
-        [SerializeField] private Transform m_model = null;
-
+	public class SlashDamageDealerStateLogic : OnCollisionEnterStateLogic
+	{
+		[SerializeField] private Transform m_model = null;
 		[SerializeField] private DamageDealingHandler m_damageDealingHandler = new DamageDealingHandler();
 
+		protected override CollisionHandlingMode CollisionHandling => CollisionHandlingMode.All;
 
-        
-        public override void Activate()
-        {
-            base.Activate();
-            m_hitHandler.OnControllerColliderHitCallback += OnControllerColliderHit;
-        }
-
-        public override void Deactivate()
-        {
-            base.Deactivate();
-            m_hitHandler.OnControllerColliderHitCallback -= OnControllerColliderHit;
-        }
-
-        private void OnControllerColliderHit(Collision obj)
-        {
+		protected override void HandleCollision(Collision other)
+		{
 			var position = m_model.position;
 			var forward = m_model.forward;
 			m_damageDealingHandler.DealDamage(position, forward);
-        }
-    }
+		}
+	}
 }
