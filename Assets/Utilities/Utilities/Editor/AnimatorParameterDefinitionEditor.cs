@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Utilities.General
 {
     [CustomEditor(typeof(AnimatorParameterDefinition))]
-    public class AnimatorParameterEditor : Editor
+    public class AnimatorParameterDefinitionEditor : Editor
     {
         private SerializedProperty _animatorFieldInfo = null;
         private SerializedProperty _nameFieldInfo = null;
@@ -17,19 +17,19 @@ namespace Utilities.General
         
         private void OnEnable()
         {
-            var bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic;
             _animatorFieldInfo = serializedObject.FindProperty("_animator");
             _nameFieldInfo = serializedObject.FindProperty("_name");
             _hashFieldInfo = serializedObject.FindProperty("_hash");
-            
         }
 
         public override void OnInspectorGUI()
         {
-            var animator = _animatorFieldInfo.objectReferenceValue as AnimatorController;
+			base.OnInspectorGUI();
+			GUILayout.Space(EditorGUIUtility.singleLineHeight);
+			var animator = _animatorFieldInfo.objectReferenceValue as AnimatorController;
             EditorGUI.BeginChangeCheck();
             {
-                animator = EditorGUILayout.ObjectField("AnimatorController:",
+                animator = EditorGUILayout.ObjectField("Animator Controller:",
                     animator, typeof(AnimatorController),
                     false) as AnimatorController;
             

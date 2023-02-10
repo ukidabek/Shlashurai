@@ -5,6 +5,6 @@ namespace Utilities.General
 {
     public class AnimatorDefinitionBase : ScriptableObject
     {
-        [SerializeField] protected AnimatorController _animator = null;
+        [SerializeField, HideInInspector] protected AnimatorController _animator = null;
     }
 }
