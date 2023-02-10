@@ -9,7 +9,6 @@ namespace Utilities.States
             get => enabled;
             set => enabled = value;
         }
-        public abstract void ClearLogicToExecute();
         public abstract void SetLogicToExecute(IState state);
     }
 }

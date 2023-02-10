@@ -9,12 +9,6 @@ namespace Utilities.States
         private IEnumerable<IOnUpdateLogic> m_updateLogic;
         private IEnumerable<IOnLateUpdateLogic> m_lateUpdateLogic;
 
-        public override void ClearLogicToExecute()
-        {
-            m_updateLogic = new List<IOnUpdateLogic>();
-            m_lateUpdateLogic = new List<IOnLateUpdateLogic>();
-        }
-
         public override void SetLogicToExecute(IState state)
         {
             var logic = state.Logic;

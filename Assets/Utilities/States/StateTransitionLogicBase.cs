@@ -46,11 +46,12 @@ namespace Utilities.States
         private void InitializeCondition()
         {
             _condition = _mode switch
-            {
-                TransitionMode.FromTo => new FormTo(),
-                TransitionMode.From => new Form(),
-                TransitionMode.To => new To(),
-            };
+			{
+				TransitionMode.FromTo => new FormTo(),
+				TransitionMode.From => new Form(),
+				TransitionMode.To => new To(),
+				_ => null,
+			};
         }
 
         public virtual void Cancel() {}
