@@ -9,18 +9,16 @@ namespace Shlashurai.Player.Logic
 	{
 		[SerializeField] private AnimatorParameterDefinition m_movementParameterDefinition = null;
 		[SerializeField] private AnimatorParameterDefinition m_forwardMovementParameterDefinition = null;
+		[SerializeField] private AnimatorParameterDefinition m_rightMovementParameterDefinition = null;
 		[SerializeField] private Animator m_animator = null;
 		[SerializeField] private InputValues m_inputValues = null;
 
-		private float m_forwardInput = 0f;
-        private float m_inputMagnitude = 0f;
-
 		public void OnUpdate(float deltaTime)
         {
-			m_forwardInput = m_inputValues.Move.y;
-			m_inputMagnitude = m_inputValues.Move.magnitude;
-            m_movementParameterDefinition.SetFloat(m_animator, m_inputMagnitude);
-			m_forwardMovementParameterDefinition.SetFloat(m_animator, m_forwardInput);
+			var move = m_inputValues.Move;
+            m_movementParameterDefinition.SetFloat(m_animator, move.magnitude);
+			m_forwardMovementParameterDefinition.SetFloat(m_animator, move.y);
+			m_rightMovementParameterDefinition.SetFloat(m_animator, move.x);
 		}
 	}
 }
