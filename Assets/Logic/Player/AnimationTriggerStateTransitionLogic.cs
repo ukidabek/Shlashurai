@@ -7,6 +7,7 @@ namespace Shlashurai.Player.Logic
     {
         [SerializeField] private Animator m_animator = null;
         [SerializeField] private string m_triggerName = null;
+
         private int m_triggerHahs = 0;
 
         protected override void Awake()
