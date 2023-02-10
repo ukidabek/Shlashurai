@@ -8,10 +8,6 @@ namespace Utilities.States
     {
         private IEnumerable<IOnFixUpdateLogic> _logic = new List<IOnFixUpdateLogic>();
         
-        public override void ClearLogicToExecute()
-        {
-        }
-
         public override void SetLogicToExecute(IState state)
         {
             _logic = state.Logic.OfType<IOnFixUpdateLogic>();

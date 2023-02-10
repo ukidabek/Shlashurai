@@ -6,7 +6,7 @@ namespace Utilities.States
     {
         protected CoroutineManager m_coroutineManager;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             m_coroutineManager = new CoroutineManager(this);
         }
