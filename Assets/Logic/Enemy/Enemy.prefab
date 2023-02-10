@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 1808434152183830712}
   - component: {fileID: 7226648837152070828}
   - component: {fileID: 3240655978919548317}
+  - component: {fileID: 8264865254417354994}
   m_Layer: 7
   m_Name: Death
   m_TagString: Untagged
@@ -478,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_logic:
   - {fileID: 3240655978919548317}
+  - {fileID: 8264865254417354994}
 --- !u!114 &3240655978919548317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,8 +492,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918610905a1d4eefbbdad74672d29682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_timeToDeactivate: 1
+  m_timeToDeactivate: 2
   m_objectToUnderactive: {fileID: 9142262196461521984}
+--- !u!114 &8264865254417354994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601784433962417254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd888e74226135f40aaecd3eeace9a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animator: {fileID: 0}
+  m_animatorParameterDefinition: {fileID: 11400000, guid: c0cd466c5e6b2744c8fb564e3a493853, type: 2}
+  m_onActivateState: 1
 --- !u!1 &6400376450157905444
 GameObject:
   m_ObjectHideFlags: 0
