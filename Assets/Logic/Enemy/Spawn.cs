@@ -68,7 +68,6 @@ namespace Shlashurai.Logic
 
                 var enemy = objectSpawner.SpawnEnemy();
                 var currentPlayerPosition = m_playerTransform.Instance.position;
-                var isHit = false;
 
 				do
                 {

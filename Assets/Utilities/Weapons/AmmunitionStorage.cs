@@ -24,8 +24,6 @@ namespace Weapons
             }
         }
 
-        [SerializeField] private int _maxCount = 150;
-
         public void Retrieve(IClip clip)
         {
             if (_infinite)
