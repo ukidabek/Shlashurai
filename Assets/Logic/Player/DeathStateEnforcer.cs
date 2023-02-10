@@ -12,7 +12,6 @@ namespace Logic.Player
         private void Reset()
         {
             m_CharacterHealth = GetComponent<CharacterHealth>();
-            m_deathStateSetter = GetComponent<StateSetter>();
         }
 
         private void Awake()

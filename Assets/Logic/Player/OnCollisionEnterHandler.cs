@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.Logic
 {
     public class OnCollisionEnterHandler : MonoBehaviour
     {
