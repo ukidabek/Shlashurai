@@ -49,6 +49,68 @@ MonoBehaviour:
   _toStateObject: {fileID: 8303722656272917464}
   m_animator: {fileID: 1344336503465047811}
   m_triggerName: Slash
+--- !u!1 &1914552172324269756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5775139774136657507}
+  - component: {fileID: 6447146350280981039}
+  - component: {fileID: 8578363815375114748}
+  m_Layer: 7
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5775139774136657507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914552172324269756}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2245073049415175508}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6447146350280981039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914552172324269756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6590803716604ace8dc4a54df622514e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_logic:
+  - {fileID: 8578363815375114748}
+--- !u!114 &8578363815375114748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914552172324269756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd888e74226135f40aaecd3eeace9a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animator: {fileID: 1344336503465047811}
+  m_animatorParameterDefinition: {fileID: 11400000, guid: 7567b4060e8d642428ac73be08bafe15, type: 2}
+  m_onActivateState: 1
 --- !u!1 &2326579097361392303
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +135,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2326579097361392303}
-  m_LocalRotation: {x: 0.64637387, y: 0.001373996, z: -0.0011639494, w: 0.7630187}
+  m_LocalRotation: {x: 0.64637387, y: 0.0013740027, z: -0.001163955, w: 0.7630187}
   m_LocalPosition: {x: -0.009003678, y: 15, z: -2.4999838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -190,11 +252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64005b5ca85161c4e92da408e1ea6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_root: {fileID: 1344336503455160557}
+  m_root: {fileID: 8426016144193720358}
+  m_model: {fileID: 1344336503455160557}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
   m_controlelr: {fileID: 3055578962736059095}
   m_speed: 5
   m_freazDirections: 0
+  m_slerpOverRange: 1
 --- !u!114 &4693691647611709833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_root: {fileID: 1344336503455160557}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
-  m_speed: 1.5
+  m_speed: 5
 --- !u!114 &2987978452954854984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,13 +287,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
-  m_radius: 2
   m_attackInterval: 0.15
   m_counter: 0
   m_model: {fileID: 1344336503455160557}
   m_damageDealingHandler:
     m_radius: 2
-    m_damageAmount: 10
+    m_damageAmount: 15
     m_dealDamageLayer:
       serializedVersion: 2
       m_Bits: 128
@@ -416,6 +479,8 @@ GameObject:
   - component: {fileID: 7444925344929115397}
   - component: {fileID: 4868393220341564732}
   - component: {fileID: 4122757923536952111}
+  - component: {fileID: 8091371474343526765}
+  - component: {fileID: 3152281030477105963}
   m_Layer: 6
   m_Name: Slash
   m_TagString: Untagged
@@ -452,7 +517,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_logic:
   - {fileID: 7444925344929115397}
+  - {fileID: 3152281030477105963}
   - {fileID: 8761508274154697658}
+  - {fileID: 8091371474343526765}
   - {fileID: 4868393220341564732}
   - {fileID: 4122757923536952111}
 --- !u!114 &8761508274154697658
@@ -467,14 +534,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7a311b5e3d460194955b6f04a58e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_controller: {fileID: 3055578962736059095}
   m_hitHandler: {fileID: 6238455035024575469}
+  m_controller: {fileID: 3055578962736059095}
   m_root: {fileID: 1344336503455160557}
   m_range: 5
   m_slashSpeed: 15
   m_stopDistance: 0.1
-  m_animator: {fileID: 1344336503465047811}
-  m_triggerName: SlashHit
 --- !u!114 &7444925344929115397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +557,7 @@ MonoBehaviour:
   _stateToEnter: {fileID: 7640815473137898598}
   _conditionsObjects:
   - {fileID: 8761508274154697658}
+  - {fileID: 3152281030477105963}
 --- !u!114 &4868393220341564732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,16 +571,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hitHandler: {fileID: 6238455035024575469}
-  m_radius: 5
-  m_damage:
-    m_amount: 5
-  m_dealDamageMask:
-    serializedVersion: 2
-    m_Bits: 128
   m_model: {fileID: 1344336503455160557}
   m_damageDealingHandler:
     m_radius: 2
-    m_damageAmount: 10
+    m_damageAmount: 30
     m_dealDamageLayer:
       serializedVersion: 2
       m_Bits: 128
@@ -534,6 +594,34 @@ MonoBehaviour:
   m_animator: {fileID: 1344336503465047811}
   m_animatorParameterDefinition: {fileID: 11400000, guid: a839a6bb448469d4a9f9d0401e49d3ce, type: 2}
   m_onActivateState: 1
+--- !u!114 &8091371474343526765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160070471534966825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f991a3f625dc791488a94a76dbe1ccd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_hitHandler: {fileID: 5276369738319225453}
+  m_animator: {fileID: 1344336503465047811}
+  m_shashAnimationParameterDefinition: {fileID: 11400000, guid: 45b9956eea70afa478294513445508bd, type: 2}
+--- !u!114 &3152281030477105963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160070471534966825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbae708b1f0def46bac1f461c191fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_timeToWaint: 1
 --- !u!1 &6197788182618656824
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,10 +747,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_root: {fileID: 8426016144193720358}
+  m_model: {fileID: 1344336503455160557}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
   m_controlelr: {fileID: 3055578962736059095}
   m_speed: 3
   m_freazDirections: 1
+  m_slerpOverRange: 1
 --- !u!114 &1393289649137649756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +961,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3185107536471973632, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: m_state
+      value: 
+      objectReference: {fileID: 6447146350280981039}
     - target: {fileID: 5767547953549129509, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_Layer
       value: 6
