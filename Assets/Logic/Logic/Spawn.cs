@@ -2,8 +2,11 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using Utilities.General;
 using Utilities.ReferenceHost;
+using Utilities.Pool;
+using System.Collections;
+using UnityEditor.Search;
+using System.Collections.Generic;
 
 namespace Shlashurai.Logic
 {
@@ -41,7 +44,6 @@ namespace Shlashurai.Logic
         private float m_counter = 0f;
         private NavMeshHit m_navMehsHit = new NavMeshHit();
 
-
         private void Awake()
         {
             m_totalChande = m_objectToSpawn.Sum(x => x.Chance);
@@ -55,39 +57,47 @@ namespace Shlashurai.Logic
 
 		private float GetRandomValue() => UnityEngine.Random.Range(0f, m_totalChande);
 
-		private void Update()
-		{
-			if(m_counter <= 0f)
+        private IEnumerator SpawnCoroutine(GameObject enemy)
+        {
+            Vector3 currentPlayerPosition = Vector3.zero;
+			do
+			{
+				yield return null;
+
+				currentPlayerPosition = m_playerTransform.Instance.position;
+				var randomPointOnCircle = UnityEngine.Random.insideUnitCircle;
+				randomPointOnCircle.Normalize();
+				randomPointOnCircle *= m_spawnRange;
+
+				currentPlayerPosition.x += randomPointOnCircle.x;
+				currentPlayerPosition.z += randomPointOnCircle.y;
+			}
+			while (!NavMesh.SamplePosition(currentPlayerPosition, out m_navMehsHit, 1f, NavMesh.AllAreas));
+
+			enemy.transform.position = m_navMehsHit.position;
+			enemy.gameObject.SetActive(true);
+		}
+
+        private void Update()
+        {
+            if (m_counter <= 0f)
             {
                 m_counter = m_spawnInterval;
                 var roll = GetRandomValue();
 
-                var  objectSpawner = m_objectToSpawn.FirstOrDefault(x => x.IsInRange(roll));
+                var objectSpawner = m_objectToSpawn.FirstOrDefault(x => x.IsInRange(roll));
                 if (objectSpawner == null)
                     return;
 
                 var enemy = objectSpawner.SpawnEnemy();
                 var currentPlayerPosition = m_playerTransform.Instance.position;
 
-				do
-                {
-					var randomPointOnCircle = UnityEngine.Random.insideUnitCircle;
-					randomPointOnCircle.Normalize();
-					randomPointOnCircle *= m_spawnRange;
+                StartCoroutine(SpawnCoroutine(enemy));
 
-					currentPlayerPosition.x += randomPointOnCircle.x;
-					currentPlayerPosition.z += randomPointOnCircle.y;
-				}
-                while (!NavMesh.SamplePosition(currentPlayerPosition, out m_navMehsHit, 1f, NavMesh.AllAreas));
-
-                enemy.transform.position = m_navMehsHit.position;
-                enemy.gameObject.SetActive(true);
-
-
-				return;
+                return;
             }
 
             m_counter -= Time.deltaTime;
-		}
-	}
+        }
+    }
 }

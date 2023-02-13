@@ -13,8 +13,8 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private Animator m_animator = null;
 		[SerializeField] private InputValues m_inputValues = null;
 
-		public void OnUpdate(float deltaTime)
-        {
+		public void OnUpdate(float deltaTime, float timeScale)
+		{
 			var move = m_inputValues.Move;
             m_movementParameterDefinition.SetFloat(m_animator, move.magnitude);
 			m_forwardMovementParameterDefinition.SetFloat(m_animator, move.y);

@@ -15,7 +15,7 @@ namespace Shlashurai.Player.Logic
 
 		public override bool PerformingAttack { get; protected set; }
 
-		public void OnUpdate(float deltaTime)
+		public void OnUpdate(float deltaTime, float timeScale)
 		{
 			if (m_counter >= 0f)
 				m_counter -= Time.deltaTime;

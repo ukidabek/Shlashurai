@@ -2,6 +2,7 @@ using Shlashurai.Player.Input;
 using UnityEngine;
 using UnityEngine.Windows;
 using Utilities.States;
+using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
 {
@@ -11,11 +12,15 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private Transform m_model = null;
 		[SerializeField] private InputValues m_inputValues = null;
 		[SerializeField] private Rigidbody m_controlelr = null;
-		[SerializeField] private float m_speed = 3;
+		[SerializeField] private FloatValue m_speed = null;
 		[SerializeField] private bool m_freazDirections = false;
 		[SerializeField, Range(0, 1f)] float m_slerpOverRange = 1f;
 
-		private Vector3 m_frezedForwardDirection, m_frezedRightDirection, m_input, m_normalInput, m_reflectedInput;
+		private Vector3 m_frezedForwardDirection, 
+			m_frezedRightDirection, 
+			m_input, 
+			m_normalInput, 
+			m_reflectedInput;
 
 		public override void Activate()
 		{
@@ -25,7 +30,7 @@ namespace Shlashurai.Player.Logic
 			m_frezedRightDirection = m_root.right;
 		}
 
-		public void OnUpdate(float deltaTime)
+		public void OnUpdate(float deltaTime, float timeScale)
 		{
 			var move = m_inputValues.Move;
 
@@ -47,7 +52,7 @@ namespace Shlashurai.Player.Logic
 #endif
 		}
 
-		public void OnFixUpdate(float deltaTime)
+		public void OnFixUpdate(float deltaTime, float timeScale)
 		{
 			var forward = m_freazDirections ? m_frezedForwardDirection : m_model.forward;
 			var right = m_freazDirections ? m_frezedRightDirection : m_model.right;
@@ -58,11 +63,11 @@ namespace Shlashurai.Player.Logic
 			Debug.DrawRay(position, right, Color.red);
 #endif
 
-			forward *= m_speed * m_input.z;
-			right *= m_speed * m_input.x;
+			forward *= m_speed * m_input.z * deltaTime * timeScale;
+			right *= m_speed * m_input.x * deltaTime * timeScale;
 
-			var velocity = forward + right;
-			m_controlelr.velocity = velocity;
+			var velocity = m_controlelr.position + (forward + right);
+			m_controlelr.MovePosition(velocity);
 
 #if UNITY_EDITOR
 			Debug.DrawRay(position, velocity, Color.cyan);

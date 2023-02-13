@@ -9,7 +9,7 @@ namespace Shlashurai.Enemy.Logic
         [SerializeField] private Transform m_model = null;
 		[SerializeField] private TransformReferenceHost m_playerTransform = null;
 
-		public void OnUpdate(float deltaTime)
+		public void OnUpdate(float deltaTime, float timeScale)
 		{
 			var playerTransform = m_playerTransform.Instance;
 			m_model.LookAt(playerTransform);

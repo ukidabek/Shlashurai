@@ -11,7 +11,7 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private Animator m_animatior = null;
 		[SerializeField] private AnimatorParameterDefinition m_attackTriggerParametrDefinition = null;
 
-		public void OnUpdate(float deltaTime)
+		public void OnUpdate(float deltaTime, float timeScale)
 		{
 			if(m_attackStateLogic.PerformingAttack == false) 
 				return;

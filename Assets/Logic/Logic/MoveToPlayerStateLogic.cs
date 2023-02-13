@@ -11,8 +11,8 @@ namespace Shlashurai.Enemy.Logic
         [SerializeField] public NavMeshAgent m_navMeshAgent = null;
 
 
-		public void OnUpdate(float deltaTime)
-        {
+		public void OnUpdate(float deltaTime, float timeScale)
+		{
             var player = m_playerTransform.Instance;
             m_navMeshAgent.destination = player.position;
         }
