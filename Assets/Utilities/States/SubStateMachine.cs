@@ -35,22 +35,22 @@ namespace Utilities.States
 
         public void EnterState(IState statToEnter) => _stateMachine.EnterState(statToEnter);
 
-        public void OnUpdate(float deltaTime)
-        {
+        public void OnUpdate(float deltaTime, float timeScale)
+		{
             foreach (var onUpdateLogic in _currentStateOnUpdateLogic) 
-                onUpdateLogic.OnUpdate(deltaTime);
+                onUpdateLogic.OnUpdate(deltaTime, timeScale);
         }
 
-        public void OnFixUpdate(float deltaTime)
-        {
+        public void OnFixUpdate(float deltaTime, float timeScale)
+		{
             foreach (var onUpdateLogic in _currentStateOnFixUpdateLogic) 
-                onUpdateLogic.OnFixUpdate(deltaTime);
+                onUpdateLogic.OnFixUpdate(deltaTime, timeScale);
         }
 
-        public void OnLateUpdate(float deltaTime)
-        {
+        public void OnLateUpdate(float deltaTime, float timeScale)
+		{
             foreach (var onUpdateLogic in _currentStateOnLateUpdateLogic) 
-                onUpdateLogic.OnLateUpdate(deltaTime);
+                onUpdateLogic.OnLateUpdate(deltaTime, timeScale);
         }
 
         public bool Enabled

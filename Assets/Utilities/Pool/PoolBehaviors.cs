@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Utilities.General
+namespace Utilities.Pool
 {
     public static class PoolBehaviors
     {
-
-
 		public static void DefaultOnPollElementSelectedBehavior(Component component) => component.gameObject.SetActive(true);
         
         public static void DefaultOnPollElementReturnedBehavior(Component component) => component.gameObject.SetActive(false);

@@ -1,4 +1,4 @@
-﻿namespace Logic.Statistics
+﻿namespace Shlashurai.Statistics
 {
     public interface IUpdatableStatisticModifier
     {

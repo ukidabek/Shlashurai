@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Utilities.Values
 {
-    public abstract class BaseValue : ScriptableObject
+	public abstract class BaseValue : ScriptableObject
     {
         public abstract Type ValueType { get; }
         public abstract object Value { get; set; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Logic.Statistics
+namespace Shlashurai.Statistics
 {
     public class Statistic : MonoBehaviour
     {

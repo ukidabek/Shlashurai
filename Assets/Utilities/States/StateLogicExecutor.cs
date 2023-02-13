@@ -10,5 +10,7 @@ namespace Utilities.States
             set => enabled = value;
         }
         public abstract void SetLogicToExecute(IState state);
-    }
+
+		protected (float, float) GetTimeInfo() => (Time.deltaTime, Time.timeScale);
+	}
 }

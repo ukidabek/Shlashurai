@@ -18,16 +18,16 @@ namespace Utilities.States
 
         public void Update()
         {
-            var deltaTime = Time.deltaTime;
+            var timeInfo = GetTimeInfo();
             foreach (var onUpdateLogic in m_updateLogic) 
-                onUpdateLogic.OnUpdate(deltaTime);
+                onUpdateLogic.OnUpdate(timeInfo.Item1, timeInfo.Item2);
         }
 
         public void LateUpdate()
         {
-            var deltaTime = Time.deltaTime;
-            foreach (var lateUpdateLogic in m_lateUpdateLogic) 
-                lateUpdateLogic.OnLateUpdate(deltaTime);
+			var timeInfo = GetTimeInfo();
+			foreach (var lateUpdateLogic in m_lateUpdateLogic) 
+                lateUpdateLogic.OnLateUpdate(timeInfo.Item1, timeInfo.Item2);
         }
     }
 }

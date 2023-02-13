@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Profiling;
 
 namespace Utilities.Interactions
 {
@@ -27,7 +26,6 @@ namespace Utilities.Interactions
             if (_count == 0)
             {
                 InvokeOnInteractionDetected(_empty);
-                Profiler.EndSample();
                 return;
             }
             

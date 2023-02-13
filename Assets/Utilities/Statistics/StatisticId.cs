@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.Statistics
+namespace Shlashurai.Statistics
 {
     [CreateAssetMenu(fileName = "StatisticId", menuName = "Statistic/StatisticId")]
     public class StatisticId : ScriptableObject

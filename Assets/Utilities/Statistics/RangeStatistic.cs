@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Logic.Statistics
+namespace Shlashurai.Statistics
 {
     public class RangeStatistic : Statistic
     {

@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-
-namespace Utilities.Interactions
+﻿namespace Utilities.Interactions
 {
-    public interface IPickUpable
+	public interface IPickUpable
     {
-        Object PickUp();
+        void PickUp();
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Utilities.States
+namespace Utilities.General
 {
     public class CoroutineManager
     {

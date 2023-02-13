@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Utilities.General
+namespace Utilities.Pool
 {
 	public class GameObjectPool : Pool<GameObject>
 	{

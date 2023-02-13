@@ -54,8 +54,8 @@ namespace Utilities.States
                 switchStateCondition.Deactivate();
         }
 
-        public virtual void OnUpdate(float deltaTime)
-        {
+        public virtual void OnUpdate(float deltaTime, float timeScale)
+		{
             if (Condition) 
                 Switch();
         }

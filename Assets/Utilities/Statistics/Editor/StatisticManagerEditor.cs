@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Logic.Statistics
+namespace Shlashurai.Statistics
 {
     [CustomEditor(typeof(StatisticManager))]
     public class StatisticManagerEditor : Editor
