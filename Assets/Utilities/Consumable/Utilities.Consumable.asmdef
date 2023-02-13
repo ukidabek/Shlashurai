@@ -1,12 +1,8 @@
 {
-    "name": "Logic.Utilities.Editor",
+    "name": "Utilities.Consumable",
     "rootNamespace": "",
-    "references": [
-        "GUID:4acc7160c80847e48b157260c1e4510a"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

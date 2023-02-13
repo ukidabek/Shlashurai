@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Logic.Statistics
+namespace Shlashurai.Statistics
 {
     public class StatisticManager : MonoBehaviour
     {

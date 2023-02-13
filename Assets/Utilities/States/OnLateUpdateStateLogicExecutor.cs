@@ -15,9 +15,9 @@ namespace Utilities.States
 
         private void LateUpdate()
         {
-            var deltaTime = Time.deltaTime;
-            foreach (var onUpdateLogic in _logic) 
-                onUpdateLogic.OnLateUpdate(deltaTime);
-        }
-    }
+			var timeInfo = GetTimeInfo();
+			foreach (var onUpdateLogic in _logic)
+				onUpdateLogic.OnLateUpdate(timeInfo.Item1, timeInfo.Item2);
+		}
+	}
 }

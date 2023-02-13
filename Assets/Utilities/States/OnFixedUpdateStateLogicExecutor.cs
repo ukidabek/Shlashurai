@@ -15,9 +15,9 @@ namespace Utilities.States
 
         private void Update()
         {
-            var deltaTime = Time.fixedDeltaTime;
-            foreach (var onUpdateLogic in _logic) 
-                onUpdateLogic.OnFixUpdate(deltaTime);
-        }
-    }
+			var timeInfo = GetTimeInfo();
+			foreach (var onUpdateLogic in _logic)
+				onUpdateLogic.OnFixUpdate(timeInfo.Item1, timeInfo.Item2);
+		}
+	}
 }

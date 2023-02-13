@@ -2,6 +2,6 @@
 {
     public interface IOnFixUpdateLogic
     {
-        void OnFixUpdate(float deltaTime);
+        void OnFixUpdate(float deltaTime, float timeScale);
     }
 }

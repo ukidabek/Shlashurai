@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Logic.Statistics
+namespace Shlashurai.Statistics
 {
     public abstract class RangeStatisticLogic : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Utilities.General
+namespace Utilities.Pool
 {
 	[Serializable]
     public class Pool<T> where T : UnityEngine.Object
