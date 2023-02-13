@@ -1,14 +1,14 @@
 using UnityEngine;
 using Utilities.States;
+using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
 {
-
 	public class SlashDirectionDisplayStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
     {
         [SerializeField] private Transform m_root = null;
         [SerializeField] private LineRenderer m_lineRenderer = null;
-        [SerializeField] private float m_range = 5;
+        [SerializeField] private FloatValue m_range = null;
         [SerializeField] private float m_expandSpeed = 3f;
 
         private Vector3[] m_points = null;
@@ -29,8 +29,8 @@ namespace Shlashurai.Player.Logic
             m_lineRenderer.enabled = false;
         }
 
-        public void OnUpdate(float deltaTime)
-        {
+        public void OnUpdate(float deltaTime, float timeScale)
+		{
             m_scale = Mathf.MoveTowards(m_scale, 1f, m_expandSpeed);
             CalculatePoints();
         }

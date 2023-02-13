@@ -15,9 +15,7 @@ namespace Shlashurai.Enemy.Logic
         private bool IsInRange()
         {
             var playerTransform = m_playerTransform.Instance;
-
             var distance = Vector3.Distance(playerTransform.position, m_root.position);
-
             return distance <= m_distance;
         }
     }

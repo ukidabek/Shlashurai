@@ -1,6 +1,7 @@
 using Shlashurai.Logic;
 using UnityEngine;
 using Utilities.States;
+using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
 {
@@ -9,15 +10,13 @@ namespace Shlashurai.Player.Logic
         [SerializeField] private Rigidbody m_controller = null;
 		[SerializeField] private Transform m_root = null;
         [Space]
-        [SerializeField] private float m_range = 5f;
-        [SerializeField] private float m_slashSpeed = 50f;
-        [SerializeField] private float m_stopDistance = 0.1f;
+        [SerializeField] private FloatValue m_range = null;
+        [SerializeField] private FloatValue m_slashSpeed = null;
+        [SerializeField] private FloatValue m_stopDistance = null;
 
         private Vector3 m_startPosition;
         private Vector3 m_endPosition;
         private Vector3 m_direction;
-
-        private readonly Vector3 m_zeroSpeed = Vector3.zero;
         
         public bool Condition { get; private set; }
 
@@ -39,27 +38,20 @@ namespace Shlashurai.Player.Logic
             Condition = false;
         }
 
-        public void OnUpdate(float deltaTime)
-        {
-            var distance = Vector3.Distance(m_controller.transform.position, m_endPosition);
+        public void OnUpdate(float deltaTime, float timeScale)
+		{
+            var distance = Vector3.Distance(m_controller.position, m_endPosition);
 			if (distance <= m_stopDistance)
-			{
 				Condition = true;
-				m_controller.velocity = m_zeroSpeed;
-			}
 		}
 
-		public void OnFixUpdate(float deltaTime)
-        {
+		public void OnFixUpdate(float deltaTime, float timeScale)
+		{
             if (Condition) return;
-            var movement = m_direction * m_slashSpeed;
-            m_controller.velocity = movement;
+            var movement = m_controller.position + m_direction * (m_slashSpeed * deltaTime * timeScale);
+            m_controller.MovePosition(movement);
         }
 
-		protected override void HandleCollision(Collision other)
-		{
-			Condition = true;
-			m_controller.velocity = m_zeroSpeed;
-		}
+		protected override void HandleCollision(Collision other) => Condition = true;
 	}
 }

@@ -11,7 +11,7 @@ namespace Shlashurai.Enemy.Logic
         [SerializeField] private Animator m_animator = null;
         [SerializeField] private AnimatorParameterDefinition m_movementanimatorParameterDefinition = null;
 
-		public void OnUpdate(float deltaTime)
+		public void OnUpdate(float deltaTime, float timeScale)
 		{
             var magnitude = m_navMeshAgent.velocity.magnitude;
             m_movementanimatorParameterDefinition.SetFloat(m_animator, magnitude);
