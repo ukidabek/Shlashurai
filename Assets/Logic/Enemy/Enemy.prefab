@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 7357090222892464545}
   - component: {fileID: 5654381973186513713}
   - component: {fileID: 7170167816966925379}
-  - component: {fileID: 2037967821069173512}
+  - component: {fileID: 7821931101080567974}
   m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2037967821069173512
+--- !u!114 &7821931101080567974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -711,11 +711,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6472534565479134491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a4c3f90ee74ca7ba8c0ab68762a6fa, type: 3}
+  m_Script: {fileID: 11500000, guid: aeca8cc7b285b3b4391823d96e9d3fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_characterHealth: {fileID: 8124804089357118742}
   m_slider: {fileID: 2410252749975819063}
+  m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+  m_resourceManager: {fileID: 8124804089357118742}
 --- !u!1 &8135523331313416533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e42aeccb224447b8938e922ba1c6b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+  m_resourceManager: {fileID: 8124804089357118742}
 --- !u!195 &4927632958327776071
 NavMeshAgent:
   m_ObjectHideFlags: 0

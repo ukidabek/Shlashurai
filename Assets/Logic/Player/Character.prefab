@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e42aeccb224447b8938e922ba1c6b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+  m_resourceManager: {fileID: 6014407282305411716}
 --- !u!114 &6014407282305411716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,9 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b732616c7b82b4e962e9c67fd4a6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_initialHealth: 100
-  m_currentHealth: 0
-  m_damagableComponent: {fileID: 4558495963372545246}
+  m_resources:
+  - m_id: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+    m_maxHealth: 100
+    m_currentHealth: 0
 --- !u!114 &7780352982566496588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204e473cbe2b4dde86136c06151ce5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterHealth: {fileID: 6014407282305411716}
+  m_healthResourceId: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+  m_resourceManager: {fileID: 6014407282305411716}
   m_deathStateSetter: {fileID: 3185107536471973632}
 --- !u!1 &6731116506771022796
 GameObject:
