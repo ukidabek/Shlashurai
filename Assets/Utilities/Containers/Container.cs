@@ -7,6 +7,8 @@ namespace Utilities.Containers
 	public class Container : MonoBehaviour
 	{
 		[SerializeField] private bool m_isOpen = false;
+		public bool MyProperty => m_isOpen;
+
 		[SerializeField] private IContainerAnimatorManager m_animationController;
 		[SerializeField] private IContainerSpawnController m_containerSpawnController;
 
