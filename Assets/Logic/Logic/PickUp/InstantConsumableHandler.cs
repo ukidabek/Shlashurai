@@ -8,7 +8,7 @@ namespace Shlashurai.PickUp
 	{
 		[SerializeField] private ConsumableHandler m_consumableHandler = null;
 
-		public override void Handle(IPickUpable pickUp)
+		public override void Handle(object pickUp)
 		{
 			var consumable = GetReference(pickUp);
 			if (consumable == null)
