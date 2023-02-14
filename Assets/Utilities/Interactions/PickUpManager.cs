@@ -12,10 +12,12 @@ namespace Utilities.Interactions
 		{
 			var pickUp = other.gameObject.GetComponent<IPickUpable>();
             var handler = handlers.FirstOrDefault(handler => handler.CanHandle(pickUp));
-            if (handler == null)
+            
+			if (handler == null)
                 return;
-			pickUp.PickUp();
-			handler.Handle(pickUp);
+
+			var pickUpedObject = pickUp.PickUp();
+			handler.Handle(pickUpedObject);
 		}
 	}
 }

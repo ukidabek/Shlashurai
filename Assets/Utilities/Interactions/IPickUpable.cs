@@ -2,6 +2,6 @@
 {
 	public interface IPickUpable
     {
-        void PickUp();
+        object PickUp();
     }
 }
