@@ -8,6 +8,10 @@ namespace Shlashurai.PickUp
 	{
 		public UnityEvent OnPickUp = new UnityEvent();
 
-		public void PickUp() => OnPickUp.Invoke();
+		public object PickUp()
+		{
+			OnPickUp.Invoke();
+			return this;
+		}
 	}
 }
