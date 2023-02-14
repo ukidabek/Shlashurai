@@ -11,9 +11,6 @@ namespace Utilities.Pool
 		
 		public GameObjectPool(GameObject prefab, Transform parent = null, int initialCount = 5) : base(prefab, parent, initialCount) { }
 
-		//private GameObject CreateGameObjectInstanceFormPrefab(GameObject prefab, Transform parent)
-		//	=> GameObject.Instantiate(prefab, parent, false);
-
 		private bool ValidateIfGameObjectIsActive(GameObject gameObject) => !gameObject.activeSelf;
 
 		private void ActivateGameObject(GameObject gameObject)
