@@ -5,10 +5,27 @@ using UnityEngine;
 
 namespace Utilities.Pool
 {
+	public class PoolReturnerBase<T, PoolT> : MonoBehaviour where T : UnityEngine.Object where PoolT : Pool<T>
+	{
+		private T Component = default;
+		public PoolT Pool { get; set; }
+
+		private void Awake()
+		{
+			Component = GetComponent<T>();
+		}
+
+		private void OnDisable()
+		{
+			Pool.Return(Component);
+		}
+	}
+
 	[Serializable]
     public class Pool<T> where T : UnityEngine.Object
     {
-        [SerializeField] protected T m_prefab = null;
+
+		[SerializeField] protected T m_prefab = null;
         [SerializeField] protected Transform m_parent = null;
     
         protected List<T> m_poolElements = new List<T>();
@@ -25,22 +42,23 @@ namespace Utilities.Pool
         protected IEnumerable<T> m_activeObject = null;
         public IEnumerable<T> ActiveObject => m_activeObject; 
     
-        protected Pool()
+        public Pool()
         {
-            Initialize();
         }
     
         public Pool(T prefab, Transform parent = null, int initialCount = 5) : this()
         {
-            m_prefab = prefab;
-            m_parent = parent;
-
-            for (int i = 0; i < initialCount; i++)
-                CreateNewInstance();
+            Initialize(prefab, parent, initialCount);
         }
 
-		protected virtual void Initialize()
+		public virtual void Initialize(T prefab, Transform parent = null, int initialCount = 5)
 		{
+			m_prefab = prefab;
+			m_parent = parent;
+
+			for (int i = 0; i < initialCount; i++)
+				CreateNewInstance();
+
 			m_activeObject = m_poolElements.Where(component => !ValidateIfPoolElementInactive(component));
 		}
 
@@ -87,5 +105,8 @@ namespace Utilities.Pool
                 OnPoolElementDisabled?.Invoke(poolElement);
             }
         }
-    }
+
+		protected T CreateGameObjectInstanceFormPrefab(T prefab, Transform parent) => GameObject.Instantiate(prefab, parent, false);
+
+	}
 }
