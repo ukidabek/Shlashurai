@@ -1,28 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Utilities.Pool
 {
 	public class GameObjectPool : Pool<GameObject>
 	{
-		private class GameObjectPoolReturner : MonoBehaviour
-		{
-			public GameObjectPool Pool { get; set; }
+		public class GameObjectPoolReturner : PoolReturnerBase<GameObject, GameObjectPool> { }
 
-			private void OnDisable() => Pool.Return(this.gameObject);
-		}
+		public GameObjectPool() : base() { }
+		
+		public GameObjectPool(GameObject prefab, Transform parent = null, int initialCount = 5) : base(prefab, parent, initialCount) { }
 
-		public GameObjectPool(GameObject prefab, Transform parent = null, int initialCount = 5) : base(prefab, parent, initialCount)
-		{
-		}
-
-		private GameObject CreateGameObjectInstanceFormPrefab(GameObject prefab, Transform parent)
-			=> GameObject.Instantiate(prefab, parent, false);
-
-		private void AddPoolReturner(GameObject obj)
-		{
-			var poolReturner = obj.AddComponent<GameObjectPoolReturner>();
-			poolReturner.Pool = this;
-		}
+		//private GameObject CreateGameObjectInstanceFormPrefab(GameObject prefab, Transform parent)
+		//	=> GameObject.Instantiate(prefab, parent, false);
 
 		private bool ValidateIfGameObjectIsActive(GameObject gameObject) => !gameObject.activeSelf;
 
@@ -38,14 +28,20 @@ namespace Utilities.Pool
 			gameObject.SetActive(false);
 		}
 
-		protected override void Initialize()
+		public override void Initialize(GameObject prefab, Transform parent = null, int initialCount = 5)
 		{
-			base.Initialize();
 			ValidateIfPoolElementInactive = ValidateIfGameObjectIsActive;
 			CreatePoolElement = CreateGameObjectInstanceFormPrefab;
-			OnPoolElementCreated = AddPoolReturner;
+			OnPoolElementCreated = AddPoolReturtner;
 			OnPoolElementSelected = ActivateGameObject;
 			DisablePoolElement = DisableGameObject;
+			base.Initialize(prefab, parent, initialCount);
+		}
+
+		private void AddPoolReturtner(GameObject obj)
+		{
+			var gameObjectPool = obj.AddComponent<GameObjectPoolReturner>();
+			gameObjectPool.Pool = this;
 		}
 	}
 }
