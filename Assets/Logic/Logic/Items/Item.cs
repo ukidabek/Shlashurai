@@ -1,17 +1,42 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Shlashurai.Items
 {
-	[CreateAssetMenu(fileName = "Item", menuName = "Items/Item")]
-	public class Item : ScriptableObject
+	public class ItemDecorator : IItem
 	{
-		[SerializeField] private ItemBinder m_itemPrefab = null;
+		private IItem m_item = null;
 
-		private void OnValidate()
+		public ItemDecorator(IItem item)
 		{
-			m_itemPrefab?.Bind(this);
+			m_item = item;
+		}
+
+		public virtual string DisplayName => m_item.DisplayName;
+
+		public virtual IEnumerable<IItemComponent> Components => m_item.Components;
+
+		public bool IsActive 
+		{ 
+			get => m_item.IsActive; 
+			set => m_item.IsActive = value;
+		}
+	}
+
+	public class Item : IItem
+	{
+		public string DisplayName { get; private set; }
+
+		public IEnumerable<IItemComponent> Components {get; private set;}
+
+		public bool IsActive { get; set; }
+
+		public Item(string displayName, IEnumerable<IItemComponent> components)
+		{
+			DisplayName = displayName;
+			Components = components;
+			
+			foreach (var component in Components)
+				component.Initialize(this);
 		}
 	}
 }

@@ -4,12 +4,12 @@ namespace Shlashurai.Items
 {
 	public abstract class ItemBinder : MonoBehaviour
     {
-        [SerializeField] private Item m_item = null;
-		public Item Item => m_item;
+		 public IItem Item { get; internal set; }
 
-		internal void Bind(Item item)
+		[ContextMenu("Show item status")]
+		private void ShowItemStatus()
 		{
-			m_item = item;
+			Debug.Log($"Status for item: {Item} is {Item.IsActive}");
 		}
 	}
 }
