@@ -9,9 +9,9 @@ namespace Shlashurai.Spawn
 		public float Chance => m_chance;
 		private Vector2 m_range = Vector2.zero;
 
-		public override void Initialize(Transform parent, float previousChande)
+		public void Initialize(float previousChande)
 		{
-			base.Initialize(parent, previousChande);
+			base.Initialize();
 			m_range.Set(previousChande, previousChande + m_chance);
 		}
 

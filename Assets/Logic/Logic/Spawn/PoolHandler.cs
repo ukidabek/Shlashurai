@@ -4,21 +4,35 @@ using Utilities.Pool;
 
 namespace Shlashurai.Spawn
 {
-	[Serializable]
-	public abstract class PoolHandler<PoolT, ObjectT> : MonoBehaviour where PoolT : Pool<ObjectT>, new() where ObjectT : UnityEngine.Object
+	public abstract class PoolHandler<PoolT, ObjectT> : PoolHandler<PoolT, ObjectT, ObjectT>
+		where PoolT : Pool<ObjectT>, new()
+		where ObjectT : UnityEngine.Object
 	{
-		[SerializeField] private ObjectT m_gameObjectToSpan = null;
-
-		private PoolT m_gameObjectPool = default(PoolT);
-
-		public virtual void Initialize(Transform parent, float previousChande)
+		public override void Initialize()
 		{
-			m_gameObjectPool = new PoolT();
-			m_gameObjectPool.Initialize(m_gameObjectToSpan, parent);
-			m_gameObjectPool.OnPoolElementSelected = null;
+			m_pool = new PoolT();
+			m_pool.Initialize(m_objectToSpan, m_poolTransform);
+			m_pool.OnPoolElementSelected = null;
+		}
+	}
+
+	public abstract class PoolHandler<PoolT, PoolObjectT, PoolElementT> : MonoBehaviour 
+		where PoolT : Pool<PoolObjectT, PoolElementT>, new() 
+		where PoolObjectT : UnityEngine.Object
+	{
+		protected Transform m_poolTransform = null; 
+		[SerializeField] protected PoolObjectT m_objectToSpan = null;
+		public PoolObjectT ObjectToSpawn => m_objectToSpan;
+
+		protected PoolT m_pool = default(PoolT);
+
+		protected virtual void Awake()
+		{
+			(m_poolTransform = new GameObject(ObjectToSpawn.name).transform).SetParent(transform, false);
 		}
 
+		public abstract void Initialize();
 
-		public ObjectT SpawnObject() => m_gameObjectPool.Get();
+		public virtual PoolElementT SpawnObject() => m_pool.Get();
 	}
 }
