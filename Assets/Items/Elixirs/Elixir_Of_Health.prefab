@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23967812840828634}
   - component: {fileID: 2543041697850804175}
   - component: {fileID: 2543041697850804176}
-  - component: {fileID: 662666443}
+  - component: {fileID: -3710804350874831594}
   m_Layer: 0
   m_Name: Elixir_Of_Health
   m_TagString: Untagged
@@ -116,7 +116,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20380741, y: 0.52392775, z: 0.20380734}
   m_Center: {x: 0, y: 0, z: -0.000000007450581}
---- !u!114 &662666443
+--- !u!114 &-3710804350874831594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50af90ae375d5804da8cd7546561ffb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_item: {fileID: 0}
+  m_item: {fileID: 11400000, guid: 0b85e5d1705eb0147909f1e24386f9b2, type: 2}
   OnPickUp:
     m_PersistentCalls:
       m_Calls:
