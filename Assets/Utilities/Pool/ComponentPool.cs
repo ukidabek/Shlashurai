@@ -6,11 +6,12 @@ namespace Utilities.Pool
 	{
 		public override void Initialize(T prefab, Transform parent = null, int initialCount = 5)
 		{
-			base.Initialize(prefab, parent, initialCount);
 			ValidateIfPoolElementInactive = ValidateIfComponentGameObjectIsActive;
-			CreatePoolElement = CreateGameObjectInstanceFormPrefab;
-			OnPoolElementSelected = ActivateGameObject;
-			DisablePoolElement = DisableGameObject;
+			CreatePoolElement = CreateInstanceFormPrefab;
+			OnPoolElementCreated += DisableGameObject;
+			OnPoolElementSelected += ActivateGameObject;
+			DisablePoolElement += DisableGameObject;
+			base.Initialize(prefab, parent, initialCount);
 		}
 
 		private bool ValidateIfComponentGameObjectIsActive(T arg) => arg.gameObject.activeSelf;
@@ -28,6 +29,5 @@ namespace Utilities.Pool
 			if (gameObject.activeSelf == false) return;
 			gameObject.SetActive(false);
 		}
-
 	}
 }

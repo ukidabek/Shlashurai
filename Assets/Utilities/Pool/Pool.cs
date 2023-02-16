@@ -1,58 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Utilities.Pool
 {
-	public class PoolReturnerBase<T, PoolT> : MonoBehaviour where T : UnityEngine.Object where PoolT : Pool<T>
+	public class Pool<T> : Pool<T, T> where T : UnityEngine.Object
 	{
-		private T Component = default;
-		public PoolT Pool { get; set; }
+		public Pool() { }
 
-		private void Awake()
-		{
-			Component = GetComponent<T>();
-		}
-
-		private void OnDisable()
-		{
-			Pool.Return(Component);
-		}
+		public Pool(T prefab, Transform parent = null, int initialCount = 5) : base(prefab, parent, initialCount) { }
 	}
 
 	[Serializable]
-    public class Pool<T> where T : UnityEngine.Object
+    public class Pool<PrefabT, PoolElementT> where PrefabT : UnityEngine.Object
     {
-
-		[SerializeField] protected T m_prefab = null;
+		[SerializeField] protected PrefabT m_prefab = null;
         [SerializeField] protected Transform m_parent = null;
     
-        protected List<T> m_poolElements = new List<T>();
+        protected List<PoolElementT> m_poolElements = new List<PoolElementT>();
     
-        public Func<T, bool> ValidateIfPoolElementInactive = null;
-        public Func<T, Transform, T> CreatePoolElement = null;
-        public Action<T> DisablePoolElement = null;
+        public Func<PoolElementT, bool> ValidateIfPoolElementInactive = null;
+        public Func<PrefabT, Transform, PoolElementT> CreatePoolElement = null;
+        public Action<PoolElementT> DisablePoolElement = null;
     
         
-        public Action<T> OnPoolElementSelected = null;
-        public Action<T> OnPoolElementCreated = null;
-        public Action<T> OnPoolElementDisabled = null;
+        public Action<PoolElementT> OnPoolElementSelected = null;
+        public Action<PoolElementT> OnPoolElementCreated = null;
+        public Action<PoolElementT> OnPoolElementDisabled = null;
     
-        protected IEnumerable<T> m_activeObject = null;
-        public IEnumerable<T> ActiveObject => m_activeObject; 
+        protected IEnumerable<PoolElementT> m_activeObject = null;
+        public IEnumerable<PoolElementT> ActiveObject => m_activeObject; 
     
         public Pool()
         {
-        }
-    
-        public Pool(T prefab, Transform parent = null, int initialCount = 5) : this()
+		}
+
+		public Pool(PrefabT prefab, Transform parent = null, int initialCount = 5) : this()
         {
             Initialize(prefab, parent, initialCount);
-        }
+		}
 
-		public virtual void Initialize(T prefab, Transform parent = null, int initialCount = 5)
+		public virtual void Initialize(PrefabT prefab, Transform parent = null, int initialCount = 5)
 		{
+			Assert.IsNotNull(prefab);
+			Assert.IsNotNull(ValidateIfPoolElementInactive);
+			Assert.IsNotNull(CreatePoolElement);
+			Assert.IsNotNull(DisablePoolElement);
+
 			m_prefab = prefab;
 			m_parent = parent;
 
@@ -62,17 +59,17 @@ namespace Utilities.Pool
 			m_activeObject = m_poolElements.Where(component => !ValidateIfPoolElementInactive(component));
 		}
 
-		private T CreateNewInstance()
+		private PoolElementT CreateNewInstance()
         {
-            T instance = CreatePoolElement(m_prefab, m_parent);
+			PoolElementT instance = CreatePoolElement(m_prefab, m_parent);
             OnPoolElementCreated?.Invoke(instance);
 			m_poolElements.Add(instance);
             return instance;
         }
     
-        public T Get()
+        public PoolElementT Get()
         {
-            T poolElement = null;
+			PoolElementT poolElement = default;
             for (int i = 0; i < m_poolElements.Count; i++)
             {
                 if (ValidateIfPoolElementInactive(m_poolElements[i]))
@@ -89,7 +86,7 @@ namespace Utilities.Pool
             return poolElement;
         }
     
-        public void Return(T poolElement)
+        public void Return(PoolElementT poolElement)
         {
             if (!m_poolElements.Contains(poolElement)) return;
             
@@ -106,7 +103,6 @@ namespace Utilities.Pool
             }
         }
 
-		protected T CreateGameObjectInstanceFormPrefab(T prefab, Transform parent) => GameObject.Instantiate(prefab, parent, false);
-
+		protected PrefabT CreateInstanceFormPrefab(PrefabT prefab, Transform parent) => GameObject.Instantiate(prefab, parent, false);
 	}
 }
