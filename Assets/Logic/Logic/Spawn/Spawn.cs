@@ -7,9 +7,8 @@ using Utilities.Pool;
 
 namespace Shlashurai.Spawn
 {
-	public class Spawn : SpawnBase<GameObjectPool, GameObject, RandomPoolHandler>
+	public class Spawn : SpawnBase<GameObjectPool, GameObject, GameObject, RandomPoolHandler>
 	{
-
 		[SerializeField] private TransformReferenceHost m_playerTransform = null;
 		[SerializeField] private float m_spawnInterval = 5f;
 		[SerializeField] private float m_spawnRange = 5f;
@@ -18,18 +17,16 @@ namespace Shlashurai.Spawn
 		private float m_counter = 0f;
 		private NavMeshHit m_navMehsHit = new NavMeshHit();
 
-		private void Awake()
+		protected override void Start()
 		{
-			m_totalChande = m_objectToSpawn.Sum(x => x.Chance);
+			m_totalChande = m_poolHandlers.Sum(x => x.Chance);
 			var previousChande = 0f;
-			foreach (var item in m_objectToSpawn)
+			foreach (var item in m_poolHandlers)
 			{
-				item.Initialize(transform, previousChande);
+				item.Initialize(previousChande);
 				previousChande = item.Chance;
 			}
 		}
-
-		private float GetRandomValue() => UnityEngine.Random.Range(0f, m_totalChande);
 
 		private IEnumerator SpawnCoroutine(GameObject enemy)
 		{
@@ -39,7 +36,7 @@ namespace Shlashurai.Spawn
 				yield return null;
 
 				currentPlayerPosition = m_playerTransform.Instance.position;
-				var randomPointOnCircle = UnityEngine.Random.insideUnitCircle;
+				var randomPointOnCircle = Random.insideUnitCircle;
 				randomPointOnCircle.Normalize();
 				randomPointOnCircle *= m_spawnRange;
 
@@ -57,9 +54,9 @@ namespace Shlashurai.Spawn
 			if (m_counter <= 0f)
 			{
 				m_counter = m_spawnInterval;
-				var roll = GetRandomValue();
+				var roll = Random.Range(0f, m_totalChande);
 
-				var objectSpawner = m_objectToSpawn.FirstOrDefault(x => x.IsInRange(roll));
+				var objectSpawner = m_poolHandlers.FirstOrDefault(x => x.IsInRange(roll));
 				if (objectSpawner == null)
 					return;
 
