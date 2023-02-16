@@ -31,7 +31,7 @@ namespace Utilities.Containers
 		private IEnumerator OpenCoroutine()
 		{
 			yield return m_animationController.Open();
-			//m_containerSpawnController.Spawn();
+			m_containerSpawnController.Spawn();
 			m_isOpen = true;
 		}
 
