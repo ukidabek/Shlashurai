@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Utilities.Pool
 {
@@ -28,7 +27,7 @@ namespace Utilities.Pool
 		public override void Initialize(GameObject prefab, Transform parent = null, int initialCount = 5)
 		{
 			ValidateIfPoolElementInactive = ValidateIfGameObjectIsActive;
-			CreatePoolElement = CreateGameObjectInstanceFormPrefab;
+			CreatePoolElement = CreateInstanceFormPrefab;
 			OnPoolElementCreated = AddPoolReturtner;
 			OnPoolElementSelected = ActivateGameObject;
 			DisablePoolElement = DisableGameObject;
