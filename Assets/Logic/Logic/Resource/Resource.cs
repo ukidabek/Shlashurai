@@ -16,28 +16,27 @@ namespace Shlashurai.Characters
 			set { m_maxValue = value; }
 		}
 
-		[SerializeField] private float m_currentHealth = 0;
-		public float CurrentValue
+		[SerializeField] private float m_value = 0;
+		public float Value
 		{
-			get { return m_currentHealth; }
+			get { return m_value; }
 			set 
 			{
-				var oldValue = m_currentHealth;
-				m_currentHealth = Mathf.Clamp(value, 0f, m_maxValue);
-				if (m_currentHealth != oldValue)
+				var oldValue = m_value;
+				m_value = Mathf.Clamp(value, 0f, m_maxValue);
+				if (m_value != oldValue)
 					OnValueChanged?.Invoke();
 			}
 		}
 
-		public float Percent => Mathf.Clamp01(m_currentHealth / m_maxValue);
+		public float Percent => Mathf.Clamp01(m_value / m_maxValue);
 
 		public event Action OnValueChanged = null;
 
 		public void Reset()
 		{
-			CurrentValue = m_maxValue;
+			Value = m_maxValue;
 			OnValueChanged?.Invoke();
 		}
-
 	}
 }
