@@ -13,16 +13,16 @@ namespace Shlashurai.Spawn
 	{
 	}
 
-	public abstract class SpawnBase<PoolT, ObjectT, PoolElementT, PoolHandlerT> : SpawnBase
-		where PoolT : Pool<ObjectT, PoolElementT>, new() 
-		where ObjectT : UnityEngine.Object
-		where PoolHandlerT : PoolHandler<PoolT, ObjectT, PoolElementT>, new()
+	public abstract class SpawnBase<PoolT, ObjectToSpawnT, PoolElementT, PoolHandlerT> : SpawnBase
+		where PoolT : Pool<ObjectToSpawnT, PoolElementT>, new() 
+		where ObjectToSpawnT : UnityEngine.Object
+		where PoolHandlerT : PoolHandler<PoolT, ObjectToSpawnT, PoolElementT>, new()
 	{
 		[SerializeField] protected PoolHandlerT[] m_poolHandlers = Array.Empty<PoolHandlerT>();
 
 		protected GameObject SpawnHost { get; set; } = null;
 
-		public PoolElementT GetItemInstance(ObjectT item)
+		public PoolElementT GetItemInstance(ObjectToSpawnT item)
 		{
 			var poolHandler = m_poolHandlers.FirstOrDefault(handler => handler.ObjectToSpawn == item);
 			if (poolHandler == null)
@@ -33,8 +33,6 @@ namespace Shlashurai.Spawn
 
 		public override void Initialize()
 		{
-			if (Application.isPlaying == false) return;
-
 			SpawnHost = new GameObject(name);
 			var spawnHostTransform = SpawnHost.transform;
 			foreach (var item in m_poolHandlers)

@@ -19,6 +19,7 @@ namespace Shlashurai.Spawn
 
 		public override void Initialize()
 		{
+			base.Initialize();
 			m_totalChande = m_poolHandlers.Sum(x => x.Chance);
 			var previousChande = 0f;
 			foreach (var item in m_poolHandlers)
