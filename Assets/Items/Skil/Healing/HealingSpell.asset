@@ -15,6 +15,7 @@ MonoBehaviour:
   m_skilEffects:
   - {fileID: 11400000, guid: a1fa7607e9ad8dc418412e7529468957, type: 2}
   - {fileID: 11400000, guid: 3ef3befdb68345642ab317550b91206e, type: 2}
+  - {fileID: 11400000, guid: 1396bc867bd23d04386e1a21171af9f3, type: 2}
   m_skillCost:
     m_cost:
     - m_id: {fileID: 11400000, guid: 669c2b76c8950a84b9cad5e75f86c6ef, type: 2}

@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340c0e51069e1f446a3e52db62177009, type: 3}
-  m_Name: FireballPrefabSpawningSkillEffect
+  m_Script: {fileID: 11500000, guid: e31068baeeef98649b3388080a59570f, type: 3}
+  m_Name: HealingSkillHealEffect
   m_EditorClassIdentifier: 
-  m_skillEffectSpawn: {fileID: 11400000, guid: 2cf8a272e70dbf04da3536daf62b9bf0, type: 2}
+  m_id: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+  m_amount: 10

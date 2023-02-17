@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb46e85055ef5f746886d3680eec978c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_itemSpawnReferenceHost: {fileID: 11400000, guid: 2e325705839302b4bad179a6dbde2959, type: 2}
+  m_itemSpawn: {fileID: 11400000, guid: 98f22bf3463fe244998cec2b407e1bf6, type: 2}
   m_itemToSpawn:
   - m_item: {fileID: 11400000, guid: bd8e3cca1c7379846a3f0c3509a04af8, type: 2}
     m_Chance: 1
