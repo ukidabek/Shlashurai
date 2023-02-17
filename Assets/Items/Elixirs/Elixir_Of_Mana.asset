@@ -15,4 +15,5 @@ MonoBehaviour:
   m_displayName: Elixir Of Mana
   m_itemComponents:
   - {fileID: 11400000, guid: 674e0c72e921da94a82a49d23439cb9a, type: 2}
-  m_effects: []
+  m_effects:
+  - {fileID: 11400000, guid: 5bab148766bc7b449b02485d5a9f4be1, type: 2}
