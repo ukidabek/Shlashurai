@@ -32,7 +32,7 @@ namespace Shlashurai.Characters
 
 		private void EnforceDeathState()
 		{
-            if (m_resource.CurrentValue > 0) return;
+            if (m_resource.Value > 0) return;
 			m_deathStateSetter.SetState();
 		}
 	}
