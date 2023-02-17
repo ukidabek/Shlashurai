@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 367530082}
   - component: {fileID: 367530081}
   - component: {fileID: 367530080}
+  - component: {fileID: 367530083}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -677,7 +678,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367530081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 367530083}
+        m_TargetAssemblyTypeName: SkillCastTest, Assembly-CSharp
+        m_MethodName: Cast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &367530081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +729,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367530078}
   m_CullTransparentMesh: 1
+--- !u!114 &367530083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367530078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50ee50d77b189d41b0ad42e3895e2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_instance: {fileID: 11400000, guid: f44e96fa76edec24c930ea1905c72b53, type: 2}
+  skill: {fileID: 11400000, guid: e8fa2258b299dc24a90b5827c5cf2fd6, type: 2}
 --- !u!1 &372026363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,37 +1605,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041948651}
   m_CullTransparentMesh: 1
---- !u!1 &1076615079 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8426016144193720357, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-  m_PrefabInstance: {fileID: 1941744108236523852}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1076615094 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1076615094, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-  m_PrefabInstance: {fileID: 1941744108236523852}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076615079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba59b606d3ce9684db5c00530e05d4e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1076615095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076615079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f4b779f14532f43abbe0885cf7a43d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_reference: {fileID: 1076615094}
-  m_host: {fileID: 11400000, guid: f44e96fa76edec24c930ea1905c72b53, type: 2}
-  m_setMode: 0
 --- !u!1001 &1077075278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3178,7 +3174,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041288225}
-  m_LocalRotation: {x: 0.64637387, y: 0.0013740025, z: -0.0011639548, w: 0.7630187}
+  m_LocalRotation: {x: 0.64637387, y: 0.001373996, z: -0.0011639494, w: 0.7630187}
   m_LocalPosition: {x: -0.009003678, y: 18, z: -2.4999838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3484,11 +3480,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5573337148434525375, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0013740025
+      value: 0.001373996
       objectReference: {fileID: 0}
     - target: {fileID: 5573337148434525375, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0011639548
+      value: -0.0011639494
       objectReference: {fileID: 0}
     - target: {fileID: 8426016144193720357, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_Name
