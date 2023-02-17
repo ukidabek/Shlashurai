@@ -1,4 +1,4 @@
-﻿namespace Shlashurai.Skil
+﻿namespace Shlashurai.Skill
 {
 	public interface ISkilDefinition
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shlashurai.Skil
+namespace Shlashurai.Skill
 {
     public interface ISkillEffect
     {

@@ -1,19 +1,25 @@
 ﻿using UnityEngine;
 
-namespace Shlashurai.Skil
+namespace Shlashurai.Skill
 {
 	public class SkillCastManager : MonoBehaviour
 	{
 		[SerializeField] private GameObject m_target = null;
-		
+		public GameObject Target
+		{
+			get => m_target;
+			set => m_target = value;
+		}
+
+		[SerializeField] private Transform m_skillSpawnPoint = null;
+		public Transform SkillSpawnPoint => m_skillSpawnPoint;
+
 		private ISkilCostManager m_skillCostManager = null;
 
 		private void Awake()
 		{
 			m_skillCostManager = GetComponent<ISkilCostManager>();
 		}
-
-		public void SetTarget(GameObject target) => m_target = target;
 
 		public void Cast(ISkill skil)
 		{
@@ -27,6 +33,7 @@ namespace Shlashurai.Skil
 					StartCoroutine(coroutine);
 			}
 		}
+
 		private void OnDisable()
 		{
 			StopAllCoroutines();
