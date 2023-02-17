@@ -1,8 +1,8 @@
-﻿using Shlashurai.Skil;
+﻿using Shlashurai.Skill;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Skils/Skils/Base skill", fileName = "Skill")]
+[CreateAssetMenu(menuName = "Skills/Skill/Skill", fileName = "Skill")]
 public class Skill : ScriptableObject, ISkill
 {
 	[SerializeField] private SkillEffect[] m_skilEffects = null;

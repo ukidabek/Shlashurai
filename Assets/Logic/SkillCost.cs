@@ -1,4 +1,4 @@
-﻿using Shlashurai.Skil;
+﻿using Shlashurai.Skill;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

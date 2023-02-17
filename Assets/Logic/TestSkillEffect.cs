@@ -1,8 +1,8 @@
-﻿using Shlashurai.Skil;
+﻿using Shlashurai.Skill;
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Skils/Effects/TestSkillEffect", fileName = "TestSkillEffect")]
+[CreateAssetMenu(menuName = "Skills/Effects/TestSkillEffect", fileName = "TestSkillEffect")]
 public class TestSkillEffect : SkillEffect
 {
 	private IEnumerator Counter()

@@ -1,5 +1,5 @@
 ﻿using Shlashurai.Characters;
-using Shlashurai.Skil;
+using Shlashurai.Skill;
 using System;
 using System.Linq;
 using UnityEngine;
