@@ -17,7 +17,7 @@ namespace Shlashurai.Spawn
 		private float m_counter = 0f;
 		private NavMeshHit m_navMehsHit = new NavMeshHit();
 
-		protected override void Start()
+		public override void Initialize()
 		{
 			m_totalChande = m_poolHandlers.Sum(x => x.Chance);
 			var previousChande = 0f;
@@ -63,7 +63,7 @@ namespace Shlashurai.Spawn
 				var enemy = objectSpawner.SpawnObject();
 				var currentPlayerPosition = m_playerTransform.Instance.position;
 
-				StartCoroutine(SpawnCoroutine(enemy));
+				//SpawnHost.StartCoroutine(SpawnCoroutine(enemy));
 
 				return;
 			}
