@@ -1,10 +1,10 @@
 using Shlashurai.Characters;
-using Shlashurai.Skil;
+using Shlashurai.Skill;
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Skils/Effects/SkillHealEffect", fileName = "SkillHealEffect")]
-public class SkillHealEffect : SkillEffect
+[CreateAssetMenu(menuName = "Skills/Effects/HealSkillEffect", fileName = "HealSkillEffect")]
+public class HealSkillEffect : SkillEffect
 {
 	[SerializeField] private ResourceID m_id = null;
 	[SerializeField] private float m_amount = 10f;
