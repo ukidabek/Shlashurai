@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Weapons
 {
     public interface IDamageable
