@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340c0e51069e1f446a3e52db62177009, type: 3}
-  m_Name: FireballPrefabSpawningSkillEffect
+  m_Script: {fileID: 11500000, guid: cc9f3567ce179e844bfbad050a076b79, type: 3}
+  m_Name: Mana_ItemPoolHandelr
   m_EditorClassIdentifier: 
-  m_skillEffectSpawn: {fileID: 11400000, guid: 2cf8a272e70dbf04da3536daf62b9bf0, type: 2}
+  m_objectToSpan: {fileID: 11400000, guid: ee76cea47b9b2c24887b342e5d888c22, type: 2}
