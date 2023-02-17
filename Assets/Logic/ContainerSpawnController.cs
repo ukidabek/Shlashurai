@@ -30,7 +30,7 @@ namespace Shlashurai.Containers
 			}
 		}
 
-		[SerializeField] private ItemSpawnReferenceHost m_itemSpawnReferenceHost = null;
+		[SerializeField] private ItemSpawn m_itemSpawn = null;
 		[SerializeField] private ItemToSpawn[] m_itemToSpawn = Array.Empty<ItemToSpawn>();
 		[SerializeField] private Transform m_spawnPoint = null;
 		[SerializeField] private float m_spawnForce = 1000f;
@@ -52,7 +52,7 @@ namespace Shlashurai.Containers
 
 		public void Spawn()
 		{
-			var itemSpawner = m_itemSpawnReferenceHost.Instance;
+			var itemSpawner = m_itemSpawn;
 			foreach (var item in m_itemsToSpawn)
 			{
 				var length = item.Amount;
