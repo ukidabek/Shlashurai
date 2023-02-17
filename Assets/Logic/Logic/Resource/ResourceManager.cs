@@ -1,13 +1,20 @@
-using System;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
-using Weapons;
 
 namespace Shlashurai.Characters
 {
 	public class ResourceManager : MonoBehaviour
 	{
 		[SerializeField] private Resource[] m_resources = null;
+		public IEnumerable<Resource> Resources => m_resources;
+
+		private Dictionary<ResourceID, Resource> m_resourceDictionary = new Dictionary<ResourceID, Resource>(); 
+
+		private void Awake()
+		{
+			foreach (var resource in m_resources)
+				m_resourceDictionary.Add(resource.ID, resource);
+		}
 
 		private void Start()
 		{
@@ -21,6 +28,12 @@ namespace Shlashurai.Characters
 				item.Reset();
 		}
 
-		public Resource GetResource(ResourceID resourceID) => m_resources.FirstOrDefault(resource => resource.ID == resourceID);
+		public Resource GetResource(ResourceID resourceID)
+		{
+			if(m_resourceDictionary.TryGetValue(resourceID, out var resource))
+				return resource;
+
+			return null;
+		}
 	}
 }
