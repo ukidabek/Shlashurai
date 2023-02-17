@@ -1,17 +1,10 @@
 ﻿using Shlashurai.Items;
-using System.Linq;
+using UnityEngine;
 
 namespace Shlashurai.Spawn
 {
+	[CreateAssetMenu(menuName = "Spawn/Spawn/ItemSpawn", fileName = "ItemSpawn")]
 	public class ItemSpawn : SpawnBase<ItemPool, ItemTemplateBase, IItem, ItemPoolHandelr>
 	{
-		public IItem GetItemInstance(ItemTemplateBase item)
-		{
-			var poolHandler = m_poolHandlers.First(handler => handler.ObjectToSpawn == item);
-			if (poolHandler == null)
-				return null;
-
-			return poolHandler.SpawnObject();
-		}
 	}
 }

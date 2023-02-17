@@ -11,7 +11,7 @@ namespace Shlashurai.Spawn
 
 		public void Initialize(float previousChande)
 		{
-			base.Initialize();
+			//base.Initialize(TODO);
 			m_range.Set(previousChande, previousChande + m_chance);
 		}
 

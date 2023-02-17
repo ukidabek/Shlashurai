@@ -8,15 +8,16 @@ namespace Shlashurai.Spawn
 		where PoolT : Pool<ObjectT>, new()
 		where ObjectT : UnityEngine.Object
 	{
-		public override void Initialize()
+		public override void Initialize(Transform parent)
 		{
+			base.Initialize(parent);
 			m_pool = new PoolT();
 			m_pool.Initialize(m_objectToSpan, m_poolTransform);
 			m_pool.OnPoolElementSelected = null;
 		}
 	}
 
-	public abstract class PoolHandler<PoolT, PoolObjectT, PoolElementT> : MonoBehaviour 
+	public abstract class PoolHandler<PoolT, PoolObjectT, PoolElementT> : ScriptableObject 
 		where PoolT : Pool<PoolObjectT, PoolElementT>, new() 
 		where PoolObjectT : UnityEngine.Object
 	{
@@ -26,12 +27,11 @@ namespace Shlashurai.Spawn
 
 		protected PoolT m_pool = default(PoolT);
 
-		protected virtual void Awake()
+		public virtual void Initialize(Transform parent)
 		{
-			(m_poolTransform = new GameObject(ObjectToSpawn.name).transform).SetParent(transform, false);
+			m_poolTransform = new GameObject(ObjectToSpawn.name).transform;
+			m_poolTransform.SetParent(parent, false);
 		}
-
-		public abstract void Initialize();
 
 		public virtual PoolElementT SpawnObject() => m_pool.Get();
 	}
