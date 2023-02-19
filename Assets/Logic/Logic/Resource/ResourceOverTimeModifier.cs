@@ -4,7 +4,7 @@ namespace Shlashurai.Characters
 {
 	public class ResourceOverTimeModifier : MonoBehaviour
 	{
-		[SerializeField] private ResourceChandler m_resourceChandler = null;
+		[SerializeField] private ResourceHandler m_resourceChandler = null;
 		[SerializeField] private float m_modificationSpeed = 5f;
 		public float ModyficationSpeed
 		{
