@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Shlashurai.Items
 {
-	public abstract class ItemTemplateBase : ScriptableObject
+	public abstract class ItemTemplateBase : TemplateBase<IItem>
 	{
 		[SerializeField] protected string m_displayName = string.Empty;
 		[SerializeField] protected ItemComponentTemplate[] m_itemComponents = null;
@@ -13,6 +13,5 @@ namespace Shlashurai.Items
 			=> m_itemComponents
 				.Select(compoenetTemplate => compoenetTemplate.Create())
 				.ToArray();
-		public abstract IItem Create();
 	}
 }
