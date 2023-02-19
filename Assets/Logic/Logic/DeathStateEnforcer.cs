@@ -11,12 +11,13 @@ namespace Shlashurai.Characters
         [SerializeField] private StateSetter m_deathStateSetter = null;
         
         private Resource m_resource = null;
+
         private void Reset()
         {
             m_resourceManager = GetComponent<ResourceManager>();
         }
 
-        private void Awake()
+        private void Start()
         {
 			m_resource = m_resourceManager.GetResource(m_healthResourceId);
             
