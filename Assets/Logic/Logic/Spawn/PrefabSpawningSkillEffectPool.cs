@@ -35,9 +35,9 @@ namespace Shlashurai.Spawn
 
 		private bool ValidateIfPoolElementInactiveLogic(SkillEfectPrefab arg) => arg.gameObject.activeSelf == false;
 
-		private SkillEfectPrefab CreatePoolElementLogic(PrefabSpawningSkillEffectTemplate slillEffectTemplate, Transform parent)
+		private SkillEfectPrefab CreatePoolElementLogic(PrefabSpawningSkillEffectTemplate skillEffectTemplate, Transform parent)
 		{
-			var prefab = slillEffectTemplate.Prefab;
+			var prefab = skillEffectTemplate.Prefab;
 			var instance = GameObject.Instantiate(prefab, parent, false);
 
 			var returner = instance.AddComponent<PrefabSpawningSkillEffectPoolReturner>();

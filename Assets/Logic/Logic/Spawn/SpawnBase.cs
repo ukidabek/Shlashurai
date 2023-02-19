@@ -1,5 +1,4 @@
-﻿using Shlashurai.Items;
-using System;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 using Utilities.Pool;
@@ -22,7 +21,7 @@ namespace Shlashurai.Spawn
 
 		protected GameObject SpawnHost { get; set; } = null;
 
-		public PoolElementT GetItemInstance(ObjectToSpawnT item)
+		public PoolElementT GetInstance(ObjectToSpawnT item)
 		{
 			var poolHandler = m_poolHandlers.FirstOrDefault(handler => handler.ObjectToSpawn == item);
 			if (poolHandler == null)
@@ -31,9 +30,10 @@ namespace Shlashurai.Spawn
 			return poolHandler.SpawnObject();
 		}
 
-		public override void Initialize()
+		public override void Initialize(Transform parent)
 		{
 			SpawnHost = new GameObject(name);
+			SpawnHost.transform.SetParent(parent);
 			var spawnHostTransform = SpawnHost.transform;
 			foreach (var item in m_poolHandlers)
 				item.Initialize(spawnHostTransform);
@@ -42,6 +42,6 @@ namespace Shlashurai.Spawn
 
 	public abstract class SpawnBase : ScriptableObject
 	{
-		public abstract void Initialize();
+		public abstract void Initialize(Transform parent);
 	}
 }

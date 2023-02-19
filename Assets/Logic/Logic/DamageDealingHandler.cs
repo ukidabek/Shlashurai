@@ -8,7 +8,9 @@ namespace Shlashurai.Player.Logic
 	public class DamageDealingHandler
 	{
 		[SerializeField] private float m_radius = 5f;
-		[SerializeField] private float m_damageAmount = 10f; 
+		[SerializeField] private float m_damageAmount = 10f;
+
+		[SerializeField] private bool m_directionalDamage = true;
 		[SerializeField] private LayerMask m_dealDamageLayer = new LayerMask();
 		[SerializeField, Range(0f, 1f)] private float m_damageSpread = 0f;
 
@@ -29,8 +31,11 @@ namespace Shlashurai.Player.Logic
 				var fromTo = targetPosition - position;
 				fromTo.Normalize();
 
-				var dot = Vector3.Dot(fromTo, forward);
-				if (dot < m_damageSpread) continue;
+				if (m_directionalDamage)
+				{
+					var dot = Vector3.Dot(fromTo, forward);
+					if (dot < m_damageSpread) continue;
+				}
 
 				var damageable = m_colliders[i].GetComponent<IDamageable>();
 				damageable?.ReceiveDamage(m_damage);
