@@ -58,7 +58,7 @@ namespace Shlashurai.Containers
 				var length = item.Amount;
 				for (int i = 0; i < length; i++)
 				{
-					var itemInstance = itemSpawner.GetItemInstance(item.Item);
+					var itemInstance = itemSpawner.GetInstance(item.Item);
 					if (itemInstance == null) continue;
 
 					m_itemToSpawnQueue.Enqueue(itemInstance);
