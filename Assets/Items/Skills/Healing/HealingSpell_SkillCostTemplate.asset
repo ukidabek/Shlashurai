@@ -16,3 +16,5 @@ MonoBehaviour:
     m_cost:
     - m_id: {fileID: 11400000, guid: 669c2b76c8950a84b9cad5e75f86c6ef, type: 2}
       m_cost: 30
+    m_coolDownTime: 10
+    m_castTime: 1
