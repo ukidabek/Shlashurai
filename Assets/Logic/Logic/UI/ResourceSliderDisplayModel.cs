@@ -6,8 +6,14 @@ using UnityEngine;
 [Serializable]
 public class ResourceSliderDisplayModel : SliderDisplayModel
 {
-    [SerializeField] private ResourceManagerReferenceHost m_resourceManagerReferenceHost = null;
-	[SerializeField] private ResourceID m_resourceID = null;
+    [SerializeField] private ResourceManager m_resourceManager = null;
+    public ResourceManager ResourceManager 
+	{ 
+		get => m_resourceManager; 
+		set => m_resourceManager = value; 
+	}
+
+    [SerializeField] private ResourceID m_resourceID = null;
 
 	private Resource Resource { get; set; }
 
@@ -17,7 +23,7 @@ public class ResourceSliderDisplayModel : SliderDisplayModel
 
 	protected override void PreProcess()
 	{
-		var instance = m_resourceManagerReferenceHost.Instance;
+		var instance = m_resourceManager;
 		Resource = instance.GetResource(m_resourceID);
         Resource.OnValueChanged += HandleEvent;
 	}
