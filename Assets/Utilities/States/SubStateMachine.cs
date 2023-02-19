@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Utilities.States
 {
-    public class SubStateMachine : StateLogicMonoBehaviour, IStateMachine, IOnUpdateLogic, IOnFixUpdateLogic, IOnLateUpdateLogic, IStateLogicExecutor
+    public class SubStateMachine : StateLogic, IStateMachine, IOnUpdateLogic, IOnFixUpdateLogic, IOnLateUpdateLogic, IStateLogicExecutor
     {
         [SerializeField] private State _currentState = null;
         public IState CurrentState => _currentState;

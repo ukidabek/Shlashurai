@@ -3,7 +3,7 @@ using Utilities.General;
 
 namespace Utilities.States
 {
-    public abstract class CoroutineStateLogicMonoBehaviour : StateLogicMonoBehaviour
+    public abstract class CoroutineStateLogicMonoBehaviour : StateLogic
     {
         protected CoroutineManager m_coroutineManager;
 
