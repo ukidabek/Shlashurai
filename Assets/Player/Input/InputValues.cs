@@ -11,7 +11,7 @@ namespace Shlashurai.Player.Input
             get => move;
             set => move = value;
         }
-        
+
         [SerializeField] private Vector2 m_look = Vector2.zero;
         public Vector2 Look
         {
@@ -29,8 +29,22 @@ namespace Shlashurai.Player.Input
         [SerializeField] private bool m_attack = false;
         public bool Attack
         {
-            get => m_attack; 
-            set => m_attack = value; 
+            get => m_attack;
+            set => m_attack = value;
+        }
+
+        [SerializeField] private bool m_cast1 = false;
+        public bool Cast1
+        {
+            get => m_cast1;
+            set => m_cast1 = value;
+        }
+
+        [SerializeField] private bool m_cast2 = false;
+        public bool Cast2
+        {
+            get => m_cast2;
+            set => m_cast2 = value;
         }
     }
 }
