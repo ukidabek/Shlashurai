@@ -19,6 +19,8 @@ public class PrefabSpawningSkillEffectTemplate : SkillEffectTemplateBase
 		public void Affect(SkillCastManager skillCastManager, GameObject target)
 		{
 			var effect = m_effectSpawnChandler.GetItemInstance();
+			effect.gameObject.layer = skillCastManager.gameObject.layer;
+
 			var effectTransform = effect.transform;
 			Transform skillSpawnTransform = GetTransform(skillCastManager);
 			effectTransform.position = skillSpawnTransform.position;
@@ -42,7 +44,7 @@ public class PrefabSpawningSkillEffectTemplate : SkillEffectTemplateBase
 			Spawn = spawn;
 		}
 
-		public SkillEfectPrefab GetItemInstance() => Spawn.GetItemInstance(Template);
+		public SkillEfectPrefab GetItemInstance() => Spawn.GetInstance(Template);
 	}
 
 	[SerializeField] private bool m_spawnOnSelf = false;
