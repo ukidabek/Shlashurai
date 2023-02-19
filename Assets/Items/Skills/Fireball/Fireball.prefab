@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 4631049605197079508}
-  m_speed: 5
+  m_speed: 20
 --- !u!135 &4631049605197079507
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &1398604541478596118
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546beefe53352604c96aa8cc698d3d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxDistance: 10
+  m_maxDistance: 30
 --- !u!1 &4631049605351618311
 GameObject:
   m_ObjectHideFlags: 0

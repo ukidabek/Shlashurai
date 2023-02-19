@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: InputValues
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
-  m_look: {x: -0.8463988, y: -0.53254956}
+  m_look: {x: -0.84878945, y: -0.528731}
   m_slash: 0
+  m_attack: 0
+  m_cast1: 0
+  m_cast2: 0

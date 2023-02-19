@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a99ad248dda104788080089820e5a3, type: 3}
   m_Name: FirebalEffect_SkillEfectPoolHandelr
   m_EditorClassIdentifier: 
-  m_objectToSpan: {fileID: 11400000, guid: 80132be4a5026b441b8549269e04d7bb, type: 2}
-  m_skillEfectPrefab: {fileID: 1398604541478596118, guid: 13580beca05fead438794dc42394f759, type: 3}
+  m_objectToSpan: {fileID: 11400000, guid: 1c43a687c6f8a3e40aad03533e41a9ea, type: 2}
