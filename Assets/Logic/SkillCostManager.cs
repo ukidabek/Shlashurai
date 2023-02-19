@@ -10,23 +10,23 @@ public class SkillCostManager : MonoBehaviour, ISkilCostManager
 
 	private Action m_action = null;
 
-	public bool CanCast(ISkillCost skillCost)
+	public bool CanCast(ISkill skill)
 	{
-		var spellCost = skillCost as SkillCost;
+		var spellCost = skill.Cost as SkillCost;
 
 		m_action = null;
 
-		var canCost = spellCost.Cost.All(cost =>
+		var enoughResources = spellCost.Cost.All(cost =>
 		{
 			var resource = m_resourceManager.GetResource(cost.Id);
 			m_action += () => resource.Value -= cost.Cost;
 			return resource.Value >= cost.Cost;
 		});
 
-		if (canCost == false) return false;
+		var hasCoolDownStatus = skill.Status.OfType<CoolDownStatus>().Any();
 
-		m_action?.Invoke();
-
-		return true;
+		return enoughResources && !hasCoolDownStatus;
 	}
+
+	public void ApplyCost() => m_action?.Invoke();
 }
