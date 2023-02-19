@@ -9,7 +9,7 @@ namespace Shlashurai.Spawn
 		private void Awake()
 		{
 			foreach (var spawn in m_spawns)
-				spawn.Initialize();
+				spawn.Initialize(transform);
 		}
 	}
 }
