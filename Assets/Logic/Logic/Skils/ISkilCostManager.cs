@@ -2,6 +2,7 @@
 {
 	public interface ISkilCostManager
 	{
-		bool CanCast(ISkillCost cost);
+		bool CanCast(ISkill skill);
+		void ApplyCost();
 	}
 }

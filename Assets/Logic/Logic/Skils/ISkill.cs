@@ -1,19 +1,20 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Shlashurai.Skill
 {
-    public interface ISkillEffect
-    {
-		IEnumerator Affect(SkillCastManager skillCastManager, GameObject target);
-	}
-
-    public interface ISkillCost { }
-
 	public interface ISkill
-    {
-        IEnumerable<ISkillEffect> Effects { get; }
+	{
+		Sprite Image { get; }
+		IEnumerable<ISkillEffect> Effects { get; }
 		ISkillCost Cost { get; }
-    }
+		IEnumerable<ISkillStatus> Status { get; }
+	
+		event Action<ISkillStatus> SkillStatusAdded;
+		event Action<ISkillStatus> SkillStatusRemoved;
+		
+		void AddStatus(ISkillStatus status);
+		void RemoveStatus(ISkillStatus status);
+	}
 }
