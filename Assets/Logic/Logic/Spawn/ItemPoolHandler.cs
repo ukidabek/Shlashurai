@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Shlashurai.Spawn
 {
-	[CreateAssetMenu(menuName = "Spawn/Handler/ItemPoolHandelr", fileName = "ItemPoolHandelr")]
-	public class ItemPoolHandelr : PoolHandler<ItemPool, ItemTemplateBase, IItem>
+	[CreateAssetMenu(menuName = "Spawn/Handler/ItemPoolHander", fileName = "ItemPoolHander")]
+	public class ItemPoolHandler : PoolHandler<ItemPool, ItemTemplateBase, IItem>
 	{
 		public override void Initialize(Transform parent)
 		{
