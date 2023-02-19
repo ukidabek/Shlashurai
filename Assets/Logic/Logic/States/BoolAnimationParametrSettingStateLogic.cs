@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-	public class BoolAnimationParametrSettingStateLogic : StateLogicMonoBehaviour
+	public class BoolAnimationParametrSettingStateLogic : StateLogic
 	{
         [SerializeField] private Animator m_animator = null;
         [SerializeField] private AnimatorParameterDefinition m_animatorParameterDefinition = null;

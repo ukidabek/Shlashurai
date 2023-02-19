@@ -3,7 +3,7 @@ using Utilities.States;
 
 namespace Shlashurai.Logic
 {
-	public abstract class OnCollisionEnterStateLogic : StateLogicMonoBehaviour
+	public abstract class OnCollisionEnterStateLogic : StateLogic
     {
         public enum CollisionHandlingMode
         {

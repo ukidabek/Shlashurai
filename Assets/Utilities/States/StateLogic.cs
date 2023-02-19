@@ -2,7 +2,7 @@
 
 namespace Utilities.States
 {
-    public abstract class StateLogicMonoBehaviour : MonoBehaviour, IStateLogic
+    public abstract class StateLogic : MonoBehaviour, IStateLogic
     {
         public virtual void Activate() {}
         public virtual void Deactivate() {}
@@ -10,7 +10,7 @@ namespace Utilities.States
         [ContextMenu("Change object name")]
         private void ChangeObjectName()
         {
-            if (gameObject.GetComponents<StateLogicMonoBehaviour>().Length > 1) return;
+            if (gameObject.GetComponents<StateLogic>().Length > 1) return;
             gameObject.name = GetType().Name;
         }
     }

@@ -4,9 +4,9 @@ using Utilities.States;
 
 namespace Shlashurai.Character
 {
-	public class ConsumeResourceStateLogic : StateLogicMonoBehaviour
+	public class ConsumeResourceStateLogic : StateLogic
 	{
-		[SerializeField] private ResourceChandler m_resourceChandler = null;
+		[SerializeField] private ResourceHandler m_resourceChandler = null;
 		[SerializeField] private float m_consume = 10f;
 
 		public override void Activate()

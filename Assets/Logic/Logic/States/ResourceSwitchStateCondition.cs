@@ -6,7 +6,7 @@ namespace Shlashurai.Character
 {
 	public class ResourceSwitchStateCondition : SwitchStateConditionBase
 	{
-		[SerializeField] private ResourceChandler m_resourceChandler = null;
+		[SerializeField] private ResourceHandler m_resourceChandler = null;
 
 		[SerializeField] private float m_minimumValue = 10f;
 

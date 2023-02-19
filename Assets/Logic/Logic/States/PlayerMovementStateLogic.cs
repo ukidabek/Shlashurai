@@ -1,12 +1,11 @@
 using Shlashurai.Player.Input;
 using UnityEngine;
-using UnityEngine.Windows;
 using Utilities.States;
 using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
-{
-	public class PlayerMovementStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic, IOnFixUpdateLogic
+{ 
+	public class PlayerMovementStateLogic : StateLogic, IOnUpdateLogic, IOnFixUpdateLogic
 	{
 		[SerializeField] private Transform m_root = null;
 		[SerializeField] private Transform m_model = null;
