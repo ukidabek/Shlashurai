@@ -47,3 +47,4 @@ MonoBehaviour:
   m_spawns:
   - {fileID: 11400000, guid: 98f22bf3463fe244998cec2b407e1bf6, type: 2}
   - {fileID: 11400000, guid: 2cf8a272e70dbf04da3536daf62b9bf0, type: 2}
+  - {fileID: 11400000, guid: 3c02d1201d1040b40a05cf5ef2ef5170, type: 2}

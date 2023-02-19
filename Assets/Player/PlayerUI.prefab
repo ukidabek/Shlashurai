@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 0.7019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5539783, g: 0.5540401, b: 0.5566038, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1146,12 +1146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9e78b94a886434b8b867d306f679bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_resourceManagerReferenceHost: {fileID: 11400000, guid: 0160048fc517e2f4a85444e039aa3598, type: 2}
   m_resourceDisplays:
   - m_display: {fileID: 3988646625696312958}
-    m_resourceManagerReferenceHost: {fileID: 11400000, guid: 0160048fc517e2f4a85444e039aa3598, type: 2}
+    m_resourceManager: {fileID: 0}
     m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
   - m_display: {fileID: 1882195334}
-    m_resourceManagerReferenceHost: {fileID: 11400000, guid: 0160048fc517e2f4a85444e039aa3598, type: 2}
+    m_resourceManager: {fileID: 0}
     m_resourceID: {fileID: 11400000, guid: 669c2b76c8950a84b9cad5e75f86c6ef, type: 2}
   m_castSliderDisplay:
     m_display: {fileID: 1454720138}
