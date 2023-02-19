@@ -20,4 +20,3 @@ public class SliderDisplay : MonoBehaviour
 
     private void OnValueChangedCallback() => m_slider.value = m_displayModel.Percent;
 }
-
