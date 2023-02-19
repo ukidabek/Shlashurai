@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a99ad248dda104788080089820e5a3, type: 3}
   m_Name: HealingSpell_EfectPoolHandelr
   m_EditorClassIdentifier: 
-  m_objectToSpan: {fileID: 11400000, guid: 1396bc867bd23d04386e1a21171af9f3, type: 2}
-  m_skillEfectPrefab: {fileID: 4690843304139789890, guid: c12bfa7fc8dcaea4fae3b143d91aa01d, type: 3}
+  m_objectToSpan: {fileID: 11400000, guid: 91bce2ff691818c499c0ee66efd7a271, type: 2}

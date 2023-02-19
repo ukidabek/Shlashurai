@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836d0b089d49bb44c930b7b5d2d433fb, type: 3}
-  m_Name: RenewManaEffect
+  m_Script: {fileID: 11500000, guid: eeb33e055890891488332243db7f0d81, type: 3}
+  m_Name: HealSkillEffectTemplate
   m_EditorClassIdentifier: 
-  m_resourceID: {fileID: 11400000, guid: 669c2b76c8950a84b9cad5e75f86c6ef, type: 2}
-  m_healAmount: 10
+  m_id: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
+  m_amount: 20
