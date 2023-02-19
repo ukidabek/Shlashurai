@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 5654381973186513713}
   - component: {fileID: 7170167816966925379}
   - component: {fileID: 7821931101080567974}
+  - component: {fileID: 6506776028138820746}
   m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
@@ -715,8 +716,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_slider: {fileID: 2410252749975819063}
-  m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
-  m_resourceManager: {fileID: 8124804089357118742}
+--- !u!114 &6506776028138820746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472534565479134491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963b526ab2a33fa40b3c28ccbd6c44b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sliderDisplayModel:
+    m_display: {fileID: 7821931101080567974}
+    m_resourceManager: {fileID: 8124804089357118742}
+    m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
 --- !u!1 &8135523331313416533
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +802,7 @@ MonoBehaviour:
   m_damageDealingHandler:
     m_radius: 2
     m_damageAmount: 10
+    m_directionalDamage: 1
     m_dealDamageLayer:
       serializedVersion: 2
       m_Bits: 64
@@ -1059,8 +1075,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e42aeccb224447b8938e922ba1c6b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
-  m_resourceManager: {fileID: 8124804089357118742}
+  m_resourceChandler:
+    m_resourceID: {fileID: 0}
+    m_resourceManager: {fileID: 0}
 --- !u!195 &4927632958327776071
 NavMeshAgent:
   m_ObjectHideFlags: 0
