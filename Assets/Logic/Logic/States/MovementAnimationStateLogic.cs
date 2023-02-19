@@ -5,7 +5,7 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-	public class MovementAnimationStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
+	public class MovementAnimationStateLogic : StateLogic, IOnUpdateLogic
 	{
 		[SerializeField] private AnimatorParameterDefinition m_movementParameterDefinition = null;
 		[SerializeField] private AnimatorParameterDefinition m_forwardMovementParameterDefinition = null;

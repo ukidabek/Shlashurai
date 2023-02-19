@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {
-	public class EnemyAttackAnimationStateLogic : StateLogicMonoBehaviour
+	public class EnemyAttackAnimationStateLogic : StateLogic
     {
         [SerializeField] private EnemyAttackStateLogic m_enemyAttackStateLogic = null;
 		[SerializeField] private Animator m_animator = null;

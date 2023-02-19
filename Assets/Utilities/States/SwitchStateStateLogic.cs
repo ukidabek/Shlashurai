@@ -5,11 +5,10 @@ using Object = UnityEngine.Object;
 
 namespace Utilities.States
 {
-    public class SwitchStateStateLogicMonoBehaviour : StateLogicMonoBehaviour, IOnUpdateLogic
+    public class SwitchStateStateLogic : StateLogic, IOnUpdateLogic
     {
         private enum ConditionMode { All, Any }
 
-        
         [SerializeField] private ConditionMode _mode = ConditionMode.All;
         [SerializeField] private Object _stateMachineInstance = null;
 
@@ -19,7 +18,6 @@ namespace Utilities.States
 
         private IEnumerable<ISwitchStateCondition> _stateConditions = null;
         private IStateMachine m_stateMachine = null;
-
 
         private bool Condition
         {
@@ -43,15 +41,6 @@ namespace Utilities.States
         {
 			if (_stateConditions == null)
 				_stateConditions = _conditionsObjects.OfType<ISwitchStateCondition>();
-
-			foreach (var switchStateCondition in _stateConditions) 
-                switchStateCondition.Activate();
-        }
-
-        public override void Deactivate()
-        {
-            foreach (var switchStateCondition in _stateConditions)
-                switchStateCondition.Deactivate();
         }
 
         public virtual void OnUpdate(float deltaTime, float timeScale)

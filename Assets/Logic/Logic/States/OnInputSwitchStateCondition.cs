@@ -15,6 +15,6 @@ namespace Shlashurai.Player.Logic
             Reset();
         }
 
-        protected abstract void Reset();
+        protected virtual void Reset() { }
     }
 }

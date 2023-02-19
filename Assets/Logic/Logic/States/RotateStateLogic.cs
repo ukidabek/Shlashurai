@@ -5,7 +5,7 @@ using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
 {
-    public class RotateStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
+    public class RotateStateLogic : StateLogic, IOnUpdateLogic
     {
         [SerializeField] private Transform m_root = null;
         [SerializeField] private InputValues m_inputValues = null;

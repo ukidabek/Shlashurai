@@ -5,7 +5,7 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-    public class SlowMotionStateLogicMonoBehaviour : StateLogicMonoBehaviour
+    public class SlowMotionStateLogicMonoBehaviour : StateLogic
     {
         [SerializeField, Range(0, 2)] private float m_timeScale = 0.8f;
         [SerializeField] private float m_speed = 3f;

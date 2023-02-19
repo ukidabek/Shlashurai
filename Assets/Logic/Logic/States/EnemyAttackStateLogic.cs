@@ -8,7 +8,7 @@ using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {
-	public class EnemyAttackStateLogic : StateLogicMonoBehaviour, ISwitchStateCondition
+	public class EnemyAttackStateLogic : StateLogic, ISwitchStateCondition
     {
         public enum AttackPhase
         {

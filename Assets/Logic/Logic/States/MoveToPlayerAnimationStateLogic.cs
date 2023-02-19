@@ -5,7 +5,7 @@ using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {
-	public class MoveToPlayerAnimationStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
+	public class MoveToPlayerAnimationStateLogic : StateLogic, IOnUpdateLogic
     {
 		[SerializeField] private NavMeshAgent m_navMeshAgent = null;
         [SerializeField] private Animator m_animator = null;

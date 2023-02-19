@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {	
-	public class AttackAnimationHandlingStateLogic : StateLogicMonoBehaviour, IOnUpdateLogic
+	public class AttackAnimationHandlingStateLogic : StateLogic, IOnUpdateLogic
 	{
 
 		[SerializeField] AttackStateLogicBase m_attackStateLogic = null;
