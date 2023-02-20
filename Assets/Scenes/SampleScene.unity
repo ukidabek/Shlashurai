@@ -690,38 +690,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3df14a44368b9c47a6175eebd31535d, type: 3}
---- !u!1 &785349227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8426016144193720357, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-  m_PrefabInstance: {fileID: 1941744108236523852}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &785349231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 833814066, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
   m_PrefabInstance: {fileID: 1941744108236523852}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785349227}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5b526759fe34624a8541a9fd9e06abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &785349243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785349227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2bbb8b1a60d164d96e435a63092690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_skillTemplate:
-  - {fileID: 11400000, guid: 2fb88a30a4a6bc44283991c499a18f9e, type: 2}
-  - {fileID: 11400000, guid: 166124d66fb2f684da8911f0557fb758, type: 2}
-  m_skillHolder: {fileID: 785349231}
 --- !u!1001 &883555560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2273,23 +2252,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2147407665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7859175910450239976, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-  m_PrefabInstance: {fileID: 1941744108236523852}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2147407670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147407665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e33192e13c5002e4a8be9ae794b873dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &916282396000812052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2411,26 +2373,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 833814066, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: m_skillSlots.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3972326967741889624, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: _conditionsObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573337148434525375, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.009003639
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573337148434525375, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573337148434525375, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.4999838
-      objectReference: {fileID: 0}
     - target: {fileID: 5573337148434525375, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.001373997
@@ -2439,14 +2381,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0011639501
       objectReference: {fileID: 0}
-    - target: {fileID: 6421578290722819073, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: handlers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6421578290722819073, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: handlers.Array.data[1]
-      value: 
-      objectReference: {fileID: 2147407670}
     - target: {fileID: 8426016144193720357, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_Name
       value: Player
