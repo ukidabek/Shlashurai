@@ -314,6 +314,9 @@ MonoBehaviour:
   - m_item: {fileID: 11400000, guid: ee76cea47b9b2c24887b342e5d888c22, type: 2}
     m_Chance: 1
     m_amount: 3
+  - m_item: {fileID: 11400000, guid: c38aa44e339444e4e8f2ad4b4aa1cf5f, type: 2}
+    m_Chance: 1
+    m_amount: 5
   m_spawnPoint: {fileID: 662241771}
   m_spawnForce: 250
   m_spawnDelay: 0.25
