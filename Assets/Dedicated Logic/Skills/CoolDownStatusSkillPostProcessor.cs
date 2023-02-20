@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CoolDownStatusSkillPostProcessor : SkillPostProcessor
 {
-	private List<KeyValuePair<ISkill, CoolDownStatus>> m_coolDownStatusesList = new List<KeyValuePair<ISkill, CoolDownStatus>>();
+	private List<KeyValuePair<ISkill, CoolDownSkillStatus>> m_coolDownStatusesList = new List<KeyValuePair<ISkill, CoolDownSkillStatus>>();
 
 	protected override void SkillCastEnd(ISkill skill)
 	{
 		var coolDownTime = skill.Cost.CoolDownTime;
 		if (coolDownTime == 0) return;
 
-		var coolDownStatus = new CoolDownStatus(coolDownTime);
+		var coolDownStatus = new CoolDownSkillStatus(coolDownTime);
 		skill.AddStatus(coolDownStatus);
-		m_coolDownStatusesList.Add(new KeyValuePair<ISkill, CoolDownStatus>(skill, coolDownStatus));
+		m_coolDownStatusesList.Add(new KeyValuePair<ISkill, CoolDownSkillStatus>(skill, coolDownStatus));
 	}
 
 	private void Update()

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Shlashurai.Consumable
 {
 	[CreateAssetMenu(menuName = "ConsumableEffect/HealEffect", fileName = "HealEffect")]
-	public class ResourceEffect : ConsumableEffect
+	public class ResourceConsumableEffect : ConsumableEffect
 	{
 		[SerializeField] private ResourceID m_resourceID = null;
 		public ResourceID ResourceID => m_resourceID;

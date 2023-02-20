@@ -23,7 +23,7 @@ public class SkillCostManager : MonoBehaviour, ISkilCostManager
 			return resource.Value >= cost.Cost;
 		});
 
-		var hasCoolDownStatus = skill.Status.OfType<CoolDownStatus>().Any();
+		var hasCoolDownStatus = skill.Status.OfType<CoolDownSkillStatus>().Any();
 
 		return enoughResources && !hasCoolDownStatus;
 	}

@@ -10,7 +10,7 @@ public class SkillSlotDisplay : MonoBehaviour
 	private SkillSlot m_skillSlot = null;
 	private ISkill m_currentSkill = null;
 
-	private CoolDownStatus m_coolDownStatus = null;
+	private CoolDownSkillStatus m_coolDownStatus = null;
 
 	public void Initialize(SkillSlot skillSlot)
 	{
@@ -38,7 +38,7 @@ public class SkillSlotDisplay : MonoBehaviour
 
 	private void SkillStatusAdded(ISkillStatus skillStatus)
 	{
-		if(skillStatus is CoolDownStatus coolDownStatus)
+		if(skillStatus is CoolDownSkillStatus coolDownStatus)
 		{
 			m_coolDownStatus = coolDownStatus;
 			m_coolDownStatus.OnCoolDownChanged += OnCoolDownChanged;
@@ -49,7 +49,7 @@ public class SkillSlotDisplay : MonoBehaviour
 
 	private void SkillStatusRemoved(ISkillStatus obj)
 	{
-		if (obj is CoolDownStatus coolDownStatus && m_coolDownStatus == coolDownStatus)
+		if (obj is CoolDownSkillStatus coolDownStatus && m_coolDownStatus == coolDownStatus)
 		{
 			m_coolDownStatus.OnCoolDownChanged -= OnCoolDownChanged;
 			OnCoolDownChanged(1f);
