@@ -6,20 +6,21 @@ namespace Utilities.Interactions
 	[RequireComponent(typeof(Collider))]
 	public class PickUpManager : MonoBehaviour
     {
-        [SerializeField] private PickUpHandlerBase[] handlers;
+        [SerializeField] private PickUpHandlerBase[] m_handlers;
 
 		public void OnTriggerEnter(Collider other)
 		{
 			var pickUp = other.gameObject.GetComponent<IPickUpable>();
-            var handler = handlers.FirstOrDefault(handler => handler.CanHandle(pickUp));
-            
-			if (handler == null) return;
+            var selectedHandlers = m_handlers.Where(handler => handler.CanHandle(pickUp));
 
-			var pickUpedObject = pickUp.PickUp();
+			if (selectedHandlers.Any() == false) return;
+
+			var pickUppedObject = pickUp.PickUp();
 			
-			if(pickUpedObject == null) return;
+			if(pickUppedObject == null) return;
 
-			handler.Handle(pickUpedObject);
+			foreach (var handler in selectedHandlers)
+				handler.Handle(pickUppedObject);
 		}
 	}
 }
