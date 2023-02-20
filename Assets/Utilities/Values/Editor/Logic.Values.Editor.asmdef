@@ -1,0 +1,18 @@
+{
+    "name": "Logic.Values.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a69edaa53fed70b4ab677eb97e627148"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
