@@ -122,6 +122,14 @@ PrefabInstance:
       propertyPath: m_model
       value: 
       objectReference: {fileID: 10455747924911456}
+    - target: {fileID: 8072961414435174599, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_waitAfterAttack
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072961414435174599, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_waitBeforeAttack
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8264865254417354994, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: m_animator
       value: 
