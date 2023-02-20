@@ -1,15 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Shlashurai.Items
 {
 	public static class ItemHelperClass
 	{
-		public static T GetComponet<T>(this IItem item)
-		{
-			var type = typeof(T);
-			var components = item.Components;
-			var component = components.FirstOrDefault(component => component.GetType() == typeof(T));
-			return component != null ? (T)component : default;
-		}
+		public static T GetComponent<T>(this IItem item) => item.Components.OfType<T>().FirstOrDefault();
+
+		public static IEnumerable<T> GetComponentsOfType<T>(this IItem item) => item.Components.OfType<T>();
 	}
 }
