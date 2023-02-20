@@ -78,14 +78,14 @@ namespace Shlashurai.Containers
 				while (m_itemToSpawnQueue.Count > 0)
 				{
 					var itemInstance = m_itemToSpawnQueue.Dequeue();
-					var itemPrefab = itemInstance.GetComponet<ItemPrefabComponent>();
+					var itemPrefab = itemInstance.GetComponent<ItemPrefabComponent>();
 
 					var itemInstanceTransform = itemPrefab.Instance.transform;
 
 					itemInstanceTransform.position = m_spawnPoint.position;
 					itemInstanceTransform.rotation = m_spawnPoint.rotation;
 
-					var components = itemInstance.Components;
+					var components = itemInstance.GetComponentsOfType<IManageableItemComponent>();
 					foreach (var component in components)
 						component.SetActive(true);
 

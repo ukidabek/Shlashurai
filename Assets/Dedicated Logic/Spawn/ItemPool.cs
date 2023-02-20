@@ -2,6 +2,7 @@
 using Shlashurai.Items;
 using UnityEngine;
 using Unity.VisualScripting;
+using System.Linq;
 
 namespace Shlashurai.Spawn
 {
@@ -14,8 +15,8 @@ namespace Shlashurai.Spawn
 
 			protected void OnDisable()
 			{
-				var cpomponents = itemBinder.Item.Components;
-				foreach (var component in cpomponents)
+				var components = itemBinder.Item.GetComponentsOfType<IManageableItemComponent>();
+				foreach (var component in components)
 					component.SetActive(false);
 				Pool.Return(itemBinder.Item);
 			}
@@ -46,11 +47,11 @@ namespace Shlashurai.Spawn
 			var itemInstance = itemTemplate.Create();
 			itemInstance.IsActive = false;
 
-			var components = itemInstance.Components;
+			var components = itemInstance.GetComponentsOfType<IManageableItemComponent>();
 			foreach (var component in components)
 				component.SetActive(false);
 
-			var ItemPrefabComponent = itemInstance.GetComponet<ItemPrefabComponent>();
+			var ItemPrefabComponent = itemInstance.GetComponent<ItemPrefabComponent>();
 			if (ItemPrefabComponent != null)
 			{
 				ItemPrefabComponent.SetParent(parent, false);
