@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.Logic
 {
-	public class WaitForSecondsSwitchStateLogicCondition : CoroutineStateLogicMonoBehaviour, ISwitchStateCondition
+	public class WaitForSecondsSwitchStateLogicCondition : CoroutineStateLogic, ISwitchStateCondition
 	{
 		[SerializeField] private float m_timeToWaint = 5f;
 
