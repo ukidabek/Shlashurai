@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ecbc5a497e3af1488ad16cd8d5bbac6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d98fc094be8850418a39e0b266a85b0, type: 3}
   m_Name: Elixir_Of_Mana
   m_EditorClassIdentifier: 
   m_displayName: Elixir Of Mana
   m_itemComponents:
   - {fileID: 11400000, guid: 674e0c72e921da94a82a49d23439cb9a, type: 2}
-  m_effects:
-  - {fileID: 11400000, guid: 5bab148766bc7b449b02485d5a9f4be1, type: 2}
+  - {fileID: 11400000, guid: 86226b023e0a65e40b31dd62b55f5ce0, type: 2}
