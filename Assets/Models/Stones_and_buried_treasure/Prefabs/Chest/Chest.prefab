@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 902585360}
   - component: {fileID: 1326551720}
   - component: {fileID: 6174570989624419925}
+  - component: {fileID: 3599403216474794552}
   m_Layer: 7
   m_Name: Chest
   m_TagString: Untagged
@@ -306,17 +307,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb46e85055ef5f746886d3680eec978c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_itemSpawnManager: {fileID: 3599403216474794552}
+--- !u!114 &3599403216474794552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904742962458010257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bbf4de57331504194c98121c2af138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_itemSpawn: {fileID: 11400000, guid: 98f22bf3463fe244998cec2b407e1bf6, type: 2}
   m_itemToSpawn:
   - m_item: {fileID: 11400000, guid: 7319ebd8fde42f94da9ef16ee73d7e54, type: 2}
     m_Chance: 1
-    m_amount: 3
+    m_amount: 1
   - m_item: {fileID: 11400000, guid: ee76cea47b9b2c24887b342e5d888c22, type: 2}
     m_Chance: 1
-    m_amount: 3
+    m_amount: 1
   - m_item: {fileID: 11400000, guid: c38aa44e339444e4e8f2ad4b4aa1cf5f, type: 2}
     m_Chance: 1
-    m_amount: 5
+    m_amount: 3
+  - m_item: {fileID: 11400000, guid: e9bb528406b728847af82acc5be7180b, type: 2}
+    m_Chance: 0.5
+    m_amount: 2
   m_spawnPoint: {fileID: 662241771}
-  m_spawnForce: 250
+  m_spawnForce: 200
   m_spawnDelay: 0.25
