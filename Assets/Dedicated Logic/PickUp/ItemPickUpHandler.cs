@@ -1,23 +1,22 @@
-﻿using UnityEngine;
-using Utilities.Interactions;
-using Utilities.Consumable;
+﻿using Utilities.Interactions;
 using Shlashurai.Items;
 
 namespace Shlashurai.PickUp
 {
-	public class ItemPickUpHandler : PickUpHandlerBase
+	public abstract class ItemPickUpHandler<T> : PickUpHandlerBase 
 	{
-		[SerializeField] private ConsumableHandler m_consumableHandler = null;
+		protected T m_itemComponent = default;
 
-		public override bool CanHandle(object pickUp) => pickUp is ItemBinder binder &&
-			binder.Item != null &&
-			binder.Item.GetComponent<IConsumable>() != null;
-
-		public override void Handle(object pickUp)
+		public override bool CanHandle(object pickUp)
 		{
-			var item = pickUp as IItem;
-			var consumable = item.GetComponent<IConsumable>();
-			m_consumableHandler.Consume(consumable);
+			if(pickUp is ItemBinder binder && binder.Item != null)
+			{
+				m_itemComponent = binder.Item.GetComponent<T>();
+				return m_itemComponent != null;
+			}
+
+			return false;
 		}
+
 	}
 }
