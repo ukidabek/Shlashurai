@@ -1,5 +1,4 @@
 ﻿using Shlashurai.Characters;
-using Shlashurai.Player;
 using System;
 using UnityEngine;
 
