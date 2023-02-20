@@ -34,8 +34,9 @@ namespace Shlashurai.Items
 		{
 			DisplayName = displayName;
 			Components = components;
-			
-			foreach (var component in Components)
+
+			var componentsToInitialize = this.GetComponentsOfType<IInitializableItemComponent>();
+			foreach (var component in componentsToInitialize)
 				component.Initialize(this);
 		}
 	}
