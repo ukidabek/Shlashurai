@@ -35,6 +35,38 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemSpawn
+      value: 
+      objectReference: {fileID: 11400000, guid: 98f22bf3463fe244998cec2b407e1bf6, type: 2}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.data[0].m_item
+      value: 
+      objectReference: {fileID: 11400000, guid: c38aa44e339444e4e8f2ad4b4aa1cf5f, type: 2}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.data[1].m_item
+      value: 
+      objectReference: {fileID: 11400000, guid: e9bb528406b728847af82acc5be7180b, type: 2}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.data[0].m_Chance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.data[0].m_amount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.data[1].m_Chance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_itemToSpawn.Array.data[1].m_amount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7171535645591511078, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: m_model
       value: 
