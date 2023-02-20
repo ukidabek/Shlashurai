@@ -10,7 +10,8 @@ public class SliderDisplay : MonoBehaviour
 	public void Initialize(ISliderDisplayModel displayModel)
     {
 		(m_displayModel = displayModel).OnValueChanged += OnValueChangedCallback;
-    }
+        OnValueChangedCallback();
+	}
 
     private void OnDestroy()
     {
