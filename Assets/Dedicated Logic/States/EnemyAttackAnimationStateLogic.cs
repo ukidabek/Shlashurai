@@ -14,10 +14,10 @@ namespace Shlashurai.Enemy.Logic
 		public override void Activate()
 		{
 			base.Activate();
-            m_enemyAttackStateLogic.AttackPhaseChanged += ChandlePhaseChanging;
+            m_enemyAttackStateLogic.AttackPhaseChanged += HandlePhaseChanging;
 		}
 
-		private void ChandlePhaseChanging(EnemyAttackStateLogic.AttackPhase phase)
+		private void HandlePhaseChanging(EnemyAttackStateLogic.AttackPhase phase)
 		{
 			switch (phase)
 			{
@@ -33,7 +33,7 @@ namespace Shlashurai.Enemy.Logic
 		public override void Deactivate()
 		{
 			base.Deactivate();
-			m_enemyAttackStateLogic.AttackPhaseChanged -= ChandlePhaseChanging;
+			m_enemyAttackStateLogic.AttackPhaseChanged -= HandlePhaseChanging;
 		}
 	}
 }
