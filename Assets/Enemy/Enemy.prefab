@@ -443,6 +443,8 @@ GameObject:
   - component: {fileID: 7226648837152070828}
   - component: {fileID: 3240655978919548317}
   - component: {fileID: 8264865254417354994}
+  - component: {fileID: 4771143724199549083}
+  - component: {fileID: 9020508982836036700}
   m_Layer: 7
   m_Name: Death
   m_TagString: Untagged
@@ -480,6 +482,8 @@ MonoBehaviour:
   m_logic:
   - {fileID: 3240655978919548317}
   - {fileID: 8264865254417354994}
+  - {fileID: 4771143724199549083}
+  - {fileID: 9020508982836036700}
 --- !u!114 &3240655978919548317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +513,32 @@ MonoBehaviour:
   m_animator: {fileID: 0}
   m_animatorParameterDefinition: {fileID: 11400000, guid: c0cd466c5e6b2744c8fb564e3a493853, type: 2}
   m_onActivateState: 1
+--- !u!114 &4771143724199549083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601784433962417254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11ff480c331d0a42bbd88fb24c5eedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawn: {fileID: 5233677936546025240}
+--- !u!114 &9020508982836036700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601784433962417254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2022ffa7fad5544e85a4815544f6d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_agent: {fileID: 4927632958327776071}
 --- !u!1 &6400376450157905444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1130,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5233677936546025240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142262196461521984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bbf4de57331504194c98121c2af138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_itemSpawn: {fileID: 0}
+  m_itemToSpawn: []
+  m_spawnPoint: {fileID: 9142262196461521987}
+  m_spawnForce: 100
+  m_spawnDelay: 0.25
 --- !u!4 &9142262196461521987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6731116506438028241, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
