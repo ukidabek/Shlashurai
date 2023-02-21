@@ -1,0 +1,16 @@
+{
+    "name": "MapGenerator.DungeonGenerator",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e63e603310395844c98a12dce59a93b8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
