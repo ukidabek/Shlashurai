@@ -3,8 +3,8 @@
 namespace Shlashurai.Items
 {
 	public abstract class ItemBinder : MonoBehaviour
-    {
-		 public IItem Item { get; internal set; }
+	{
+		public IItem Item { get; set; }
 
 		[ContextMenu("Show item status")]
 		private void ShowItemStatus()
