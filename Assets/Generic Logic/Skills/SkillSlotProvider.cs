@@ -8,7 +8,7 @@ namespace Shlashurai.Skill
 		[SerializeField] private SkillTemplate [] m_skillTemplate = null;
 		[SerializeField] private SkillHolder m_skillHolder = null;
 
-		private void Awake()
+		private void Start()
 		{
 			var skills = m_skillTemplate.Select(template => template.Create()).ToArray();
 
