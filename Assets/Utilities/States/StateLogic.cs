@@ -2,7 +2,9 @@
 
 namespace Utilities.States
 {
-    public abstract class StateLogic : MonoBehaviour, IStateLogic
+
+
+	public abstract class StateLogic : MonoBehaviour, IStateLogic
     {
         public virtual void Activate() {}
         public virtual void Deactivate() {}
