@@ -3,16 +3,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using MapGenetaroion.BaseGenerator;
+using MapGeneration.BaseGenerator;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public class SelectStartRoomPhase : BaseDungeonGenerationPhaseMonoBehaviour
+    public class SelectStartRoomPhase : GenerationPhase
     {
-        public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
-        {
-            var dungeonMetada = LevelGenerator.GetMetaDataObject<DungeonMetadata>(generationData);
-            var layout = dungeonMetada.LayoutData;
+        public override IEnumerator Generate(LevelGenerator generator)
+		{
+            var dungeonMetadata = generator.GetMetaDataObject<DungeonMetadata>();
+            var layout = dungeonMetadata.LayoutData;
 
             List<Vector2Int> startPositionsList = new List<Vector2Int>();
             for (int i = 0; i < layout.RowsCount; i++)
@@ -26,10 +26,11 @@ namespace MapGenetaroion.DungeonGenerator
                     startPositionsList.Add(new Vector2Int(i, layout.ColumnsCount - 1));
                 }
             }
-            
-            var startRoomPosition = startPositionsList[Random.Range(0, startPositionsList.Count - 1)];
 
-            dungeonMetada.StartRoom = new DungeonMetadata.RoomInfo(startRoomPosition, DungeonMetadata.RoomInfo.RoomType.Start);
+            var startPositionIndex = Random.Range(0, startPositionsList.Count - 1);
+			var startRoomPosition = startPositionsList[startPositionIndex];
+
+            dungeonMetadata.StartRoom = new DungeonMetadata.RoomInfo(startRoomPosition, DungeonMetadata.RoomInfo.RoomType.Start);
 
             layout[startRoomPosition] = true;
 

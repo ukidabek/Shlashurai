@@ -4,20 +4,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-using MapGenetaroion.BaseGenerator;
+using MapGeneration.BaseGenerator;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public class GenerateLayoutPhase : BaseGenerateLayoutPhase
+    public class GenerateLayoutPhase : GenerateDungeonLayoutPhase
     {
-        public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
-        {
-            GetReference(generationData);
+        public override IEnumerator Generate(LevelGenerator generator)
+		{
+            GetReference(generator);
 
-            var layout = dungeonMetada.LayoutData;
-            var currentRoom = dungeonMetada.StartRoom;
+            var layout = dungeonMetadata.LayoutData;
+            var currentRoom = dungeonMetadata.StartRoom;
 
-            Vector2 currentPosition = dungeonMetada.StartRoom.Position;
+            Vector2 currentPosition = dungeonMetadata.StartRoom.Position;
             Direction direction = GetDirection();
             int roomsInline = GetRoomCount();
             int roomToGenerate = settings.RoomToGenerate;
@@ -50,7 +50,7 @@ namespace MapGenetaroion.DungeonGenerator
                 yield return new PauseYield(generator);
             }
 
-            dungeonMetada.EndRoom = currentRoom;
+            dungeonMetadata.EndRoom = currentRoom;
             currentRoom.Type = DungeonMetadata.RoomInfo.RoomType.End;
 
             _isDone = true;

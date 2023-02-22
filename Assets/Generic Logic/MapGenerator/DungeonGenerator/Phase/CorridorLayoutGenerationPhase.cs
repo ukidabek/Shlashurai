@@ -1,39 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MapGenetaroion.BaseGenerator;
+using MapGeneration.BaseGenerator;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    using Random = UnityEngine.Random;
-
-    public class CorridorLayoutGenerationPhase : BaseGenerateLayoutPhase
+    public class CorridorLayoutGenerationPhase : GenerateDungeonLayoutPhase
     {
         private List<int> usedIndexes = new List<int>();
 
-        public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
-        {
-            GetReference(generationData);
+        public override IEnumerator Generate(LevelGenerator generator)
+		{
+            GetReference(generator);
             int corridorsToGenerate = Random.Range(settings.MinCorridorsToGenerate, settings.MaxCorridorsToGenerate);
 
             Debug.LogFormat("{0} corridors to generate.", corridorsToGenerate);
 
-            var roomList = dungeonMetada.RoomList;
+            var roomList = dungeonMetadata.RoomList;
             var currentRoom = GetRoom(roomList);
             var currentPosition = currentRoom.Position;
-            var layout = dungeonMetada.LayoutData;
+            var layout = dungeonMetadata.LayoutData;
 
             Direction direction = GetDirection();
             while (corridorsToGenerate > 0)
             {
-                int corridorLenght = Random.Range(settings.MinCorridorsToLenght, settings.MaxCorridorsToLenght);
-                while (corridorLenght > 0)
+                int corridorLength = Random.Range(settings.MinCorridorsToLenght, settings.MaxCorridorsToLenght);
+                while (corridorLength > 0)
                 {
                     if (CheckDirection(direction, currentPosition, layout))
                     {
                         AddRoom(ref currentPosition, direction, ref currentRoom, ref layout, DungeonMetadata.RoomInfo.RoomType.Corridor);
                         direction = GetDirection();
-                        corridorLenght--;
+                        corridorLength--;
                     }
                     else
                     {

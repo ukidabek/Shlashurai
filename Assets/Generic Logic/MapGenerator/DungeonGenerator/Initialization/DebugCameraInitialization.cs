@@ -1,14 +1,12 @@
-﻿using MapGenetaroion.BaseGenerator;
-using System.Collections;
-using System.Collections.Generic;
+﻿using MapGeneration.BaseGenerator;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public class DebugCameraInitialization : MonoBehaviour, IGenerationInitalization
+	public class DebugCameraInitialization : MonoBehaviour, IGenerationInitalization
     {
         [SerializeField] private Camera _debugCamera = null;
-        [SerializeField] private KeyCode showdDebugCamera = KeyCode.F12;
+        [SerializeField] private KeyCode _showDebugCamera = KeyCode.F12;
 
         private void Awake()
         {
@@ -17,7 +15,7 @@ namespace MapGenetaroion.DungeonGenerator
 
         public void Initialize(LevelGenerator generator, object[] generationData)
         {
-            var settings = LevelGenerator.GetMetaDataObject<GenerationSettings>(generationData);
+            var settings = generator.GetMetaDataObject<GenerationSettings>();
 
             Vector3 position = new Vector3(((settings.Size.x - 1) * settings.RoomSize.x) / 2, 100, ((settings.Size.y - 1) * settings.RoomSize.y) / 2);
 
@@ -27,7 +25,7 @@ namespace MapGenetaroion.DungeonGenerator
 
         private void Update()
         {
-            bool buttonPressed = Input.GetKey(showdDebugCamera);
+            bool buttonPressed = Input.GetKey(_showDebugCamera);
             if (_debugCamera.enabled != buttonPressed)
                 _debugCamera.enabled = buttonPressed;            
         }

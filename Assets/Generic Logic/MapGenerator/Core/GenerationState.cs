@@ -3,7 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MapGenetaroion.BaseGenerator
+namespace MapGeneration.BaseGenerator
 {
     public enum GenerationState
     {
