@@ -2,7 +2,7 @@
 {
     public interface IStateLogic
     {
-        void Activate() {}
-        void Deactivate() {}
+        void Activate();
+        void Deactivate();
     }
 }

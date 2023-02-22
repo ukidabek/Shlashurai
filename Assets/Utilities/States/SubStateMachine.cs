@@ -4,71 +4,54 @@ using UnityEngine;
 
 namespace Utilities.States
 {
-    public class SubStateMachine : StateLogic, IStateMachine, IOnUpdateLogic, IOnFixUpdateLogic, IOnLateUpdateLogic, IStateLogicExecutor
+    public class SubStateMachine : StateLogic, IStateMachine
     {
         [SerializeField] private State _currentState = null;
         public IState CurrentState => _currentState;
         
-        private IEnumerable<IOnUpdateLogic> _currentStateOnUpdateLogic = null;
-        private IEnumerable<IOnFixUpdateLogic> _currentStateOnFixUpdateLogic = null;
-        private IEnumerable<IOnLateUpdateLogic> _currentStateOnLateUpdateLogic = null;
+        [SerializeField] private Object[] m_stateLogicExecutorsObjects = null;  
+        [SerializeField] private Object[] m_stateTransitionObject;
         
-        [SerializeField] private StateTransitionLogicBase[] _transition;
-        
-        private StateMachine _stateMachine;
+        private StateMachine m_stateMachine;
+
+        private IEnumerable<IStateLogicExecutor> m_stateLogicExecutors = null;
+
+        [SerializeField] private StateSetter m_defaultStateSetter = null;
 
         private void Awake()
         {
-            _stateMachine = new StateMachine(new[] {this}, _transition);
-            _stateMachine.OnStateChange += StateMachineOnOnStateChange;
+            m_stateLogicExecutors = m_stateLogicExecutorsObjects.OfType<IStateLogicExecutor>();
+			m_stateMachine = new StateMachine(
+			   m_stateLogicExecutors, 
+                m_stateTransitionObject.OfType<IStateTransitionLogic>());
+            m_stateMachine.OnStateChange += StateMachineOnOnStateChange;
         }
 
-        public override void Activate() => CurrentState?.Enter();
+		public override void Activate()
+		{
+            m_defaultStateSetter.SetState();
+			foreach (var executor in m_stateLogicExecutors)
+                executor.Enabled = true;
+		}
 
-        public override void Deactivate() => CurrentState?.Exit();
+		public override void Deactivate()
+		{
+			foreach (var executor in m_stateLogicExecutors)
+				executor.Enabled = false;
+		}
 
-        private void StateMachineOnOnStateChange()
+		private void StateMachineOnOnStateChange()
         {
-            if (_stateMachine.CurrentState is State state)
+            if (m_stateMachine.CurrentState is State state)
                 _currentState = state;
         }
 
-        public void EnterState(IState statToEnter) => _stateMachine.EnterState(statToEnter);
-
-        public void OnUpdate(float deltaTime, float timeScale)
-		{
-            foreach (var onUpdateLogic in _currentStateOnUpdateLogic) 
-                onUpdateLogic.OnUpdate(deltaTime, timeScale);
-        }
-
-        public void OnFixUpdate(float deltaTime, float timeScale)
-		{
-            foreach (var onUpdateLogic in _currentStateOnFixUpdateLogic) 
-                onUpdateLogic.OnFixUpdate(deltaTime, timeScale);
-        }
-
-        public void OnLateUpdate(float deltaTime, float timeScale)
-		{
-            foreach (var onUpdateLogic in _currentStateOnLateUpdateLogic) 
-                onUpdateLogic.OnLateUpdate(deltaTime, timeScale);
-        }
+        public void EnterState(IState statToEnter) => m_stateMachine.EnterState(statToEnter);
 
         public bool Enabled
         {
             get => enabled;
             set => enabled = value;
-        }
-        
-        public void ClearLogicToExecute()
-        {
-        }
-
-        public void SetLogicToExecute(IState state)
-        {
-            var logic = state.Logic;
-            _currentStateOnUpdateLogic = logic.OfType<IOnUpdateLogic>();
-            _currentStateOnFixUpdateLogic = logic.OfType<IOnFixUpdateLogic>();
-            _currentStateOnLateUpdateLogic = logic.OfType<IOnLateUpdateLogic>();
         }
     }
 }
