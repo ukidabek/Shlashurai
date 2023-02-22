@@ -1,4 +1,4 @@
-﻿namespace MapGenetaroion.BaseGenerator
+﻿namespace MapGeneration.BaseGenerator
 {
     public interface IGenerationInitalization
     {

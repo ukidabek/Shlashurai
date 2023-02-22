@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public class GenerationSettings : MonoBehaviour, ObjectsPlacerPhase.IObjectPlacerPhaseConnfigProvider
+    public class GenerationSettings : MonoBehaviour, ObjectsPlacerPhase.IObjectPlacerPhaseConfigurationProvider
     {
         [SerializeField] private Vector2Int _size = new Vector2Int();
         public Vector2Int Size { get { return _size; } }
@@ -45,8 +45,8 @@ namespace MapGenetaroion.DungeonGenerator
         public List<GameObject> EndRoomGameObject { get { return _endRoomGameObject; } }
 
 
-        [SerializeField] List<ObjectsPlacerPhase.ObjectPlacerPhaseConnfig> _objectPlacerPhaseConnfigs = new List<ObjectsPlacerPhase.ObjectPlacerPhaseConnfig>();
-        public ObjectsPlacerPhase.ObjectPlacerPhaseConnfig this[int key]
+        [SerializeField] List<ObjectsPlacerPhase.ObjectPlacerPhaseConfiguration> _objectPlacerPhaseConnfigs = new List<ObjectsPlacerPhase.ObjectPlacerPhaseConfiguration>();
+        public ObjectsPlacerPhase.ObjectPlacerPhaseConfiguration this[int key]
         {
             get
             {

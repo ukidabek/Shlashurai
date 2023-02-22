@@ -3,15 +3,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using MapGenetaroion.BaseGenerator;
+using MapGeneration.BaseGenerator;
 using System;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-	public partial class ObjectsPlacerPhase : BaseDungeonGenerationPhaseMonoBehaviour
+	public partial class ObjectsPlacerPhase : GenerationPhase
 	{
 		[Serializable]
-		public class ObjectPlacerPhaseConnfig
+		public class ObjectPlacerPhaseConfiguration
 		{
 			[SerializeField] private int _phaseIndex = 0;
 			public int PhaseIndex { get { return _phaseIndex; } }
@@ -35,24 +35,13 @@ namespace MapGenetaroion.DungeonGenerator
 			[SerializeField, Range(0f, 1f)] private float _probability = .5f;
 		}
 
-		public interface IObjectPlacerPhaseConnfigProvider
+		public override IEnumerator Generate(LevelGenerator generator)
 		{
-			ObjectPlacerPhaseConnfig this[int key] { get; }
-		}
-
-		public interface IObjectPlacerPhaseParrentList
-		{
-			List<Transform> Parents { get; }
-		}
-
-		public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
-		{
-			var config = LevelGenerator.GetMetaDataObject<IObjectPlacerPhaseConnfigProvider>(generationData)[generator.PhaseIndex];
-			var parents = LevelGenerator.GetMetaDataObject<IObjectPlacerPhaseParrentList>(generationData).Parents;
+			var config = generator.GetMetaDataObject<IObjectPlacerPhaseConfigurationProvider>()[generator.PhaseIndex];
+			var parents = generator.GetMetaDataObject<IObjectPlacerPhaseParentList>().Parents;
 
 			if (config != null && parents != null)
 			{
-
 				for (int i = 0; i < parents.Count; i++)
 				{
 					for (int j = 0; j < config.AmountToGenerate; j++)

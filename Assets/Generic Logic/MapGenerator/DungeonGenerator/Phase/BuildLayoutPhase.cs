@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using MapGenetaroion.BaseGenerator;
+using MapGeneration.BaseGenerator;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator.V2
+namespace MapGeneration.DungeonGenerator.V2
 {
-    using Random = UnityEngine.Random;
+	using Random = UnityEngine.Random;
 
-    public class BuildLayoutPhase : BaseDungeonGenerationPhaseMonoBehaviour
+	public class BuildLayoutPhase : GenerationPhase
     {
-        private DungeonMetadata dungeonMetada = null;
+        private DungeonMetadata dungeonMetadata = null;
         private GenerationSettings settings = null;
 
-        public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
-        {
-            dungeonMetada = LevelGenerator.GetMetaDataObject<DungeonMetadata>(generationData);
-            settings = LevelGenerator.GetMetaDataObject<GenerationSettings>(generationData);
+        public override IEnumerator Generate(LevelGenerator generator)
+		{
+            dungeonMetadata = generator.GetMetaDataObject<DungeonMetadata>();
+            settings = generator.GetMetaDataObject<GenerationSettings>();
 
-            for (int i = 0; i < dungeonMetada.RoomList.Count; i++)
+            for (int i = 0; i < dungeonMetadata.RoomList.Count; i++)
             {
-                BuildRoom(dungeonMetada.RoomList[i], i, generator.transform).SetUpWall(dungeonMetada.RoomList[i]);
+                BuildRoom(dungeonMetadata.RoomList[i], i, generator.transform).SetUpWall(dungeonMetadata.RoomList[i]);
                 yield return new PauseYield(generator);
             }
 

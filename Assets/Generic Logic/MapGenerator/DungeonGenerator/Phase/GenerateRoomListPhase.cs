@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MapGenetaroion.BaseGenerator;
+using MapGeneration.BaseGenerator;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public class GenerateRoomListPhase : BaseDungeonGenerationPhaseMonoBehaviour
+    public class GenerateRoomListPhase : GenerationPhase
     {
-        public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
-        {
-            var dungeonMetada = LevelGenerator.GetMetaDataObject<DungeonMetadata>(generationData);
+        public override IEnumerator Generate(LevelGenerator generator)
+		{
+            var dungeonMetada = generator.GetMetaDataObject<DungeonMetadata>();
             dungeonMetada.RoomList.Clear();
             GenerateRoomList(dungeonMetada.StartRoom, dungeonMetada.RoomList);
 

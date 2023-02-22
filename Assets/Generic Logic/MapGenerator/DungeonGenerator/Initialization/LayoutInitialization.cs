@@ -1,11 +1,9 @@
-﻿using MapGenetaroion.BaseGenerator;
-using System.Collections;
-using System.Collections.Generic;
+﻿using MapGeneration.BaseGenerator;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public class LayoutInitialization : MonoBehaviour, IGenerationInitalization
+	public class LayoutInitialization : MonoBehaviour, IGenerationInitalization
     {
         public void Initialize(LevelGenerator generator, object[] generationData)
         {
