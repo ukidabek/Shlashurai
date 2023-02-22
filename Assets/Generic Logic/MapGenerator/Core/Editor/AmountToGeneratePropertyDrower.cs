@@ -4,7 +4,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MapGenetaroion
+namespace MapGeneration
 {
     [CustomPropertyDrawer(typeof(AmountToGenerate))]
     public class AmountToGeneratePropertyDrower : PropertyDrawer

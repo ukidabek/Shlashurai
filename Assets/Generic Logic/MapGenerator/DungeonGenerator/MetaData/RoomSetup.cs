@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
     public class RoomSetup : MonoBehaviour
     {

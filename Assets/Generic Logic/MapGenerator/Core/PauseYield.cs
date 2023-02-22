@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 
-using System.Collections;
-using System.Collections.Generic;
-
-namespace MapGenetaroion.BaseGenerator
+namespace MapGeneration.BaseGenerator
 {
-    public class PauseYield : CustomYieldInstruction
+	public class PauseYield : CustomYieldInstruction
     {
         private LevelGenerator _generator = null;
 

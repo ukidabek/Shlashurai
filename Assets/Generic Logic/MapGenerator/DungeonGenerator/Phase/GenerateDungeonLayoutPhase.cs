@@ -1,13 +1,11 @@
-﻿using MapGenetaroion.BaseGenerator;
-using System.Collections;
-using System.Collections.Generic;
+﻿using MapGeneration.BaseGenerator;
 using UnityEngine;
 
-namespace MapGenetaroion.DungeonGenerator
+namespace MapGeneration.DungeonGenerator
 {
-    public abstract class BaseGenerateLayoutPhase : BaseDungeonGenerationPhaseMonoBehaviour
+	public abstract class GenerateDungeonLayoutPhase : GenerationPhase
     {
-        protected DungeonMetadata dungeonMetada;
+        protected DungeonMetadata dungeonMetadata;
         protected GenerationSettings settings;
 
         public enum Direction
@@ -23,10 +21,10 @@ namespace MapGenetaroion.DungeonGenerator
             return (Direction)Random.Range(0, 4);
         }
 
-        protected void GetReference(object[] generationData)
+        protected void GetReference(LevelGenerator generator)
         {
-            dungeonMetada = LevelGenerator.GetMetaDataObject<DungeonMetadata>(generationData);
-            settings = LevelGenerator.GetMetaDataObject<GenerationSettings>(generationData);
+            dungeonMetadata = generator.GetMetaDataObject<DungeonMetadata>();
+            settings = generator.GetMetaDataObject<GenerationSettings>();
         }
 
         protected int GetRoomCount()

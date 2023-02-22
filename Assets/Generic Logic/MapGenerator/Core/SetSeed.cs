@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MapGenetaroion.BaseGenerator
+namespace MapGeneration.BaseGenerator
 {
     public class SetSeed : MonoBehaviour, IGenerationInitalization
     {

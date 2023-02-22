@@ -2,7 +2,7 @@
 
 using System;
 
-namespace MapGenetaroion
+namespace MapGeneration
 {
     [Serializable]
     public class AmountToGenerate
