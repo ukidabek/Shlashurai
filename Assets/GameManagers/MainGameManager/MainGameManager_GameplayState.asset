@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef0c2871a524383979f4084600ce19d, type: 3}
-  m_Name: PlayerTransformReferenceHost
+  m_Script: {fileID: 11500000, guid: 691bece2946b62340b0acc42574de3f1, type: 3}
+  m_Name: MainGameManager_GameplayState
   m_EditorClassIdentifier: 
-  m_instance: {fileID: 0}

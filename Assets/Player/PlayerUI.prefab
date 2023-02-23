@@ -1067,7 +1067,7 @@ RectTransform:
   - {fileID: 614717244}
   - {fileID: 3988646625064818754}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1156,9 +1156,9 @@ MonoBehaviour:
   - m_display: {fileID: 1882195334}
     m_resourceManager: {fileID: 0}
     m_resourceID: {fileID: 11400000, guid: 669c2b76c8950a84b9cad5e75f86c6ef, type: 2}
+  m_skillCastManagerReferenceHost: {fileID: 11400000, guid: f44e96fa76edec24c930ea1905c72b53, type: 2}
   m_castSliderDisplay:
     m_display: {fileID: 1454720138}
-    m_skillCastManagerReferenceHost: {fileID: 11400000, guid: f44e96fa76edec24c930ea1905c72b53, type: 2}
   m_skillHolderReferenceHost: {fileID: 11400000, guid: a93b293db0d2e8541bb2dbf5074c302c, type: 2}
   m_skillSlotDisplays:
   - {fileID: 3557278170227369049}

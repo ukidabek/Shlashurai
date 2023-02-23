@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 4558495963372545246}
   - component: {fileID: 6014407282305411716}
   - component: {fileID: 7780352982566496588}
+  - component: {fileID: 3090480070002220701}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -158,8 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e42aeccb224447b8938e922ba1c6b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
-  m_resourceManager: {fileID: 0}
   m_resourceChandler:
     m_resourceID: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
     m_resourceManager: {fileID: 6014407282305411716}
@@ -178,7 +177,7 @@ MonoBehaviour:
   m_resources:
   - m_id: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
     m_maxValue: 100
-    m_currentValue: 0
+    m_value: 0
 --- !u!114 &7780352982566496588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +193,20 @@ MonoBehaviour:
   m_healthResourceId: {fileID: 11400000, guid: dddb02d88ca853542a1fed1fdb59e0a9, type: 2}
   m_resourceManager: {fileID: 6014407282305411716}
   m_deathStateSetter: {fileID: 3185107536471973632}
+--- !u!114 &3090480070002220701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731116506438028242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432f723f2d88e5b459e50d54d1c00b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stateMachineObject: {fileID: 6731116506438028239}
+  m_statesObjects: []
 --- !u!1 &6731116506771022796
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +241,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &6731116506771022795
 LineRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -324,16 +338,20 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
+  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+  m_ApplyActiveColorSpace: 0
 --- !u!1 &6731116507055088365
 GameObject:
   m_ObjectHideFlags: 0
