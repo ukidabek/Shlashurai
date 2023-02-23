@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "PlayerInputs",
     "maps": [
         {
             "name": "Player",
@@ -54,6 +54,15 @@
                     "name": "Cast 2",
                     "type": "Button",
                     "id": "acef48da-f472-406a-aec2-de053e478ae5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "f14a089f-c348-476a-81b8-4843ebe0df01",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -168,6 +177,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Cast 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "523fdeb5-4b99-4ee0-8705-5e746ecee64f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
