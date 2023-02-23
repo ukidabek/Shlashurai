@@ -19,7 +19,7 @@ namespace Shlashurai.Player.Logic
             var look = m_inputValues.Look;
             direction.Set(look.x, 0, look.y);
             var rotation = Quaternion.LookRotation(direction, up);
-            var speed = m_speed / timeScale;
+            var speed = m_speed * timeScale;
             m_root.rotation = Quaternion.RotateTowards(m_root.rotation, rotation, speed);
         }
     }

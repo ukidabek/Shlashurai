@@ -18,18 +18,24 @@ namespace Utilities.States
 
         [SerializeField] private StateSetter m_defaultStateSetter = null;
 
-        private void Awake()
-        {
-            m_stateLogicExecutors = m_stateLogicExecutorsObjects.OfType<IStateLogicExecutor>();
+		private void CreateStateMachine()
+		{
+            if (m_stateMachine != null) return;
+
+			m_stateLogicExecutors = m_stateLogicExecutorsObjects.OfType<IStateLogicExecutor>();
+
 			m_stateMachine = new StateMachine(
-			   m_stateLogicExecutors, 
-                m_stateTransitionObject.OfType<IStateTransitionLogic>());
-            m_stateMachine.OnStateChange += StateMachineOnOnStateChange;
-        }
+			   m_stateLogicExecutors,
+				m_stateTransitionObject.OfType<IStateTransitionLogic>());
+
+			m_stateMachine.OnStateChange += StateMachineOnOnStateChange;
+
+			m_defaultStateSetter?.SetState();
+		}
 
 		public override void Activate()
 		{
-            m_defaultStateSetter.SetState();
+            CreateStateMachine();
 			foreach (var executor in m_stateLogicExecutors)
                 executor.Enabled = true;
 		}
@@ -46,7 +52,7 @@ namespace Utilities.States
                 _currentState = state;
         }
 
-        public void EnterState(IState statToEnter) => m_stateMachine.EnterState(statToEnter);
+		public void EnterState(IState statToEnter) => m_stateMachine.EnterState(statToEnter);
 
         public bool Enabled
         {

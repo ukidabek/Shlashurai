@@ -18,12 +18,15 @@ namespace Utilities.States
 
         private IEnumerable<ISwitchStateCondition> _stateConditions = null;
         private IStateMachine m_stateMachine = null;
+        [SerializeField] private bool m_returnOnEmpty = false;
 
         private bool Condition
         {
             get
             {
-                return _mode switch
+                var isEmpty = _stateConditions.Count() == 0;
+				if (isEmpty) return m_returnOnEmpty;
+				return _mode switch 
                 {
                     ConditionMode.All => _stateConditions.All(condition => condition.Condition),
                     ConditionMode.Any => _stateConditions.Any(condition => condition.Condition),

@@ -11,8 +11,10 @@ namespace Utilities.States
         [SerializeField] private BehaviourStatusHandler[] m_behaviourStatusHandler = null;
         private IEnumerable<StatusHandler> m_handlers;
 
-		private void Awake()
+
+		private void InitializeHandlersList()
 		{
+			if (m_handlers != null) return;
 			m_handlers = new List<StatusHandler>()
 				.Concat(m_behaviourStatusHandler)
 				.Concat(m_gameObjectStatusHandlers);
@@ -21,7 +23,10 @@ namespace Utilities.States
 		public override void Activate()
 		{
 			base.Activate();
-            foreach (var handler in m_handlers)
+
+			InitializeHandlersList();
+
+			foreach (var handler in m_handlers)
                 handler.Set();
 		}
 
