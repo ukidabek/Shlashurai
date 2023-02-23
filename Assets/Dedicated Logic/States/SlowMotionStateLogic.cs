@@ -1,51 +1,47 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
+using Utilities.General;
 using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-    public class SlowMotionStateLogicMonoBehaviour : StateLogic
+    public class SlowMotionStateLogic : StateLogic
     {
         [SerializeField, Range(0, 2)] private float m_timeScale = 0.8f;
         [SerializeField] private float m_speed = 3f;
         
         private float timeScale = 1f;
         private float fixUpdateTimeScale = 1f;
-        private Coroutine m_coroutine = null;
 
-        [SerializeField] private UnityEvent<float> TimeScaleChanged = new UnityEvent<float>();
+        private CoroutineManager m_coroutineManager = null;
 
-        public override void Activate()
+		private void Awake()
+		{
+			m_coroutineManager = new CoroutineManager(this);
+		}
+
+		public override void Activate()
         {
             base.Activate();
             timeScale = Time.timeScale;
             fixUpdateTimeScale = Time.fixedDeltaTime;
-            
-            RunCoroutine(m_timeScale, fixUpdateTimeScale * m_timeScale);
-        }
 
-        private void RunCoroutine(float timeScale, float fixedDeltaTime)
-        {
-            if(m_coroutine != null)
-                StopCoroutine(m_coroutine);
-            m_coroutine = StartCoroutine(SlowDownCoroutine(timeScale, fixedDeltaTime));
+            m_coroutineManager.Run(SlowDownCoroutine(m_timeScale, fixUpdateTimeScale * m_timeScale));
         }
 
         public override void Deactivate()
         {
             base.Deactivate();
-            RunCoroutine(timeScale, fixUpdateTimeScale);
-        }
+			m_coroutineManager.Run(SlowDownCoroutine(timeScale, fixUpdateTimeScale));
+		}
 
-        private IEnumerator SlowDownCoroutine(float timeScale, float fixedDeltaTime)
+		private IEnumerator SlowDownCoroutine(float timeScale, float fixedDeltaTime)
         {
             while (Time.timeScale != timeScale && Time.fixedDeltaTime != fixedDeltaTime)
             {
                 var newTimeScale = Mathf.MoveTowards(Time.timeScale, timeScale, m_speed);
                 Time.timeScale = newTimeScale;
                 Time.fixedDeltaTime = fixUpdateTimeScale * Time.timeScale;
-                TimeScaleChanged.Invoke(newTimeScale);
                 yield return null;
             }
         }
