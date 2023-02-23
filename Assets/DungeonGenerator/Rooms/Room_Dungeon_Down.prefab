@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7314566726163582500, guid: 0dc5ee9ef13f5b348a2211c40fb101d2, type: 3}
+      propertyPath: m_directions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314566726163582500, guid: 0dc5ee9ef13f5b348a2211c40fb101d2, type: 3}
+      propertyPath: m_directions.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8523364633626183722, guid: 0dc5ee9ef13f5b348a2211c40fb101d2, type: 3}
       propertyPath: m_Name
       value: Room_Dungeon_Down
