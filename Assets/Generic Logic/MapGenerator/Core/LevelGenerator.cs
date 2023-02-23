@@ -7,11 +7,8 @@ namespace MapGeneration.BaseGenerator
 {
 	public class LevelGenerator : MonoBehaviour
 	{
-		public static LevelGenerator Instance { get; private set; }
-
 		[SerializeField] protected GenerationState _state = GenerationState.Finished;
 		public GenerationState State { get { return _state; } }
-
 
 		[SerializeField] protected List<Object> _InitializationObjectList = new List<Object>();
 		protected List<IGenerationInitalization> _generationInitializationList = new List<IGenerationInitalization>();
@@ -31,18 +28,6 @@ namespace MapGeneration.BaseGenerator
 		public UnityEvent GenerationPaused = new UnityEvent();
 		public UnityEvent<int> PhaseCompleted = new UnityEvent<int>();
 		public UnityEvent GenerationCompleted = new UnityEvent();
-
-		protected virtual void Awake()
-		{
-			if (Instance == null)
-				Instance = this;
-			else
-			{
-				Destroy(this.gameObject);
-				return;
-			}
-			enabled = false;
-		}
 
 		private void Update()
 		{
