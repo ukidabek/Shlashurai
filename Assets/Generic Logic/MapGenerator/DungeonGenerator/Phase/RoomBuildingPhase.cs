@@ -18,16 +18,14 @@ namespace MapGeneration.DungeonGenerator.V3
 			var settings = generator.GetMetaDataObject<GenerationSettings>();
 
 			var rooms = dungeonMetadata.RoomList;
-			var i = 0;
 			foreach (var room in rooms)
 			{
-				var directions = room.ConnectedRooms.Select(connectedRoom => GetDirection(room, connectedRoom)).ToList();
+				var directions = room.ConnectedRooms.Select(connectedRoom => GetDirection(room, connectedRoom));
 				var selectedPrebasbs = m_roomsPrefabs
 					.Where(roomPrefab => roomPrefab.Directions.Count() == directions.Count() && !roomPrefab.Directions.Except(directions).Any())
 					.OrderBy(roomPrefab => Random.value);
 
 				var count = selectedPrebasbs.Count();
-				Debug.LogFormat("Room {0} math {1}", ++i, count);
 				if(count == 0) 
 				{
 					stringBuilder.Clear();
@@ -45,13 +43,14 @@ namespace MapGeneration.DungeonGenerator.V3
 				var position = new Vector3(room.Position.y * settings.RoomSize.y, 0, room.Position.x * settings.RoomSize.x);
 
 				var prefab = selectedPrebasbs.First();
-				var createdRoom = Instantiate(prefab, position, Quaternion.identity);
-				createdRoom.transform.SetParent(transform, false);
+				var roomInstance = Instantiate(prefab, position, Quaternion.identity);
+				room.RoomObject = roomInstance.gameObject;
+				roomInstance.transform.SetParent(generator.transform, false);
 
 				yield return new PauseYield(generator);
 			}
 
-			yield return new PauseYield(generator);
+			_isDone = true;
 		}
 
 		private Direction GetDirection(DungeonMetadata.RoomInfo info, DungeonMetadata.RoomInfo neighborInfo)
@@ -64,7 +63,6 @@ namespace MapGeneration.DungeonGenerator.V3
 				return Direction.Right;
 			if (info.Position.y > neighborInfo.Position.y)
 				return Direction.Left;
-
 			return Direction.Down;
 		}
 	}
