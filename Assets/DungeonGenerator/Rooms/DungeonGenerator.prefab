@@ -57,7 +57,6 @@ MonoBehaviour:
   _phaseObjectList:
   - {fileID: 2922421477898209689}
   - {fileID: 2922570343784263979}
-  - {fileID: 2922767842028567013}
   - {fileID: 2921984269563735897}
   - {fileID: 2921761580362741761}
   - {fileID: 2922823554055292957}
@@ -386,7 +385,6 @@ GameObject:
   - component: {fileID: 2961059316204058653}
   - component: {fileID: 2922421477898209689}
   - component: {fileID: 2922570343784263979}
-  - component: {fileID: 2922767842028567013}
   - component: {fileID: 2921984269563735897}
   - component: {fileID: 2921761580362741761}
   - component: {fileID: 2922823554055292957}
@@ -439,20 +437,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b830d82c827956a45b2f9da34ed86d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isDone: 0
-  _pause: 0
---- !u!114 &2922767842028567013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2963113814055781519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed8c097a9a117d4392cecc6970de498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDone: 0
