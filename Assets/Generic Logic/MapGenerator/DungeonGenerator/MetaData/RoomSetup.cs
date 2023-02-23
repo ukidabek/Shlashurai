@@ -6,6 +6,9 @@ namespace MapGeneration.DungeonGenerator
 {
     public class RoomSetup : MonoBehaviour
     {
+        [SerializeField] private Direction[] m_directions = null;
+        public IEnumerable<Direction> Directions => m_directions;
+
         [SerializeField] private List<GameObject> _wallList = new List<GameObject>();
         [SerializeField] private List<GameObject> _doorsList = new List<GameObject>();
 
@@ -20,18 +23,18 @@ namespace MapGeneration.DungeonGenerator
             }
         }
 
-        private GenerateLayoutPhase.Direction GetDirection(DungeonMetadata.RoomInfo info, DungeonMetadata.RoomInfo neighborInfo)
+        private Direction GetDirection(DungeonMetadata.RoomInfo info, DungeonMetadata.RoomInfo neighborInfo)
         {
             if (info.Position.x > neighborInfo.Position.x)
-                return GenerateLayoutPhase.Direction.Down;
+                return Direction.Down;
             if (info.Position.x < neighborInfo.Position.x)
-                return GenerateLayoutPhase.Direction.Up;
+                return Direction.Up;
             if (info.Position.y < neighborInfo.Position.y)
-                return GenerateLayoutPhase.Direction.Right;
+                return Direction.Right;
             if (info.Position.y > neighborInfo.Position.y)
-                return GenerateLayoutPhase.Direction.Left;
+                return Direction.Left;
 
-            return GenerateLayoutPhase.Direction.Down;
+            return Direction.Down;
         }
     }
 }
