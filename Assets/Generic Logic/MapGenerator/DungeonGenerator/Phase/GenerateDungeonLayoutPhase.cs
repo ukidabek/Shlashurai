@@ -8,14 +8,6 @@ namespace MapGeneration.DungeonGenerator
         protected DungeonMetadata dungeonMetadata;
         protected GenerationSettings settings;
 
-        public enum Direction
-        {
-            Up,
-            Right,
-            Down,
-            Left
-        }
-
         protected Direction GetDirection()
         {
             return (Direction)Random.Range(0, 4);
