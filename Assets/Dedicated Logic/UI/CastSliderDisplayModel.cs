@@ -1,11 +1,10 @@
 ﻿using Shlashurai.Skill;
 using System;
-using UnityEngine;
 
 [Serializable]
 public class CastSliderDisplayModel : SliderDisplayModel
 {
-	[SerializeField] protected SkillCastManagerReferenceHost m_skillCastManagerReferenceHost = null;
+	public SkillCastManager SkillCastManager { get; set; }
 
     private float m_percent = 0f;
 	public override float Percent => m_percent;
@@ -14,7 +13,7 @@ public class CastSliderDisplayModel : SliderDisplayModel
 
 	protected override void PreProcess()
 	{
-		var castManager = m_skillCastManagerReferenceHost.Instance;
+		var castManager = SkillCastManager;
 		castManager.OnSkillCastBegin += OnCastBegin;
 		castManager.OnSkillCastProgress += OnSkillCastProgress;
 		castManager.OnSkillCastEnd += OnCastEnd;
