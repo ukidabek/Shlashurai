@@ -4,19 +4,19 @@ using Utilities.States;
 using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
-{ 
+{
 	public class PlayerMovementStateLogic : StateLogic, IOnUpdateLogic, IOnFixUpdateLogic
 	{
 		[SerializeField] private Transform m_root = null;
 		[SerializeField] private Transform m_model = null;
 		[SerializeField] private InputValues m_inputValues = null;
-		[SerializeField] private Rigidbody m_controlelr = null;
+		[SerializeField] private Rigidbody m_rigidbody = null;
 		[SerializeField] private FloatValue m_speed = null;
-		[SerializeField] private bool m_freazDirections = false;
+		[SerializeField] private bool m_freezeDirections = false;
 		[SerializeField, Range(0, 1f)] float m_slerpOverRange = 1f;
 
-		private Vector3 m_frezedForwardDirection, 
-			m_frezedRightDirection, 
+		private Vector3 m_frizzedForwardDirection, 
+			m_frizzedRightDirection, 
 			m_input, 
 			m_normalInput, 
 			m_reflectedInput;
@@ -25,8 +25,8 @@ namespace Shlashurai.Player.Logic
 		{
 			base.Activate();
 
-			m_frezedForwardDirection = m_root.forward;
-			m_frezedRightDirection = m_root.right;
+			m_frizzedForwardDirection = m_root.forward;
+			m_frizzedRightDirection = m_root.right;
 		}
 
 		public void OnUpdate(float deltaTime, float timeScale)
@@ -53,8 +53,8 @@ namespace Shlashurai.Player.Logic
 
 		public void OnFixUpdate(float deltaTime, float timeScale)
 		{
-			var forward = m_freazDirections ? m_frezedForwardDirection : m_model.forward;
-			var right = m_freazDirections ? m_frezedRightDirection : m_model.right;
+			var forward = m_freezeDirections ? m_frizzedForwardDirection : m_model.forward;
+			var right = m_freezeDirections ? m_frizzedRightDirection : m_model.right;
 
 #if UNITY_EDITOR
 			var position = m_root.position;
@@ -65,12 +65,12 @@ namespace Shlashurai.Player.Logic
 			forward *= m_speed * m_input.z * deltaTime * timeScale;
 			right *= m_speed * m_input.x * deltaTime * timeScale;
 
-			var velocity = m_controlelr.position + (forward + right);
-			m_controlelr.MovePosition(velocity);
+			var velocity = m_rigidbody.position + (forward + right);
+			m_rigidbody.MovePosition(velocity);
 
 #if UNITY_EDITOR
 			Debug.DrawRay(position, velocity, Color.cyan);
-			Debug.DrawRay(position, m_controlelr.velocity, Color.yellow);
+			Debug.DrawRay(position, m_rigidbody.velocity, Color.yellow);
 #endif
 		}
 	}

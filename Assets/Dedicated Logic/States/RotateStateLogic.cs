@@ -10,8 +10,6 @@ namespace Shlashurai.Player.Logic
         [SerializeField] private Transform m_root = null;
         [SerializeField] private InputValues m_inputValues = null;
         [SerializeField] private FloatValue m_speed = null;
-
-        public float SpeedMultiplayer { get; set; } = 1f;
         
         private Vector3 up = Vector3.up;
         private Vector3 direction = Vector3.zero;
@@ -21,7 +19,7 @@ namespace Shlashurai.Player.Logic
             var look = m_inputValues.Look;
             direction.Set(look.x, 0, look.y);
             var rotation = Quaternion.LookRotation(direction, up);
-            var speed = m_speed / SpeedMultiplayer;
+            var speed = m_speed / timeScale;
             m_root.rotation = Quaternion.RotateTowards(m_root.rotation, rotation, speed);
         }
     }
