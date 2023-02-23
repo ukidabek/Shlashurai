@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugCamera: {fileID: 20460428403024266}
-  showdDebugCamera: 293
+  _showDebugCamera: 293
 --- !u!1 &1256840237602084
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4359466572316686}
   - component: {fileID: 114236653346445538}
+  - component: {fileID: 2527091848909614350}
   m_Layer: 0
   m_Name: DungeonGenerator
   m_TagString: Untagged
@@ -184,7 +185,7 @@ Transform:
   - {fileID: 4184368984218254}
   - {fileID: 4544003331254280}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114236653346445538
 MonoBehaviour:
@@ -222,7 +223,7 @@ MonoBehaviour:
   GenerationCanceled:
     m_PersistentCalls:
       m_Calls: []
-  GenerationPoused:
+  GenerationPaused:
     m_PersistentCalls:
       m_Calls: []
   PhaseCompleted:
@@ -231,6 +232,21 @@ MonoBehaviour:
   GenerationCompleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2527091848909614350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512730562418710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf53f45d2daa894fb993ba84707ad53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_reference: {fileID: 114236653346445538}
+  m_host: {fileID: 11400000, guid: 8c7b601a21749944b9e7f1b95d6709ee, type: 2}
+  m_setMode: 0
 --- !u!1 &1704499177907740
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDone: 0
-  _pause: 1
+  _pause: 0
 --- !u!114 &114260548639378890
 MonoBehaviour:
   m_ObjectHideFlags: 0
