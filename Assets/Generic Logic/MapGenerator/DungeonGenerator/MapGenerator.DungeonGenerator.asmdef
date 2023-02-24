@@ -2,7 +2,8 @@
     "name": "MapGenerator.DungeonGenerator",
     "rootNamespace": "",
     "references": [
-        "GUID:e63e603310395844c98a12dce59a93b8"
+        "GUID:e63e603310395844c98a12dce59a93b8",
+        "GUID:8c4dd21966739024fbd72155091d199e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
