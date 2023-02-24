@@ -12,6 +12,7 @@ namespace Shlashurai.Player.Logic
 
 		[SerializeField] private bool m_directionalDamage = true;
 		[SerializeField] private LayerMask m_dealDamageLayer = new LayerMask();
+		private LayerMask DealDamageLayer => m_dealDamageLayer;
 		[SerializeField, Range(0f, 1f)] private float m_damageSpread = 0f;
 
 
