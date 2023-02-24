@@ -7,11 +7,10 @@ using Utilities.States;
 
 public class LoadedScenesCleaner : CoroutineStateLogic, ISwitchStateCondition
 {
-#if UNITY_EDITOR
+	[SerializeField] private int[] m_sceneBuildIndexToIgnore = null;
 
 	private bool m_initializationDone = false;
 	private List<AsyncOperation> m_sceneUnloadOperations = new List<AsyncOperation>();
-
 	public bool Condition
 	{
 		get
@@ -23,23 +22,16 @@ public class LoadedScenesCleaner : CoroutineStateLogic, ISwitchStateCondition
 			return m_sceneUnloadOperations.All(operation => operation.isDone);
 		}
 	}
-#else
-	public bool Condition => true;z
-#endif
 
 	public override void Activate()
 	{
 		base.Activate();
-#if UNITY_EDITOR
 		m_sceneUnloadOperations.Clear();
 		m_initializationDone = false;
-#endif
-
 	}
 
 	public override IEnumerator Coroutine()
 	{
-#if UNITY_EDITOR
 		var loadedScenes = SceneManager.sceneCount;
 		var sceneList = new Scene[loadedScenes];
 		for (int i = 0; i < loadedScenes; i++)
@@ -49,16 +41,15 @@ public class LoadedScenesCleaner : CoroutineStateLogic, ISwitchStateCondition
 
 		yield return new WaitUntil(() => sceneList.All(scene => scene.isLoaded));
 
-		for (int i = 1; i < loadedScenes; i++)
+		for (int i = 0; i < loadedScenes; i++)
 		{
-			var operation = SceneManager.UnloadSceneAsync(sceneList[i]);
+			var buildIndex = sceneList[i].buildIndex;
+			if (m_sceneBuildIndexToIgnore.Contains(buildIndex)) continue;
+			var operation = SceneManager.UnloadSceneAsync(buildIndex);
 			m_sceneUnloadOperations.Add(operation);
 		}
 
 		m_initializationDone = true;
-#else
-		yield return null;
-#endif
 	}
 
 	public void OnUpdate(float deltaTime, float timeScale)
