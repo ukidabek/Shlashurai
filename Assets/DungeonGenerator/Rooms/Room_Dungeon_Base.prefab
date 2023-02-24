@@ -2129,6 +2129,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6171806077407359218, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Size.x
+      value: 4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171806077407359218, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Size.z
+      value: 4.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6603488554207994483, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_RootOrder
       value: -1

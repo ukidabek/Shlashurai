@@ -1314,6 +1314,7 @@ GameObject:
   - component: {fileID: 5653701354554400078}
   - component: {fileID: 5653701354554400079}
   - component: {fileID: 5653701354554400076}
+  - component: {fileID: 8535542898876461269}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1424,6 +1425,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8535542898876461269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653701354554400074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c9bb8ea355dd541b2815a80d2d39ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_button: {fileID: 5653701354554400076}
+  m_stateDictionaryReferenceHost: {fileID: 11400000, guid: e9f682c24c4dea141ba21560cfcfa561, type: 2}
+  stateID: {fileID: 11400000, guid: 66b7eaa9c782fc04fa4b4efaa8713078, type: 2}
 --- !u!1 &5653701354793265680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,7 +1568,7 @@ MonoBehaviour:
   _currentState: {fileID: 0}
   m_stateLogicExecutorsObjects: []
   m_stateTransitionObject: []
-  m_defaultStateSetter: {fileID: 3955883923768125424}
+  m_defaultStateSetter: {fileID: 0}
 --- !u!114 &8501728413787550593
 MonoBehaviour:
   m_ObjectHideFlags: 0
