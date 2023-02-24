@@ -50,6 +50,8 @@ namespace MapGeneration.DungeonGenerator.V3
 				yield return new PauseYield(generator);
 			}
 
+			yield return new PauseYield(generator);
+
 			_isDone = true;
 		}
 

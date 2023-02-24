@@ -8,12 +8,9 @@ namespace MapGeneration.DungeonGenerator
         protected DungeonMetadata dungeonMetadata;
         protected GenerationSettings settings;
 
-        protected Direction GetDirection()
-        {
-            return (Direction)Random.Range(0, 4);
-        }
+		protected Direction GetDirection() => (Direction)Random.Range(0, 4);
 
-        protected void GetReference(LevelGenerator generator)
+		protected void GetReference(LevelGenerator generator)
         {
             dungeonMetadata = generator.GetMetaDataObject<DungeonMetadata>();
             settings = generator.GetMetaDataObject<GenerationSettings>();
