@@ -20,15 +20,16 @@ namespace Utilities.States
 
 		private void CreateStateMachine()
 		{
-            if (m_stateMachine != null) return;
+            if (m_stateMachine == null)
+            {
+                m_stateLogicExecutors = m_stateLogicExecutorsObjects.OfType<IStateLogicExecutor>();
 
-			m_stateLogicExecutors = m_stateLogicExecutorsObjects.OfType<IStateLogicExecutor>();
+                m_stateMachine = new StateMachine(
+                   m_stateLogicExecutors,
+                    m_stateTransitionObject.OfType<IStateTransitionLogic>());
 
-			m_stateMachine = new StateMachine(
-			   m_stateLogicExecutors,
-				m_stateTransitionObject.OfType<IStateTransitionLogic>());
-
-			m_stateMachine.OnStateChange += StateMachineOnOnStateChange;
+                m_stateMachine.OnStateChange += StateMachineOnOnStateChange;
+            }
 
 			m_defaultStateSetter?.SetState();
 		}
