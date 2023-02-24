@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2960670912823288477}
   - component: {fileID: 2921938727579597425}
   - component: {fileID: 723706039242264477}
+  - component: {fileID: 2474636022221326621}
   m_Layer: 0
   m_Name: DungeonGenerator
   m_TagString: Untagged
@@ -62,7 +63,8 @@ MonoBehaviour:
   - {fileID: 2922816641161371803}
   - {fileID: 3864826977028347254}
   - {fileID: 6654714574757253524}
-  - {fileID: 2922794072551190883}
+  - {fileID: 2354193259338444883}
+  - {fileID: 2665831956330879103}
   _generationData:
   - {fileID: 2921959428528923463}
   - {fileID: 2918651551914769479}
@@ -96,6 +98,37 @@ MonoBehaviour:
   m_reference: {fileID: 2921938727579597425}
   m_host: {fileID: 11400000, guid: 8c7b601a21749944b9e7f1b95d6709ee, type: 2}
   m_setMode: 0
+--- !u!114 &2474636022221326621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962323714492709509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 247
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!1 &2962619855128779993
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +407,13 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &2963113814055781519
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +430,8 @@ GameObject:
   - component: {fileID: 2922816641161371803}
   - component: {fileID: 3864826977028347254}
   - component: {fileID: 6654714574757253524}
-  - component: {fileID: 2922794072551190883}
+  - component: {fileID: 2354193259338444883}
+  - component: {fileID: 2665831956330879103}
   m_Layer: 0
   m_Name: Phases
   m_TagString: Untagged
@@ -512,6 +553,10 @@ MonoBehaviour:
   - {fileID: 7539101250326302920, guid: b69cbffa43820fc469cf474621fbf8d9, type: 3}
   - {fileID: 6292443532282145514, guid: 7b5e0aaa5df1ffd4a811d3f0ea5949cd, type: 3}
   - {fileID: 2923787149661028413, guid: 11a57dfadd395844782e7a4e1e4435fe, type: 3}
+  - {fileID: 5516821523732733688, guid: 61362ad7a258cfc4d9a89eee5f0541db, type: 3}
+  - {fileID: 3952587526964849353, guid: 433836a102af747478fc27d265f35cf0, type: 3}
+  - {fileID: 7850068947237267065, guid: 630dad304e3914049b64f04d8223f774, type: 3}
+  - {fileID: 8452230391163986535, guid: 37529cb628d55884e8d8deb4cd4ab985, type: 3}
 --- !u!114 &6654714574757253524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +572,7 @@ MonoBehaviour:
   _isDone: 0
   _pause: 0
   m_startPosition: {fileID: 8136216603488485504, guid: 2bc19dba434aa7b4dbdcaa030f09bc0d, type: 3}
---- !u!114 &2922794072551190883
+--- !u!114 &2354193259338444883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,7 +581,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2963113814055781519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3a5f168ba739ee48b5127724ad2460d, type: 3}
+  m_Script: {fileID: 11500000, guid: d2b17799cb04f9b478696a1b4aa472f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  _pause: 0
+--- !u!114 &2665831956330879103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963113814055781519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2791a6073a5c9847a76560a04af2b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDone: 0

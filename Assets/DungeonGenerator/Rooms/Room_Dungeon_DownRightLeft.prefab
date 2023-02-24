@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 296654259402715186, guid: d1e7d2bc40309dd458d8ecd8839c3d34, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 296654259402715186, guid: d1e7d2bc40309dd458d8ecd8839c3d34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3375720231408265932, guid: d1e7d2bc40309dd458d8ecd8839c3d34, type: 3}
       propertyPath: m_Name
-      value: Room_Dungeon_Base
+      value: Room_Dungeon_DownRightLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468138135720195733, guid: d1e7d2bc40309dd458d8ecd8839c3d34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4400978896242453698, guid: d1e7d2bc40309dd458d8ecd8839c3d34, type: 3}
       propertyPath: m_directions.Array.data[0]
