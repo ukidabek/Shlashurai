@@ -21,7 +21,7 @@ namespace MapGeneration.DungeonGenerator
             Direction direction = GetDirection();
             int roomsInline = GetRoomCount();
             int roomToGenerate = settings.RoomToGenerate;
-            bool isBloced = false;
+            bool isBlocked = false;
 
             while(roomToGenerate > 0)
             {
@@ -34,8 +34,8 @@ namespace MapGeneration.DungeonGenerator
                     }
                     else
                     {
-                        isBloced = CheckBlock(currentPosition, layout);
-                        if (isBloced)
+                        isBlocked = CheckBlock(currentPosition, layout);
+                        if (isBlocked)
                             break;
                         i++;
                         direction = GetDirection();
@@ -44,7 +44,7 @@ namespace MapGeneration.DungeonGenerator
                     yield return new PauseYield(generator);
                 }
 
-                if (isBloced)
+                if (isBlocked)
                     break;
                 direction = GetDirection();
                 yield return new PauseYield(generator);
