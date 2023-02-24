@@ -9,13 +9,16 @@ namespace Utilities.States
 
         protected virtual void Awake()
         {
-            m_coroutineManager = new CoroutineManager(this);
         }
 
         public override void Activate()
         {
             base.Activate();
-            m_coroutineManager.Run(Coroutine());
+            
+            if(m_coroutineManager == null)
+				m_coroutineManager = new CoroutineManager(this);
+
+			m_coroutineManager.Run(Coroutine());
         }
 
         public abstract IEnumerator Coroutine();
