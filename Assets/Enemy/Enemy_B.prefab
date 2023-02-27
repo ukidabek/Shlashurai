@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2029769924447488259, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
@@ -66,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 5233677936546025240, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: m_itemToSpawn.Array.data[1].m_amount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741139287971745180, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: _baseValue
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7171535645591511078, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: m_model
@@ -144,6 +149,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 126c5c4e3c8142f48b2201309fc959a9, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 9142262196461521987, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5953181943126654438}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
 --- !u!4 &9122674273385655415 stripped
 Transform:
@@ -155,6 +166,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 9122674273385655415}
     m_Modifications:
     - target: {fileID: 1774625739149480, guid: 38efdaadbfe1d624bbee439cb02e7661, type: 3}
@@ -210,6 +222,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 19ee65f7f61cd3e44aeb9bf25737ebc0, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38efdaadbfe1d624bbee439cb02e7661, type: 3}
 --- !u!4 &5953181943126654438 stripped
 Transform:
