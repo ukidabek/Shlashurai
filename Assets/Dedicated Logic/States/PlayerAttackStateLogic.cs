@@ -4,8 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
-
-	public class PlayerAttackStateLogic : AttackStateLogicBase, IOnUpdateLogic
+	public class PlayerAttackStateLogic : AttackStateLogicBase, IOnUpdateLogic, IDamageDealingLogic
 	{
 		[SerializeField] private InputValues m_inputValues = null;
 		[SerializeField] private float m_attackInterval = 0.3f;

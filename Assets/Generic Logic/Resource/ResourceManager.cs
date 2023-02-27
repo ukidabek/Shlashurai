@@ -12,6 +12,13 @@ namespace Shlashurai.Characters
 
 		private void Awake()
 		{
+			InitializeDictionary();
+		}
+
+		private void InitializeDictionary()
+		{
+			if(m_resourceDictionary.Count > 0) return;
+			
 			foreach (var resource in m_resources)
 				m_resourceDictionary.Add(resource.ID, resource);
 		}
@@ -30,7 +37,9 @@ namespace Shlashurai.Characters
 
 		public Resource GetResource(ResourceID resourceID)
 		{
-			if(m_resourceDictionary.TryGetValue(resourceID, out var resource))
+			InitializeDictionary();
+
+			if (m_resourceDictionary.TryGetValue(resourceID, out var resource))
 				return resource;
 
 			return null;
