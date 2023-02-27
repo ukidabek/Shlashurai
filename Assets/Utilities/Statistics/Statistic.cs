@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +7,7 @@ namespace Shlashurai.Statistics
     public class Statistic : MonoBehaviour
     {
         [SerializeField] private StatisticId[] _id;
-        public StatisticId[] ID => _id;
+        public IEnumerable<StatisticId> ID => _id;
 
         [SerializeField] private float _baseValue = 10f;
         public virtual float BaseValue
@@ -62,9 +61,9 @@ namespace Shlashurai.Statistics
             _modifiers.Sort(CompareModifierOrder);
             Value = BaseValue;
             foreach (var statisticModifier in _modifiers)
-            {
                 Value = statisticModifier.Apply(Value);
-            }
+
+            OnValueChanged.Invoke(Value);
         }
 
         private int CompareModifierOrder(IStatisticModifier x, IStatisticModifier y)
