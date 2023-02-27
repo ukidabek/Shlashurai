@@ -15,7 +15,6 @@ namespace Shlashurai.Statistics
 
 		private StringBuilder m_statNameStringBuilder = new StringBuilder();
 
-
 		private void OnEnable()
 		{
 			m_manager = target as StatisticManager;
@@ -38,16 +37,25 @@ namespace Shlashurai.Statistics
 				CollectStatistics();
 			}
 
+			if (m_statisticEditors.Count != m_manager.Statistics.Count())
+				CreateStatisticEditors();
+
+			if (m_statisticEditors.Count == 0) return;
+
 			foreach (var editor in m_statisticEditors)
 			{
 				m_statNameStringBuilder.Clear();
 				var stat = editor.target as Statistic;
-				var lastID = stat.ID.Last();
-				foreach (var id in stat.ID)
+				if (stat.ID.Count() == 0) continue;
 				{
-					m_statNameStringBuilder.Append(id.name);
-					if (id == lastID) continue;
-					m_statNameStringBuilder.Append(", ");
+					var lastID = stat.ID.Last();
+					if (lastID == null) continue;
+					foreach (var id in stat.ID)
+					{
+						m_statNameStringBuilder.Append(id.name);
+						if (id == lastID) continue;
+						m_statNameStringBuilder.Append(", ");
+					}
 				}
 				EditorGUILayout.LabelField(m_statNameStringBuilder.ToString());
 				editor.OnInspectorGUI();
@@ -59,6 +67,8 @@ namespace Shlashurai.Statistics
 		{
 			m_manager.CollectStatistics();
 			CreateStatisticEditors();
+
+			EditorUtility.SetDirty(target);
 		}
 	}
 }
