@@ -12,15 +12,22 @@ namespace Shlashurai.Characters
 		[SerializeField] private float m_maxValue = 100;
 		public float MaxValue
 		{
-			get { return m_maxValue; }
-			set { m_maxValue = value; }
+			get => m_maxValue;
+			set
+			{
+				if(m_maxValue != value)
+				{
+					m_maxValue = value;
+					OnValueChanged();
+				}
+			}
 		}
 
 		[SerializeField] private float m_value = 0;
 		public float Value
 		{
-			get { return m_value; }
-			set 
+			get => m_value;
+			set
 			{
 				var oldValue = m_value;
 				m_value = Mathf.Clamp(value, 0f, m_maxValue);
