@@ -11,8 +11,14 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private Transform m_model = null;
 		[SerializeField] private InputValues m_inputValues = null;
 		[SerializeField] private Rigidbody m_rigidbody = null;
-		[SerializeField] private FloatValue m_speed = null;
-		[SerializeField] private bool m_freezeDirections = false;
+		[SerializeField] private float m_speed = 4;
+        public float Speed 
+		{ 
+			get => m_speed; 
+			set => m_speed = value; 
+		}
+
+        [SerializeField] private bool m_freezeDirections = false;
 		[SerializeField, Range(0, 1f)] float m_slerpOverRange = 1f;
 
 		private Vector3 m_frizzedForwardDirection, 

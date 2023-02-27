@@ -25,14 +25,20 @@ namespace Shlashurai.Enemy.Logic
         [SerializeField] private Transform m_model;
 
 		[SerializeField] private DamageDealingHandler m_damageDealingHandler = new DamageDealingHandler();
+		public float DamageAmount
+		{
+			get => m_damageDealingHandler.DamageAmount;
+			set => m_damageDealingHandler.DamageAmount = value;
+		}
 
-        private CoroutineManager m_coroutineManager;
+
+		private CoroutineManager m_coroutineManager;
 
         public bool Condition => m_attackPhase == AttackPhase.Recall;
 
         public event Action<AttackPhase> AttackPhaseChanged = null;
         [SerializeField] private AttackPhase m_attackPhase = AttackPhase.None;
-     
+
 		private void Awake()
         {
             m_coroutineManager = new CoroutineManager(this);
@@ -46,7 +52,6 @@ namespace Shlashurai.Enemy.Logic
         }
 
 		private void SetPhase(AttackPhase phase) => AttackPhaseChanged?.Invoke(m_attackPhase = phase);
-
 
 		private IEnumerator AttackCoroutine()
         {
