@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6590803716604ace8dc4a54df622514e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_stateID: {fileID: 0}
   m_logic:
   - {fileID: 8394196808751829665}
   - {fileID: 4770634267253965181}
@@ -311,6 +312,7 @@ MonoBehaviour:
   _stateToEnter: {fileID: 1710104801173478642}
   _conditionsObjects:
   - {fileID: 1255823022277826356}
+  m_returnOnEmpty: 0
 --- !u!114 &1255823022277826356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6590803716604ace8dc4a54df622514e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_stateID: {fileID: 0}
   m_logic:
   - {fileID: 3240655978919548317}
   - {fileID: 8264865254417354994}
@@ -810,6 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6590803716604ace8dc4a54df622514e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_stateID: {fileID: 0}
   m_logic:
   - {fileID: 7250124072767747962}
   - {fileID: 8072961414435174599}
@@ -837,7 +841,7 @@ MonoBehaviour:
     m_dealDamageLayer:
       serializedVersion: 2
       m_Bits: 64
-    m_damageSpread: 0
+    m_damageSpread: 0.75
   m_attackPhase: 0
 --- !u!114 &1962962608549958286
 MonoBehaviour:
@@ -856,6 +860,7 @@ MonoBehaviour:
   _stateToEnter: {fileID: 5849189221578889999}
   _conditionsObjects:
   - {fileID: 8072961414435174599}
+  m_returnOnEmpty: 0
 --- !u!114 &7250124072767747962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,9 +1129,33 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7789804624517253646, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8072961414435174599}
     - target: {fileID: 7906408816982515791, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582489948218089428, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582489948218089428, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4927632958327776071}
+    - target: {fileID: 8582489948218089428, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582489948218089428, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AI.NavMeshAgent, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582489948218089428, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9107670480209571351, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_Layer
