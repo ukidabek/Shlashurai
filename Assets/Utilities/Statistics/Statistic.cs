@@ -1,42 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Shlashurai.Statistics
 {
-    public class Statistic : MonoBehaviour
+	public class Statistic : MonoBehaviour
     {
         [SerializeField] private StatisticId[] _id;
         public IEnumerable<StatisticId> ID => _id;
 
         [SerializeField] private float _baseValue = 10f;
         public virtual float BaseValue
-        {
-            get => _baseValue;
-            set => _baseValue = value;
-        }
+		{
+			get => _baseValue;
+			set
+			{
+				if(_baseValue != value)
+                {
+                    _baseValue = value;
+                    ApplyModifiers();
+                }
+			}
+		}
 
-        [SerializeField] private float _value = 10f;
+		[SerializeField] private float _value = 10f;
         public float Value
         {
             get => _value;
             protected set => _value = value;
         }
 
-        public UnityEvent<float> OnBaseValueChanged = new UnityEvent<float>();
-        public UnityEvent<float> OnValueChanged = new UnityEvent<float>();
+        [SerializeField] private StatisticApplyLogic[] m_statisticApplyLogics = null;
         
         private readonly List<IStatisticModifier> _modifiers = new List<IStatisticModifier>();
         private readonly List<IUpdatableStatisticModifier> _updatableModifiers = new List<IUpdatableStatisticModifier>();
 
-        protected virtual void Awake()
-        {
-            OnBaseValueChanged.Invoke(BaseValue);
-            ApplyModifiers();
-            OnValueChanged.Invoke(Value);
-        }
+		protected virtual void Awake() => ApplyModifiers();
 
-        public void AddModifier(IStatisticModifier modifier)
+		public void AddModifier(IStatisticModifier modifier)
         {
             _modifiers.Add(modifier);
             
@@ -60,10 +60,12 @@ namespace Shlashurai.Statistics
         {
             _modifiers.Sort(CompareModifierOrder);
             Value = BaseValue;
+
             foreach (var statisticModifier in _modifiers)
                 Value = statisticModifier.Apply(Value);
 
-            OnValueChanged.Invoke(Value);
+            foreach (var applyer in m_statisticApplyLogics)
+                applyer.Apply(this);
         }
 
         private int CompareModifierOrder(IStatisticModifier x, IStatisticModifier y)

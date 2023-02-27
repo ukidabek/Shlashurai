@@ -18,7 +18,7 @@ namespace Shlashurai.Characters
 				if(m_maxValue != value)
 				{
 					m_maxValue = value;
-					OnValueChanged();
+					OnValueChanged?.Invoke();
 				}
 			}
 		}
