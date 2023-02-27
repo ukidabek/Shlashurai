@@ -11,7 +11,13 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private float m_attackInterval = 0.3f;
 		[SerializeField] private float m_counter = 0f;
 		[SerializeField] private Transform m_model = null;
+
 		[SerializeField] private DamageDealingHandler m_damageDealingHandler = new DamageDealingHandler();
+		public float DamageAmount
+		{
+			get => m_damageDealingHandler.DamageAmount;
+			set => m_damageDealingHandler.DamageAmount = value;
+		}
 
 		public override bool PerformingAttack { get; protected set; }
 

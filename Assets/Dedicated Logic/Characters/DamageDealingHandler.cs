@@ -5,15 +5,37 @@ using Weapons;
 namespace Shlashurai.Player.Logic
 {
 	[Serializable]
-	public class DamageDealingHandler
+	public class DamageDealingHandler 
 	{
 		[SerializeField] private float m_radius = 5f;
+		public float Radius
+		{
+			get => m_radius;
+			set => m_radius = value;
+		}
+
 		[SerializeField] private float m_damageAmount = 10f;
+		public float DamageAmount
+		{
+			get => m_damageAmount;
+			set => m_damageAmount = value;
+		}
 
 		[SerializeField] private bool m_directionalDamage = true;
+		public float DirectionalDamage
+		{
+			get => m_damageAmount;
+			set => m_damageAmount = value;
+		}
+
 		[SerializeField] private LayerMask m_dealDamageLayer = new LayerMask();
-		private LayerMask DealDamageLayer => m_dealDamageLayer;
+
 		[SerializeField, Range(0f, 1f)] private float m_damageSpread = 0f;
+		public float DamageSpread
+		{
+			get => m_damageSpread;
+			set => m_damageSpread = Mathf.Clamp01(value);
+		}
 
 
 		private Collider[] m_colliders = new Collider[20];
@@ -25,7 +47,7 @@ namespace Shlashurai.Player.Logic
 			if (count <= 0) return;
 
 			m_damage.SetAmount(m_damageAmount);
-			
+
 			for (var i = 0; i < count; i++)
 			{
 				var targetPosition = m_colliders[i].transform.position;
