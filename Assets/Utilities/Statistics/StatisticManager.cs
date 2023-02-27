@@ -9,8 +9,9 @@ namespace Shlashurai.Statistics
         public enum GetStatisticMode { All, Any }
         
         [SerializeField] private Statistic[] _statistics = null;
+		public IEnumerable<Statistic> Statistics => _statistics;
 
-        public T GetStatistic<T>(IEnumerable<StatisticId> id, GetStatisticMode mode = GetStatisticMode.Any) where  T : Statistic
+		public T GetStatistic<T>(IEnumerable<StatisticId> id, GetStatisticMode mode = GetStatisticMode.Any) where  T : Statistic
         {
             return mode switch
             {
