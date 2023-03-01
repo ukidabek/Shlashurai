@@ -4,6 +4,10 @@ namespace Utilities.Pool
 {
 	public class ComponentPool<T> : Pool<T> where T : Component
 	{
+		public ComponentPool(T prefab, Transform parent = null, int initialCount = 5) : base(prefab, parent, initialCount)
+		{
+		}
+
 		public override void Initialize(T prefab, Transform parent = null, int initialCount = 5)
 		{
 			ValidateIfPoolElementInactive = ValidateIfComponentGameObjectIsActive;
