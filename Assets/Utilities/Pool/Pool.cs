@@ -17,8 +17,11 @@ namespace Utilities.Pool
     public class Pool<PrefabT, PoolElementT> where PrefabT : UnityEngine.Object
     {
 		[SerializeField] protected PrefabT m_prefab = null;
-        [SerializeField] protected Transform m_parent = null;
-    
+		public PrefabT Prefab => m_prefab;
+
+		[SerializeField] protected Transform m_parent = null;
+        public Transform Parent => m_parent;
+
         protected List<PoolElementT> m_poolElements = new List<PoolElementT>();
     
         public Func<PoolElementT, bool> ValidateIfPoolElementInactive = null;
