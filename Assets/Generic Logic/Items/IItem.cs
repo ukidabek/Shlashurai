@@ -4,8 +4,11 @@ namespace Shlashurai.Items
 {
 	public interface IItem
 	{
-		public bool IsActive { get; set; }
+		object ID { get; }
+		bool IsActive { get; set; }
+		bool IsStackable { get; }
 		string DisplayName { get; }
+
 		IEnumerable<IItemComponent> Components { get; }
 	}
 }

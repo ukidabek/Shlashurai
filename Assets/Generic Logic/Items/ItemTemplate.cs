@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Shlashurai.Items
 {
 	[CreateAssetMenu(fileName = "ItemTemplate", menuName = "Items/Items/ItemTemplate")]
 	public class ItemTemplate : ItemTemplateBase
 	{
-		public override IItem Create() => new Item(m_displayName, GetItemComponentInstances());
+		[SerializeField] protected bool m_isStackable = false;
+		public override IItem Create() => new Item(this, m_displayName, GetItemComponentInstances(), m_isStackable);
 	}
 }
