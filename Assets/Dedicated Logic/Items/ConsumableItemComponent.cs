@@ -6,8 +6,11 @@ public class ConsumableItemComponent : IItemComponent, IConsumable
 {
 	public IEnumerable<IConsumableEffect> Effects { get; }
 
-	public ConsumableItemComponent(IEnumerable<IConsumableEffect> effects)
+	public bool Instant { get; private set; }
+
+	public ConsumableItemComponent(IEnumerable<IConsumableEffect> effects, bool instant)
 	{
 		Effects = effects;
+		Instant = instant;
 	}
 }
