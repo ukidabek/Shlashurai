@@ -1,4 +1,7 @@
-﻿namespace Shlashurai.PickUp
+﻿using System;
+using UnityEngine;
+
+namespace Shlashurai.PickUp
 {
 	public class CurrencyItemPickUpHandler : ItemPickUpHandler<CurrencyItemComponent>
 	{
