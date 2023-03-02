@@ -8,7 +8,7 @@ namespace Shlashurai.Items
 		IEnumerable<IItemSlot> Slots { get; }
 		bool AddItem(IItem item);
 		void RemoveItem(IItem item);
-
-		public event Action OnInventoryChanged;
+		event Action<IItemSlot> OnItemAdded;
+		event Action<IItemSlot> OnItemRemoved;
 	}
 }

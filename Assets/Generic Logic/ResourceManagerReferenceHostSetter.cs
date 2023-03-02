@@ -3,7 +3,7 @@ using Utilities.ReferenceHost;
 
 namespace Shlashurai.Player
 {
-    public class ResourceManagerReferenceHostSetter : ReferenceHostSetter<ResourceManagerReferenceHost, ResourceManager>
+	public class ResourceManagerReferenceHostSetter : ReferenceHostSetter<ResourceManagerReferenceHost, ResourceManager>
     {
     }
 }

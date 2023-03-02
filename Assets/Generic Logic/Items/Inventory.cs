@@ -14,7 +14,8 @@ namespace Shlashurai.Items
 		private IEnumerable<IItemComponentHandler> m_onAddComponentsHandlers = null;
 		private IEnumerable<IItemComponentHandler> m_onRemoveComponentsHandlers = null;
 
-		public event Action OnInventoryChanged;
+		public event Action<IItemSlot> OnItemAdded;
+		public event Action<IItemSlot> OnItemRemoved;
 
 		public Inventory(int maxSlotCount, 
 			IEnumerable<IItemComponentHandler> onAddComponentsHandlers,
@@ -38,7 +39,8 @@ namespace Shlashurai.Items
 
 			if (slot == null)
 			{
-				slot = new ItemSlot() {
+				slot = new ItemSlot()
+				{
 					Item = item,
 				};
 
@@ -53,7 +55,7 @@ namespace Shlashurai.Items
 				componentHandler?.Handle(component);
 			}
 
-			OnInventoryChanged?.Invoke();
+			OnItemAdded?.Invoke(slot);
 			return true;
 		}
 
@@ -63,7 +65,14 @@ namespace Shlashurai.Items
 			--slot.Count;
 			if (slot.Count <= 0)
 				m_slots.Remove(slot);
-			OnInventoryChanged?.Invoke();
+
+			foreach (var component in item.Components)
+			{
+				IItemComponentHandler componentHandler = GetHandler(m_onRemoveComponentsHandlers, component);
+				componentHandler?.Handle(component);
+			}
+
+			OnItemRemoved?.Invoke(slot);
 		}
 
 		private IItemComponentHandler GetHandler(IEnumerable<IItemComponentHandler> handlers, IItemComponent component) 
