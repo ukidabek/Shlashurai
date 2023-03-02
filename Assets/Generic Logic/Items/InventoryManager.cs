@@ -12,7 +12,8 @@ namespace Shlashurai.Items
 		[SerializeField] private ItemComponentHandler[] m_onAddComponentsHandlers = null;
 		[SerializeField] private ItemComponentHandler[] m_onRemoveComponentsHandlers = null;
 
-		public event Action OnInventoryChanged;
+		public event Action<IItemSlot> OnItemAdded;
+		public event Action<IItemSlot> OnItemRemoved;
 
 		private void Awake()
 		{
@@ -21,14 +22,18 @@ namespace Shlashurai.Items
 				m_onAddComponentsHandlers,
 				m_onRemoveComponentsHandlers);
 
-			m_inventory.OnInventoryChanged += InvokeOnChangeEvent;
+			m_inventory.OnItemAdded += OnItemAddedCallback;
+			m_inventory.OnItemRemoved += OnItemRemovedCallback;
 		}
 
-		private void InvokeOnChangeEvent() => OnInventoryChanged?.Invoke();
+		private void OnItemRemovedCallback(IItemSlot obj) => OnItemRemoved?.Invoke(obj);
+
+		private void OnItemAddedCallback(IItemSlot obj) => OnItemAdded?.Invoke(obj);
 
 		private void OnDestroy()
 		{
-			m_inventory.OnInventoryChanged -= InvokeOnChangeEvent;
+			m_inventory.OnItemAdded -= OnItemAddedCallback;
+			m_inventory.OnItemRemoved -= OnItemRemovedCallback;
 		}
 
 		public IEnumerable<IItemSlot> Slots => m_inventory.Slots;
