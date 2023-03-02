@@ -10,7 +10,7 @@ namespace Utilities.Pool
 
 		public override void Initialize(T prefab, Transform parent = null, int initialCount = 5)
 		{
-			ValidateIfPoolElementInactive = ValidateIfComponentGameObjectIsActive;
+			ValidateIfPoolElementInactive = ValidateIfComponentGameObjectIsInactive;
 			CreatePoolElement = CreateInstanceFormPrefab;
 			OnPoolElementCreated += DisableGameObject;
 			OnPoolElementSelected += ActivateGameObject;
@@ -18,7 +18,7 @@ namespace Utilities.Pool
 			base.Initialize(prefab, parent, initialCount);
 		}
 
-		private bool ValidateIfComponentGameObjectIsActive(T arg) => arg.gameObject.activeSelf;
+		private bool ValidateIfComponentGameObjectIsInactive(T arg) => !arg.gameObject.activeSelf;
 
 		private void ActivateGameObject(T component)
 		{
