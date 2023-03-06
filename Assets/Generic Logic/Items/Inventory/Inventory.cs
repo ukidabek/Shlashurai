@@ -26,10 +26,10 @@ namespace Shlashurai.Items
 			m_onRemoveComponentsHandlers = onRemoveComponentsHandlers;
 		}
 
-		public bool AddItem(IItem item)
+		public void AddItem(IItem item)
 		{
 			if (m_maxSlotCount >= 0 && m_slots.Count == m_maxSlotCount)
-				return false;
+				return;
 
 			ItemSlot slot = null;
 			if (item.IsStackable)
@@ -56,7 +56,6 @@ namespace Shlashurai.Items
 			}
 
 			OnItemAdded?.Invoke(slot);
-			return true;
 		}
 
 		public void RemoveItem(IItem item)

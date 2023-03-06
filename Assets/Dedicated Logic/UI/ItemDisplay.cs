@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class ItemDescriptionDisplay : MonoBehaviour
+public class ItemDisplay : MonoBehaviour
 {
 	[SerializeField] private ItemComponentDescriptionDisplayHandler[] m_itemComponentDescriptionDisplayHandlers = null;
 
