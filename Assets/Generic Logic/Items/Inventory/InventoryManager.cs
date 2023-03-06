@@ -38,7 +38,7 @@ namespace Shlashurai.Items
 
 		public IEnumerable<IItemSlot> Slots => m_inventory.Slots;
 
-		public bool AddItem(IItem item) => m_inventory.AddItem(item);
+		public void AddItem(IItem item) => m_inventory.AddItem(item);
 
 		public void RemoveItem(IItem item) => m_inventory.RemoveItem(item);
 	}
