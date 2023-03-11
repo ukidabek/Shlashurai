@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d98fc094be8850418a39e0b266a85b0, type: 3}
-  m_Name: OHS06PBR
+  m_Name: Shield05PBR
   m_EditorClassIdentifier: 
-  m_displayName: OHS06PBR
+  m_displayName: Shield05PBR
   m_itemComponents:
-  - {fileID: 11400000, guid: f6bcb0fed1bd1174590594d1b92e2530, type: 2}
-  - {fileID: 11400000, guid: 56e778db6a688d041931eebbe8192bc4, type: 2}
-  - {fileID: 11400000, guid: f85b2b5d1fe13024f9cc0db36e3f2ca5, type: 2}
+  - {fileID: 11400000, guid: 71d348f824b893844a35839cb158cf2e, type: 2}
+  - {fileID: 11400000, guid: 12a717a8edd50fc43b4322f4ca88f12a, type: 2}
+  - {fileID: 11400000, guid: 8de25036f206d0d468a78ecb6ffd796b, type: 2}
   m_isStackable: 0
