@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600a9ef62b0f176419ae11ca94882837, type: 3}
+  m_Name: Shield08PBR_EquipableItemPrefabComponentTemplate
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 5352561008315296864, guid: 573036acf9f1e0c42845dddc25cea245, type: 3}
+  m_equipmentDescriptor:
+  - {fileID: 11400000, guid: 29b5fe82b4a426b41abafb0c0a06c4f3, type: 2}
+  m_modifiers: []
+  m_localPosition: {x: 0, y: 0, z: 0}
+  m_localRotation: {x: 0, y: -90, z: -90}
