@@ -12,13 +12,17 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private Transform m_model = null;
 
 		[SerializeField] private DamageDealingHandler m_damageDealingHandler = new DamageDealingHandler();
+
+		[SerializeField] private float m_damageAmount = 0f;
 		public float DamageAmount
 		{
-			get => m_damageDealingHandler.DamageAmount;
-			set => m_damageDealingHandler.DamageAmount = value;
+			get => m_damageAmount;
+			set => m_damageAmount = value;
 		}
 
 		public override bool PerformingAttack { get; protected set; }
+
+		public WeaponItemComponent WeaponItemComponent { get;  set; }
 
 		public void OnUpdate(float deltaTime, float timeScale)
 		{
@@ -27,8 +31,14 @@ namespace Shlashurai.Player.Logic
 
 			PerformingAttack = m_inputValues.Attack && m_counter <= 0f;
 
-			if (!PerformingAttack)
-				return;
+			if (!PerformingAttack) return;
+
+			var weaponDamage = 0f;
+
+			if (WeaponItemComponent != null)
+				weaponDamage = WeaponItemComponent.GetDamage();
+
+			m_damageDealingHandler.DamageAmount = DamageAmount + weaponDamage;
 
 			m_counter = m_attackInterval;
 			var position = m_model.position;
