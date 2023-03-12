@@ -37,7 +37,6 @@ namespace Shlashurai.Player.Logic
 			set => m_damageSpread = Mathf.Clamp01(value);
 		}
 
-
 		private Collider[] m_colliders = new Collider[20];
 		private Damage m_damage = new Damage();
 

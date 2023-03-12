@@ -29,8 +29,11 @@ namespace Shlashurai.Items
 		}
 
 		public void Equip(IItem equipment, bool overrideEquippedItems = false) => m_equipment.Equip(equipment, overrideEquippedItems);
+
 		public void UnEquip(IItem equipment) => m_equipment.UnEquip(equipment);
+
 		private void InvokeOnItemEquipped(IItem item) => OnItemEquipped?.Invoke(item);
+
 		private void InvokeOnItemUnequipped(IItem item) => OnItemUnequipped?.Invoke(item);
 	}
 }
