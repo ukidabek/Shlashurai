@@ -61,6 +61,9 @@ namespace Shlashurai.Items
 		public void RemoveItem(IItem item)
 		{
 			var slot = m_slots.FirstOrDefault(itemSlot => itemSlot.Item == item);
+
+			if (slot == null) return;
+
 			--slot.Count;
 			if (slot.Count <= 0)
 				m_slots.Remove(slot);
