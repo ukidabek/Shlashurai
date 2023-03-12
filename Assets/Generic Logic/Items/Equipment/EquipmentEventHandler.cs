@@ -24,7 +24,7 @@ namespace Shlashurai.Items
 			m_equipment.OnItemUnequipped -= OnItemUnequipped;
 		}
 
-		protected virtual void OnItemEquipped(IItem item) { }
-		protected virtual void OnItemUnequipped(IItem item) { }
+		protected abstract void OnItemEquipped(IItem item);
+		protected abstract void OnItemUnequipped(IItem item);
 	}
 }
