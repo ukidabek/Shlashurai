@@ -1,5 +1,4 @@
 ﻿using Shlashurai.Items;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemPrefabComponent : IItemComponent, IInitializableItemComponent, IDestroyableItemComponent, IManageableItemComponent
