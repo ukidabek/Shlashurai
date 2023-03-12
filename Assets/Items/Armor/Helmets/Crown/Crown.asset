@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d98fc094be8850418a39e0b266a85b0, type: 3}
-  m_Name: OHS03PBR
+  m_Name: Crown
   m_EditorClassIdentifier: 
-  m_displayName: OHS03PBR
+  m_displayName: Crown
   m_itemComponents:
-  - {fileID: 11400000, guid: fc475764893f8bf4bb3610d4178153e3, type: 2}
-  - {fileID: 11400000, guid: 834878304645a8a4ca40b0914d9ff597, type: 2}
-  - {fileID: 11400000, guid: 38836f885644647428ac8e2560bde6d1, type: 2}
-  - {fileID: 11400000, guid: 5fab5370021b86145812e9def822a07b, type: 2}
+  - {fileID: 11400000, guid: 3792737708e4aea4dbf12d5cea436585, type: 2}
+  - {fileID: 11400000, guid: 273a276d9ca19404b9e7fb3ca2eb332c, type: 2}
+  - {fileID: 11400000, guid: 9b335d221435dad4492e135ef4522cad, type: 2}
   m_isStackable: 0
