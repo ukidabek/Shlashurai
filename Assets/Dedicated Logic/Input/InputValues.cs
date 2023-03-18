@@ -53,5 +53,12 @@ namespace Shlashurai.Player.Input
 			get => m_pause; 
 			set => m_pause = value; 
 		}
+
+		[SerializeField] protected bool m_inventory = false;
+		public bool Inventory 
+		{ 
+			get => m_inventory; 
+			set => m_inventory = value; 
+		}
 	}
 }
