@@ -59,5 +59,12 @@ namespace Utilities.States
 				return;
 			m_stateMachine.EnterState(_stateToEnter);
 		}
+
+		public void GetStateMachineObject()
+		{
+            var root = transform.root.gameObject;
+            var stateMachine = root.GetComponentInChildren<IStateMachine>();
+            _stateMachineInstance = stateMachine as Object;
+		}
 	}
 }
