@@ -7,10 +7,14 @@ public class EquipmentDisplay : Display<EquipmentManagerReferenceHost, Equipment
 {
 	[SerializeField] private EquipmentSlotDisplay[] m_itemDisplays = null;
 
-	protected override void Initialize(EquipmentManager instance)
+	private EquipmentManager m_equipmentManager = null;
+
+	protected override void Initialize(EquipmentManager instance) => m_equipmentManager = instance;
+
+	public void Refresh()
 	{
-		var slots = instance.Slots;
-		foreach (var slot in slots) 
+		var slots = m_equipmentManager.Slots;
+		foreach (var slot in slots)
 		{
 			var display = m_itemDisplays.FirstOrDefault(display => display.Descriptors.Intersect(slot.Descriptors).Any());
 			display?.Initialize(slot);
