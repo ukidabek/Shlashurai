@@ -13,6 +13,7 @@ public abstract class Display<T, T1> : MonoBehaviour where T : ReferenceHost<T1>
 	}
 
 	protected virtual void OnReferenceChanged() => Initialize(m_referenceHost.Instance);
+
 	protected virtual void OnDestroy()
 	{
 		m_referenceHost.OnReferenceChanged -= OnReferenceChanged;
