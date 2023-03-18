@@ -11,12 +11,11 @@ namespace Utilities.States
 		private State m_state = null;
 		private FieldInfo m_stateLogicList = null;
 
+		private BindingFlags m_bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic;
+
 		private void OnEnable()
 		{
 			m_state = target as State;
-			m_stateLogicList = m_state
-				.GetType()
-				.GetField("m_logic", BindingFlags.Instance | BindingFlags.NonPublic);
 		}
 
 		public override void OnInspectorGUI()
@@ -27,7 +26,14 @@ namespace Utilities.States
 				var stateLogic = m_state
 					.GetComponents<IStateLogic>()
 					.OfType<Object>();
-		
+
+				if(m_stateLogicList == null)
+				{
+					m_stateLogicList = target
+						.GetType()
+						.GetField("m_logic", m_bindingFlags);
+				}
+
 				var currentStateLogicSet = (m_stateLogicList
 					.GetValue(m_state) as Object[])
 					.Where(stateLogic => stateLogic != null);
