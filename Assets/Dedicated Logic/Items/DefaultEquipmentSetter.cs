@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class DefaultEquipmentSetter : MonoBehaviour
 {
+	[SerializeField] private Object m_equipmentObject = null;
 	private IEquipment m_equipment = null;
 
 	[SerializeField] private ItemTemplate[] m_defaultItems = null;
 
+	private void Awake()
+	{
+		m_equipment = m_equipmentObject as IEquipment;
+	}
+
 	private void Start()
 	{
-		m_equipment = GetComponent<IEquipment>();
 		if (m_equipment == null) return;
 
 		foreach (var template in m_defaultItems)
