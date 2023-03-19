@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Utilities.ReferenceHost
 {
@@ -10,7 +9,7 @@ namespace Utilities.ReferenceHost
     {
         private enum SetReferenceMode { Awake, Start, LateStart }
         
-        [SerializeField] private Type m_reference = null;
+        [SerializeField] private Type m_reference = default;
         [SerializeField] private ReferenceHostType m_host;
         [SerializeField] private SetReferenceMode m_setMode = SetReferenceMode.Awake;
 
