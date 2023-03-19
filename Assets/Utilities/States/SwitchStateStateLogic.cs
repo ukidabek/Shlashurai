@@ -11,14 +11,13 @@ namespace Utilities.States
 
         [SerializeField] private ConditionMode _mode = ConditionMode.All;
         [SerializeField] private Object _stateMachineInstance = null;
-
         [SerializeField] private State _stateToEnter = null;
-        
         [SerializeField] private Object[] _conditionsObjects = null;
+        [SerializeField] private bool m_returnOnEmpty = false;
+        [SerializeField] private bool m_switchEnabled = true;
 
         private IEnumerable<ISwitchStateCondition> _stateConditions = null;
         private IStateMachine m_stateMachine = null;
-        [SerializeField] private bool m_returnOnEmpty = false;
 
         private bool Condition
         {
@@ -35,12 +34,9 @@ namespace Utilities.States
             }
         }
 
-        private void Awake()
-        {
-            m_stateMachine = _stateMachineInstance as IStateMachine;
-        }
+		private void Awake() => m_stateMachine = _stateMachineInstance as IStateMachine;
 
-        public override void Activate()
+		public override void Activate()
         {
 			if (_stateConditions == null)
 				_stateConditions = _conditionsObjects.OfType<ISwitchStateCondition>();
@@ -48,6 +44,9 @@ namespace Utilities.States
 
         public virtual void OnUpdate(float deltaTime, float timeScale)
 		{
+            if(m_switchEnabled == false) 
+                return;
+
             if (Condition) 
                 Switch();
         }
