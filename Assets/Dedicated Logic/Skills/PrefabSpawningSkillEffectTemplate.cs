@@ -1,4 +1,5 @@
-﻿using Shlashurai.Skill;
+﻿using Logic.SkillEffectsUtilities;
+using Shlashurai.Skill;
 using Shlashurai.Spawn;
 using UnityEngine;
 
@@ -18,13 +19,18 @@ public class PrefabSpawningSkillEffectTemplate : SkillEffectTemplateBase
 
 		public void Affect(SkillCastManager skillCastManager, GameObject target)
 		{
+			var skillManagerGameObject = skillCastManager.gameObject;
+
 			var effect = m_effectSpawnChandler.GetItemInstance();
-			effect.gameObject.layer = skillCastManager.gameObject.layer;
+			effect.gameObject.layer = skillManagerGameObject.layer;
 
 			var effectTransform = effect.transform;
-			Transform skillSpawnTransform = GetTransform(skillCastManager);
+			var skillSpawnTransform = GetTransform(skillCastManager);
 			effectTransform.position = skillSpawnTransform.position;
 			effectTransform.rotation = skillSpawnTransform.rotation;
+
+			var damageDealer = effect.GetComponent<DamageDealer>();
+			damageDealer.SetDamagingObject(skillManagerGameObject);
 
 			effect.gameObject.SetActive(true);
 		}
