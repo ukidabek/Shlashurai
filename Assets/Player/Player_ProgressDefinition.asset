@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed6716831a825f4e868f84afc8c1d18, type: 3}
+  m_Name: Player_ProgressDefinition
+  m_EditorClassIdentifier: 
+  m_levelCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.97912127
+      outSlope: 0.97912127
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.20219785
+      value: 0.19797622
+      inSlope: -0.061097562
+      outSlope: -0.061097562
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15502375
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.503793
+      value: 0.40082338
+      inSlope: 1.3098367
+      outSlope: 1.3098367
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.26296428
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.754559
+      value: 0.8986268
+      inSlope: 0.49427083
+      outSlope: 0.49427083
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05274996
+      outWeight: 0.14102066
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.41302466
+      outSlope: 0.41302466
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
