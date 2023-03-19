@@ -1,22 +1,22 @@
 using Shlashurai.Items;
-using Shlashurai.Player;
 using UnityEngine;
 using Utilities.Pool;
+using Utilities.ReferenceHost;
 
-public class InventoryDisplay : Display<InventoryManagerReferenceHost, InventoryManager>
+public class InventoryDisplay : MonoBehaviour
 {
+	[Inject] private IInventory m_inventory = null;
+	private IItem m_item = null;
+
 	[SerializeField] private InventorySlotDisplay m_inventorySlotPrefab = null;
 	[SerializeField] private Transform m_slotDisplayParent = null;
 	[SerializeField] private ItemDisplay m_itemDescriptionDisplay = null;
 	[SerializeField] private InventoryDisplayButtonHandler[] m_buttonHandlers = null;
 
 	private ComponentPool<InventorySlotDisplay> m_inventorySlotDisplayPool = null;
-	private IInventory m_inventory = null;
-	private IItem m_item = null;
 
-	protected override void OnDestroy()
+	protected void OnDestroy()
 	{
-		base.OnDestroy();
 		if (m_inventory == null) return;
 		m_inventory.OnItemAdded -= OnItemAddedCallback;
 		m_inventory.OnItemRemoved -= OnItemRemovedCallback;
@@ -31,7 +31,7 @@ public class InventoryDisplay : Display<InventoryManagerReferenceHost, Inventory
 			m_itemDescriptionDisplay.ClearHandlers();
 	}
 
-	private void OnInventoryChanged()
+	public void OnInventoryChanged()
 	{
 		foreach (var item in m_inventorySlotDisplayPool.ActiveObject)
 		{
@@ -56,12 +56,11 @@ public class InventoryDisplay : Display<InventoryManagerReferenceHost, Inventory
 		m_itemDescriptionDisplay.Initialize(item);
 	}
 
-	protected override void Initialize(InventoryManager instance)
+	public void Initialize()
 	{
 		if (m_inventorySlotDisplayPool == null)
 			m_inventorySlotDisplayPool = new ComponentPool<InventorySlotDisplay>(m_inventorySlotPrefab, m_slotDisplayParent, 20);
 
-		m_inventory = instance;
 		m_inventory.OnItemAdded += OnItemAddedCallback;
 		m_inventory.OnItemRemoved += OnItemRemovedCallback;
 
