@@ -8,5 +8,4 @@ namespace Shlashurai.Player
 	public class InventoryManagerReferenceHost : ReferenceHost<InventoryManager>
 	{
 	}
-
 }
