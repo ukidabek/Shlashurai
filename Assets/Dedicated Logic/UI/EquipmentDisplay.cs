@@ -1,15 +1,12 @@
 ﻿using Shlashurai.Items;
-using Shlashurai.Player;
 using System.Linq;
 using UnityEngine;
+using Utilities.ReferenceHost;
 
-public class EquipmentDisplay : Display<EquipmentManagerReferenceHost, EquipmentManager>
+public class EquipmentDisplay : MonoBehaviour
 {
 	[SerializeField] private EquipmentSlotDisplay[] m_itemDisplays = null;
-
-	private EquipmentManager m_equipmentManager = null;
-
-	protected override void Initialize(EquipmentManager instance) => m_equipmentManager = instance;
+	[Inject] private IEquipment m_equipmentManager = null;
 
 	public void Refresh()
 	{
