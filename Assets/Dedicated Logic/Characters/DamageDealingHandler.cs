@@ -37,6 +37,13 @@ namespace Shlashurai.Player.Logic
 			set => m_damageSpread = Mathf.Clamp01(value);
 		}
 
+		[SerializeField] private GameObject m_damagingObject = null;
+		public GameObject DmagingObject
+		{
+			get => m_damagingObject;
+			set => m_damagingObject = value;
+		}
+
 		private Collider[] m_colliders = new Collider[20];
 		private Damage m_damage = new Damage();
 
@@ -46,6 +53,7 @@ namespace Shlashurai.Player.Logic
 			if (count <= 0) return;
 
 			m_damage.SetAmount(m_damageAmount);
+			m_damage.SetDamagingObject(m_damagingObject);
 
 			for (var i = 0; i < count; i++)
 			{
