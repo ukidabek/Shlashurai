@@ -137,6 +137,8 @@ GameObject:
   - component: {fileID: 8870102624976888703}
   - component: {fileID: 6422853075250071355}
   - component: {fileID: 5490372675844359766}
+  - component: {fileID: 3110388176902457112}
+  - component: {fileID: 3633596899559178918}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -240,7 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f51338c4b330d241a42bcea491ece65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_referenceHost: {fileID: 11400000, guid: 01c4cb495d1a41347b3807d9e8750d69, type: 2}
   m_inventorySlotPrefab: {fileID: 3434668340173379689}
   m_slotDisplayParent: {fileID: 2941481920911762710}
   m_itemDescriptionDisplay: {fileID: 3504911065744257588}
@@ -328,11 +329,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef652ccf8edd73c4eaf23dcc33084fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_referenceHost: {fileID: 11400000, guid: 9b5c9d23c95a2e5428977a6c4a928a29, type: 2}
   m_itemDisplays:
   - {fileID: 5762138463099577232}
   - {fileID: 1516981588566616552}
   - {fileID: 9133769213366483262}
+--- !u!114 &3110388176902457112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244501729781834484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a55737935f49b46a0199dbd493a811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_injectionObjects:
+  - {fileID: 1959661407442666812}
+  m_reference: {fileID: 11400000, guid: 01c4cb495d1a41347b3807d9e8750d69, type: 2}
+  OnReferenceChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1959661407442666812}
+        m_TargetAssemblyTypeName: InventoryDisplay, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3633596899559178918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244501729781834484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3b7c522b6b9d7419007b8453fa0486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_injectionObjects:
+  - {fileID: 5490372675844359766}
+  m_reference: {fileID: 11400000, guid: 9b5c9d23c95a2e5428977a6c4a928a29, type: 2}
+  OnReferenceChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5490372675844359766}
+        m_TargetAssemblyTypeName: EquipmentDisplay, Assembly-CSharp
+        m_MethodName: Refresh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &533620046786026889
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +525,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
   OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
@@ -1114,7 +1174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000021295675}
+  m_AnchoredPosition: {x: 0, y: -0.0003245345}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4639084841255722356
@@ -4586,7 +4646,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5313349848611267514}
   m_HandleRect: {fileID: 5600957535908529328}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

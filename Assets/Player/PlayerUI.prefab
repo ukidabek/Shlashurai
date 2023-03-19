@@ -1042,6 +1042,10 @@ GameObject:
   - component: {fileID: 3988646626127593778}
   - component: {fileID: 3988646626127593779}
   - component: {fileID: 3988646625696312955}
+  - component: {fileID: 6340019552753119214}
+  - component: {fileID: 5504830646931624467}
+  - component: {fileID: 1041183142516917938}
+  - component: {fileID: 6875643002192341653}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -1148,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9e78b94a886434b8b867d306f679bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_resourceManagerReferenceHost: {fileID: 11400000, guid: 0160048fc517e2f4a85444e039aa3598, type: 2}
+  m_resourceManager: {fileID: 0}
   m_resourceDisplays:
   - m_display: {fileID: 3988646625696312958}
     m_resourceManager: {fileID: 0}
@@ -1156,15 +1160,117 @@ MonoBehaviour:
   - m_display: {fileID: 1882195334}
     m_resourceManager: {fileID: 0}
     m_resourceID: {fileID: 11400000, guid: 669c2b76c8950a84b9cad5e75f86c6ef, type: 2}
-  m_skillCastManagerReferenceHost: {fileID: 11400000, guid: f44e96fa76edec24c930ea1905c72b53, type: 2}
+--- !u!114 &6340019552753119214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988646626127593776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b5d1615b773d2438adaf9c1a6c38cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_skillCastManager: {fileID: 0}
+  m_skillHolder: {fileID: 0}
   m_castSliderDisplay:
     m_display: {fileID: 1454720138}
-  m_skillHolderReferenceHost: {fileID: 11400000, guid: a93b293db0d2e8541bb2dbf5074c302c, type: 2}
   m_skillSlotDisplays:
   - {fileID: 3557278170227369049}
   - {fileID: 3789222570333601448}
   - {fileID: 2177980672964153746}
   - {fileID: 151908106690196592}
+--- !u!114 &5504830646931624467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988646626127593776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2503a72fb15564789f24649ef95c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_injectionObjects:
+  - {fileID: 3988646625696312955}
+  m_reference: {fileID: 11400000, guid: 0160048fc517e2f4a85444e039aa3598, type: 2}
+  OnReferenceChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3988646625696312955}
+        m_TargetAssemblyTypeName: PlayerHUD, Assembly-CSharp
+        m_MethodName: InitializeResourceSliders
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &1041183142516917938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988646626127593776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec29c6c242261e488f5a872bb49b4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_injectionObjects:
+  - {fileID: 6340019552753119214}
+  m_reference: {fileID: 11400000, guid: f44e96fa76edec24c930ea1905c72b53, type: 2}
+  OnReferenceChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6340019552753119214}
+        m_TargetAssemblyTypeName: SkillDisplay, Assembly-CSharp
+        m_MethodName: InitializeCastSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6875643002192341653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988646626127593776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b3bed8d28ae3741962726374cdb979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_injectionObjects:
+  - {fileID: 6340019552753119214}
+  m_reference: {fileID: 11400000, guid: a93b293db0d2e8541bb2dbf5074c302c, type: 2}
+  OnReferenceChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6340019552753119214}
+        m_TargetAssemblyTypeName: SkillDisplay, Assembly-CSharp
+        m_MethodName: InitializeSkillDisplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4770088591630360133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1575,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2710633959280185236, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Name
-      value: Button (2)
+      value: SkillSlot3
       objectReference: {fileID: 0}
     - target: {fileID: 2710633959280185237, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Pivot.x
@@ -1586,7 +1692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2710633959280185236, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Name
-      value: Button (3)
+      value: SkillSlot4
       objectReference: {fileID: 0}
     - target: {fileID: 2710633959280185237, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Pivot.x
@@ -1703,7 +1809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2710633959280185236, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: SkillSlot2
       objectReference: {fileID: 0}
     - target: {fileID: 2710633959280185237, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Pivot.x
@@ -1820,7 +1926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2710633959280185236, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: SkillSlot1
       objectReference: {fileID: 0}
     - target: {fileID: 2710633959280185237, guid: a715bbaa1fc65f44fb6b6911a39875de, type: 3}
       propertyPath: m_Pivot.x
