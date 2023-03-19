@@ -7,6 +7,7 @@ namespace Logic.SkillEffectsUtilities
 	{
 		[SerializeField] private DamageDealingHandler m_handler = new DamageDealingHandler();
 
+		public void SetDamagingObject(GameObject damagingObject) => m_handler.DmagingObject = damagingObject;
 
 		private void OnCollisionEnter(Collision collision)
 		{
