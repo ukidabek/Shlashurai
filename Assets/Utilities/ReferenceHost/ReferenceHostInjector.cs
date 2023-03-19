@@ -1,41 +1,59 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Events;
 using Object = UnityEngine.Object;
 
 namespace Utilities.ReferenceHost
 {
-	public abstract class ReferenceHostInjector<ReferenceHostType, Type> : MonoBehaviour
+	public abstract class ReferenceHostInjector<ReferenceHostType, Type, InjectionType> : MonoBehaviour
 		where ReferenceHostType : ReferenceHost<Type>
 		where Type : Object
 	{
-        [SerializeField] private Object m_injectionObject = null;
+        [SerializeField] private Object[] m_injectionObjects = null;
 		[SerializeField] private ReferenceHostType m_reference = null;
 
-        private FieldInfo m_fieldInfo = null;
-
+        private List<KeyValuePair<Object, FieldInfo>> m_fieldInfo = new List<KeyValuePair<Object, FieldInfo>>();
         private const BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
+
+		public UnityEvent OnReferenceChangedEvent = new UnityEvent();
 
 		private void Awake()
 		{
-            var objectType = m_injectionObject.GetType();
-            var fields = objectType.GetFields(bindingFlags);
-            var type = typeof(Type);
-            m_fieldInfo = fields
-                .Where(field => field.FieldType == type)
-                .FirstOrDefault(field => field.GetCustomAttribute<InjectAttribute>() != null);
+			var type = typeof(InjectionType);
+			foreach (var injectObject in m_injectionObjects)
+            {
+                var objectType = injectObject.GetType();
+                var fields = objectType.GetFields(bindingFlags);
+                var fieldInfo = fields
+                    .Where(field => field.FieldType == type)
+                    .FirstOrDefault(field => field.GetCustomAttribute<InjectAttribute>() != null);
+
+				if (fieldInfo == null) continue;
+
+				m_fieldInfo.Add(new KeyValuePair<Object, FieldInfo>(injectObject, fieldInfo));
+            }
 
 			m_reference.OnReferenceChanged += OnReferenceChanged;
-            if (m_reference.Instance == null) return;
-            OnReferenceChanged();
+			if (m_reference.Instance == null) return;
+			OnReferenceChanged();
 		}
 
 		private void OnReferenceChanged()
 		{
-            if(m_fieldInfo != null)
-                m_fieldInfo.SetValue(m_injectionObject, m_reference.Instance);
-        }
+			var instance = m_reference.Instance;
+			foreach (var keyValuePair in m_fieldInfo)
+				keyValuePair.Value.SetValue(keyValuePair.Key, instance);
+			OnReferenceChangedEvent.Invoke();
+		}
 
 		private void OnDisable() => m_reference.OnReferenceChanged -= OnReferenceChanged;
+	}
+
+	public abstract class ReferenceHostInjector<ReferenceHostType, Type> : ReferenceHostInjector<ReferenceHostType, Type, Type>
+		where ReferenceHostType : ReferenceHost<Type>
+		where Type : Object
+	{
 	}
 }
