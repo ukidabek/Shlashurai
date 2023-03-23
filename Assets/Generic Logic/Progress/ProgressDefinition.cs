@@ -4,6 +4,7 @@ namespace Progress
 {
 	public abstract class ProgressDefinition : ScriptableObject
 	{
-		public abstract int Evaluate(float experience, int currentLevel);
+		public abstract int GetLevelExperienceAmount(int currentLevel);
+		public abstract int Evaluate(int experience, int currentLevel);
 	}
 }
