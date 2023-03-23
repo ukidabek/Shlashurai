@@ -6,14 +6,11 @@ using Weapons;
 public class ExperienceDamageHandler : DamageHandler
 {
 	[SerializeField] private ResourceHandler m_resourceChandler = null;
-	[SerializeField] protected float m_experience = 10f;
+	[SerializeField] protected int m_experience = 10;
 
 	private bool m_experienceGranted = false;
 
-	private void OnEnable()
-	{
-		m_experienceGranted = false;
-	}
+	private void OnEnable() => m_experienceGranted = false;
 
 	public override void OnDamage(IDamage damage)
 	{
