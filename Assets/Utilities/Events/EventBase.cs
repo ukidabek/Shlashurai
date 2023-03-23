@@ -12,7 +12,7 @@ namespace Utilities.Events
         public void Invoke(T context)
         {
             if (m_debugLog) 
-                Debug.Log($"Event {name} was invoked witch context {context.ToString()}");
+                Debug.Log($"Event {name} was invoked witch context {context}");
             
             m_delegate?.Invoke(context);
         }
