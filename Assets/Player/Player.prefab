@@ -2371,7 +2371,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6530669068169052942}
     - targetCorrespondingSourceObject: {fileID: 4473347795659917348, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
-      insertIndex: 3
+      insertIndex: -1
       addedObject: {fileID: 3842133819603762026}
   m_SourcePrefab: {fileID: 100100000, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
 --- !u!114 &244624814905902442 stripped
@@ -2586,9 +2586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac743c551e3f484cbeea87c22160c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_progressDefinition: {fileID: 11400000, guid: 3de9e75b486e48244a3391e60cdd8fc2, type: 2}
   m_experience: 0
   m_level: 0
-  m_progressDefinition: {fileID: 11400000, guid: 3de9e75b486e48244a3391e60cdd8fc2, type: 2}
 --- !u!4 &8426016144193720358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6731116506438028241, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
