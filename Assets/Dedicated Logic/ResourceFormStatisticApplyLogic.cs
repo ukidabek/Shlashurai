@@ -2,17 +2,17 @@
 using Shlashurai.Statistics;
 using UnityEngine;
 
-public class VitalityToHealthApplyLogic : StatisticApplyLogic
+public class ResourceFormStatisticApplyLogic : StatisticApplyLogic
 {
 	[SerializeField] private ResourceManager m_resourceManager = null;
 	[SerializeField] private ResourceID m_resourceID = null;
 
-	[SerializeField] private float m_healthPerVitality = 5; 
+	[SerializeField] private float m_resourceAmountPerStatistionPoint = 5; 
 
 	public override void Apply(Statistic statistic)
 	{
 		var resource = m_resourceManager.GetResource(m_resourceID);
-		resource.MaxValue = m_healthPerVitality * statistic.Value;
+		resource.MaxValue = m_resourceAmountPerStatistionPoint * statistic.Value;
 	}
 
 	[ContextMenu("GetResourceManager")]
