@@ -1,7 +1,9 @@
+using System;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Utilities.States
 {
@@ -34,15 +36,12 @@ namespace Utilities.States
 						.GetField("m_logic", m_bindingFlags);
 				}
 
-				var currentStateLogicSet = (m_stateLogicList
-					.GetValue(m_state) as Object[])
-					.Where(stateLogic => stateLogic != null);
-
+				var stateLogicListObject = m_stateLogicList.GetValue(m_state) as Object[] ?? Array.Empty<Object>();
+				var currentStateLogicSet = stateLogicListObject.Where(stateLogic => stateLogic != null);
 				var exception = stateLogic.Except(currentStateLogicSet);
-
 				var newList = currentStateLogicSet.Concat(exception).OfType<Object>().ToArray();
-				m_stateLogicList.SetValue(m_state, newList);
 
+				m_stateLogicList.SetValue(m_state, newList);
 				EditorUtility.SetDirty(m_state);
 			}
 		}

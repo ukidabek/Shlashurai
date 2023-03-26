@@ -23,11 +23,14 @@ namespace Utilities.States
 		private void Reset()
 		{
 			m_stateMachineObject = GetComponent<IStateMachine>() as Object;
-			m_statesObjects = GetComponentsInChildren<IState>()
-				.Where(state => state.ID != null)
-				.OfType<Object>()
-				.ToArray();
+			GenerateDictionary();
 		}
+
+		public void GenerateDictionary()
+			=> m_statesObjects = GetComponentsInChildren<IState>()
+							.Where(state => state.ID != null)
+							.OfType<Object>()
+							.ToArray();
 
 		public void SetState(IStateID id)
 		{
