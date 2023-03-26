@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5741139287971745180, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: _baseValue
-      value: 15
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7171535645591511078, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: m_model
@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_model
       value: 
       objectReference: {fileID: 5953181943126654438}
+    - target: {fileID: 8072961414435174599, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
+      propertyPath: m_damageDealingHandler.m_damageAmount
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 8124804089357118742, guid: 5e91b6fdf38a32a42869b57ba2109905, type: 3}
       propertyPath: m_initialHealth
       value: 30
