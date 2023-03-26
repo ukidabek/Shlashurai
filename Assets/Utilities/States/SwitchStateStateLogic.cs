@@ -7,7 +7,7 @@ namespace Utilities.States
 {
 	public class SwitchStateStateLogic : StateLogic, IOnUpdateLogic
 	{
-		private enum ConditionMode { All, Any }
+		public enum ConditionMode { All, Any }
 
 		[SerializeField] private ConditionMode _mode = ConditionMode.All;
 		[SerializeField] private Object _stateMachineInstance = null;
