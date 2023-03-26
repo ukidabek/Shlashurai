@@ -30,7 +30,7 @@ public class PrefabSpawningSkillEffectTemplate : SkillEffectTemplateBase
 			effectTransform.rotation = skillSpawnTransform.rotation;
 
 			var damageDealer = effect.GetComponent<DamageDealer>();
-			damageDealer.SetDamagingObject(skillManagerGameObject);
+			damageDealer?.SetDamagingObject(skillManagerGameObject);
 
 			effect.gameObject.SetActive(true);
 		}
