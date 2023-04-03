@@ -3,7 +3,7 @@ using UnityEngine;
 using Utilities.Pool;
 using Utilities.ReferenceHost;
 
-public class InventoryDisplay : MonoBehaviour
+public class InventoryDisplay : MonoBehaviour, IInitializable
 {
 	[Inject] private IInventory m_inventory = null;
 	private IItem m_item = null;

@@ -3,10 +3,12 @@ using System.Linq;
 using UnityEngine;
 using Utilities.ReferenceHost;
 
-public class EquipmentDisplay : MonoBehaviour
+public class EquipmentDisplay : MonoBehaviour, IInitializable
 {
 	[SerializeField] private EquipmentSlotDisplay[] m_itemDisplays = null;
 	[Inject] private IEquipment m_equipmentManager = null;
+
+	public void Initialize() => Refresh();
 
 	public void Refresh()
 	{
