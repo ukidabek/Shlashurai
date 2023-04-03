@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Utilities.ReferenceHost
         private List<KeyValuePair<Object, FieldInfo>> m_fieldInfo = new List<KeyValuePair<Object, FieldInfo>>();
         private const BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
+		[Obsolete("Use IInitializable interface to initialize object on injection")]
 		public UnityEvent OnReferenceChangedEvent = new UnityEvent();
 
 		private void Awake()
@@ -44,7 +46,13 @@ namespace Utilities.ReferenceHost
 		{
 			var instance = m_reference.Instance;
 			foreach (var keyValuePair in m_fieldInfo)
-				keyValuePair.Value.SetValue(keyValuePair.Key, instance);
+			{
+				var fieldInfo = keyValuePair.Value;
+				var injectionObject = keyValuePair.Key;
+				fieldInfo.SetValue(injectionObject, instance);
+				if (injectionObject is IInitializable initializable)
+					initializable.Initialize();
+			}
 			OnReferenceChangedEvent.Invoke();
 		}
 
