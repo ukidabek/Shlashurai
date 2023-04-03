@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 022fa4aed07429a4d9c25911d567476f, type: 3}
-  m_Name: MainGameManager_SwitchStateStateLogicReferenceHost
+  m_Name: MainGameManager_GameWinSwitchStateStateLogicReferenceHost
   m_EditorClassIdentifier: 
