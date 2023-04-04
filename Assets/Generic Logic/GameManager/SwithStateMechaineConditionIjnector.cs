@@ -3,8 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Utilities.States;
 
-
-public class SwathStateConditionInjector : MonoBehaviour, ISwitchStateCondition
+public class CombineSwitchStateConditionInjector : MonoBehaviour, ISwitchStateCondition
 {
 	[SerializeField] private SwitchStateStateLogicReferenceHost[] m_destinationSwitchStateStateLogicReferenceHosts = null;
 	[SerializeField] private Object[] m_objects = null;
