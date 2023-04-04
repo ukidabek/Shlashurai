@@ -779,7 +779,7 @@ MonoBehaviour:
   m_rigidbody: {fileID: 3055578962736059095}
   m_speed: 4
   m_freezeDirections: 0
-  m_slerpOverRange: 1
+  m_slerpOverRange: 0
 --- !u!114 &4693691647611709833
 MonoBehaviour:
   m_ObjectHideFlags: 0
