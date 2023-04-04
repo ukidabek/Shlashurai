@@ -21,11 +21,11 @@ namespace MapGeneration.DungeonGenerator.V3
 			foreach (var room in rooms)
 			{
 				var directions = room.ConnectedRooms.Select(connectedRoom => GetDirection(room, connectedRoom));
-				var selectedPrebasbs = m_roomsPrefabs
+				var selectedPrefasbs = m_roomsPrefabs
 					.Where(roomPrefab => roomPrefab.Directions.Count() == directions.Count() && !roomPrefab.Directions.Except(directions).Any())
 					.OrderBy(roomPrefab => Random.value);
 
-				var count = selectedPrebasbs.Count();
+				var count = selectedPrefasbs.Count();
 				if(count == 0) 
 				{
 					stringBuilder.Clear();
@@ -42,7 +42,7 @@ namespace MapGeneration.DungeonGenerator.V3
 
 				var position = new Vector3(room.Position.y * settings.RoomSize.y, 0, room.Position.x * settings.RoomSize.x);
 
-				var prefab = selectedPrebasbs.First();
+				var prefab = selectedPrefasbs.First();
 				var roomInstance = Instantiate(prefab, position, Quaternion.identity);
 				room.RoomObject = roomInstance.gameObject;
 				roomInstance.transform.SetParent(generator.transform, false);

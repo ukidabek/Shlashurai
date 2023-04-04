@@ -1,22 +1,27 @@
 ﻿using System.Collections;
+using System.Linq;
 using MapGeneration.BaseGenerator;
 using UnityEngine;
 
 namespace MapGeneration.DungeonGenerator.V3
 {
-	public class StartEndRoomSetUpPhase : GenerationPhase
+	public class EndRoomSetUpPhase : GenerationPhase
 	{
-		[SerializeField] private GameObject m_startPosition = null;
+		[SerializeField] private GameObject[] m_endRoomPrefabs = null;
 
 		public override IEnumerator Generate(LevelGenerator generator)
 		{
 			var dungeonMetadata = generator.GetMetaDataObject<DungeonMetadata>();
 			var settings = generator.GetMetaDataObject<GenerationSettings>();
 
-			var room = dungeonMetadata.StartRoom;
+			var endRoom = m_endRoomPrefabs
+				.OrderBy(prefab => Random.Range(float.MinValue, float.MaxValue))
+				.FirstOrDefault();
+
+			var room = dungeonMetadata.EndRoom;
 			var position = new Vector3(room.Position.y * settings.RoomSize.y, 0, room.Position.x * settings.RoomSize.x);
 
-			var instance = Instantiate(m_startPosition, generator.transform, false);
+			var instance = Instantiate(endRoom, generator.transform, false);
 			instance.transform.position = position;
 
 			yield return new PauseYield(generator);
