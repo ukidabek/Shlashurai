@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 2922816641161371803}
   - {fileID: 3864826977028347254}
   - {fileID: 6654714574757253524}
+  - {fileID: 4367315769508020766}
   - {fileID: 2354193259338444883}
   - {fileID: 2665831956330879103}
   _generationData:
@@ -430,6 +431,7 @@ GameObject:
   - component: {fileID: 2922816641161371803}
   - component: {fileID: 3864826977028347254}
   - component: {fileID: 6654714574757253524}
+  - component: {fileID: 4367315769508020766}
   - component: {fileID: 2354193259338444883}
   - component: {fileID: 2665831956330879103}
   m_Layer: 0
@@ -576,6 +578,22 @@ MonoBehaviour:
   _isDone: 0
   _pause: 0
   m_startPosition: {fileID: 8136216603488485504, guid: 2bc19dba434aa7b4dbdcaa030f09bc0d, type: 3}
+--- !u!114 &4367315769508020766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963113814055781519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7934f2c8da48645987e880c5db0ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  _pause: 0
+  m_endRoomPrefabs:
+  - {fileID: 1515432488154256049, guid: ecb617317d67c764d9a139d3907d54e6, type: 3}
 --- !u!114 &2354193259338444883
 MonoBehaviour:
   m_ObjectHideFlags: 0

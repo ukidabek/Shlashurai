@@ -876,7 +876,7 @@ Transform:
   - {fileID: 5082770891580381170}
   - {fileID: 8157071377513487069}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2130823944306415671
 MonoBehaviour:
@@ -1251,6 +1251,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5082770891580381170}
   - component: {fileID: 5478224352895606489}
+  - component: {fileID: 6840714654446610003}
+  - component: {fileID: 7002938713231420383}
+  - component: {fileID: 4033451367054270967}
   m_Layer: 0
   m_Name: GameWin
   m_TagString: Untagged
@@ -1286,4 +1289,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stateID: {fileID: 0}
-  m_logic: []
+  m_logic:
+  - {fileID: 6840714654446610003}
+  - {fileID: 7002938713231420383}
+  - {fileID: 4033451367054270967}
+--- !u!114 &6840714654446610003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005710932238793028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fa36eec2444edaa464220bd76380bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _stateMachineInstance: {fileID: 2130823944306415671}
+  _stateToEnter: {fileID: 6897319939477987698}
+  _conditionsObjects:
+  - {fileID: 7002938713231420383}
+  m_returnOnEmpty: 0
+  m_switchEnabled: 1
+--- !u!114 &7002938713231420383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005710932238793028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b916b8b8b40c904caa54958214b6f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_condition: 0
+  m_delay: 3
+--- !u!114 &4033451367054270967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005710932238793028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07faae285ce5f454a8e4a691cfd5b905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stateDictionaryReferenceHost: {fileID: 11400000, guid: 7c7b23249b0cdec48a75f741e6e1618d, type: 2}
+  m_stateID: {fileID: 11400000, guid: 8b39e26685d2d864f8cc7fe0c82f720f, type: 2}
