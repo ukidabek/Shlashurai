@@ -7,7 +7,7 @@ namespace Shlashurai.Player.Logic
 	public class AttackAnimationHandlingStateLogic : StateLogic, IOnUpdateLogic
 	{
 
-		[SerializeField] AttackStateLogicBase m_attackStateLogic = null;
+		[SerializeField] AttackStateLogic m_attackStateLogic = null;
 		[SerializeField] private Animator m_animatior = null;
 		[SerializeField] private AnimatorParameterDefinition m_attackTriggerParametrDefinition = null;
 
