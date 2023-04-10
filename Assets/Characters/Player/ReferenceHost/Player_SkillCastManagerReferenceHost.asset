@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691bece2946b62340b0acc42574de3f1, type: 3}
-  m_Name: Inventory_Open
+  m_Script: {fileID: 11500000, guid: a9d75cbaf77fe4e4d9ec295fbcfadfd6, type: 3}
+  m_Name: Player_SkillCastManagerReferenceHost
   m_EditorClassIdentifier: 
+  m_instance: {fileID: 0}
