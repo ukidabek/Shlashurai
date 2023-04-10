@@ -26,17 +26,6 @@ namespace Shlashurai.Statistics
 			m_statistics = rootGameObject.GetComponentsInChildren<Statistic>();
 		}
 
-		private string GetID(Statistic statistic)
-		{
-			stringBuilder.Clear();
-			foreach (var id in statistic.ID)
-			{
-				stringBuilder.Append(id.name);
-				stringBuilder.Append("|");
-			}
-			return stringBuilder.ToString();
-		}
-
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
@@ -45,7 +34,7 @@ namespace Shlashurai.Statistics
 				foreach (var statistic in m_statistics) 
 				{
 					EditorGUILayout.BeginHorizontal();
-					var id = GetID(statistic);
+					var id = statistic.GetID();
 					GUILayout.Label(id);
 					if(GUILayout.Button("Apply", GUILayout.Width(45)))
 					{
