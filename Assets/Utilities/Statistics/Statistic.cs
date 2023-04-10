@@ -37,7 +37,9 @@ namespace Shlashurai.Statistics
         private readonly List<IStatisticModifier> _modifiers = new List<IStatisticModifier>();
         private readonly List<IUpdatableStatisticModifier> _updatableModifiers = new List<IUpdatableStatisticModifier>();
 
-		protected virtual void Awake() => ApplyModifiers();
+        protected virtual void Awake() { }
+
+        protected virtual void Start() => ApplyModifiers();
 
 		public void AddModifier(IStatisticModifier modifier)
         {

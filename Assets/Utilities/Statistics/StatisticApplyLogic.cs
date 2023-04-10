@@ -1,28 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Shlashurai.Statistics
 {
 	public abstract class StatisticApplyLogic : MonoBehaviour
 	{
-		[SerializeField] protected Statistic m_statisticToApply = null;
+		protected abstract Statistic[] Statistics { get; }
+		protected IEnumerable<Statistic> ValidStatistics = null;
+
 		public abstract void Apply();
 
-		private void OnEnable()
+		protected virtual void Awake() => ValidStatistics = Statistics.Where(statistic => statistic != null);
+
+		protected virtual void OnEnable()
 		{
-			if (m_statisticToApply == null) return;
-			m_statisticToApply.OnStatisticChanged += Apply;
+			foreach (var statistic in ValidStatistics)
+				statistic.OnStatisticChanged += Apply;
 		}
 
-		private void OnDisable()
+		protected virtual void OnDisable()
 		{
-			if (m_statisticToApply == null) return;
-			m_statisticToApply.OnStatisticChanged -= Apply;
+			foreach (var statistic in ValidStatistics)
+				statistic.OnStatisticChanged -= Apply;
 		}
 
-		private void OnDestroy()
+		protected virtual void OnDestroy()
 		{
-			if (m_statisticToApply == null) return;
-			m_statisticToApply.OnStatisticChanged -= Apply;
+			foreach (var statistic in ValidStatistics)
+				statistic.OnStatisticChanged -= Apply;
 		}
 	}
 }
