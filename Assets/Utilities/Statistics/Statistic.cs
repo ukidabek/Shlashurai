@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,7 +30,7 @@ namespace Shlashurai.Statistics
             protected set => _value = value;
         }
 
-        [SerializeField] private StatisticApplyLogic[] m_statisticApplyLogics = null;
+        public event Action OnStatisticChanged = null;
         
         private readonly List<IStatisticModifier> _modifiers = new List<IStatisticModifier>();
         private readonly List<IUpdatableStatisticModifier> _updatableModifiers = new List<IUpdatableStatisticModifier>();
@@ -64,9 +65,8 @@ namespace Shlashurai.Statistics
             foreach (var statisticModifier in _modifiers)
                 Value = statisticModifier.Apply(Value);
 
-            foreach (var applyer in m_statisticApplyLogics)
-                applyer.Apply(this);
-        }
+            OnStatisticChanged?.Invoke();
+		}
 
         private int CompareModifierOrder(IStatisticModifier x, IStatisticModifier y)
         {
