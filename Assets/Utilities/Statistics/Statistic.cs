@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 
 namespace Shlashurai.Statistics
@@ -80,5 +82,18 @@ namespace Shlashurai.Statistics
             foreach (var updatableStatisticModifier in _updatableModifiers)
                 updatableStatisticModifier.Tick(deltaTime);
         }
-    }
+
+		public string GetID()
+		{
+            var stringBuilder = new StringBuilder();
+            var lastID = ID.LastOrDefault();
+			foreach (var id in ID)
+			{
+				stringBuilder.Append(id.name);
+                if (id == lastID) continue;
+				stringBuilder.Append("|");
+			}
+            return stringBuilder.ToString();
+		}
+	}
 }
