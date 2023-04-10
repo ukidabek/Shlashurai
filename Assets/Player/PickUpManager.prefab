@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3016730286780693037}
   - component: {fileID: 6014940764689773896}
   - component: {fileID: 2147407670}
+  - component: {fileID: 2184729721567547092}
   m_Layer: 6
   m_Name: PickUpManager
   m_TagString: Untagged
@@ -43,9 +44,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2149049906691370948}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3016730286780693037
@@ -63,6 +72,7 @@ MonoBehaviour:
   m_handlers:
   - {fileID: 6014940764689773896}
   - {fileID: 2147407670}
+  - {fileID: 2184729721567547092}
 --- !u!114 &6014940764689773896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,3 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33192e13c5002e4a8be9ae794b873dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2184729721567547092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149049906691370948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560c655658e80354b83d630c424de4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
