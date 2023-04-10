@@ -1,15 +1,14 @@
 using Shlashurai.Player.Input;
 using UnityEngine;
 using Utilities.States;
-using Utilities.Values;
 
 namespace Shlashurai.Player.Logic
 {
-    public class RotateStateLogic : StateLogic, IOnUpdateLogic
+	public class RotateStateLogic : StateLogic, IOnUpdateLogic
     {
         [SerializeField] private Transform m_root = null;
         [SerializeField] private InputValues m_inputValues = null;
-        [SerializeField] private FloatValue m_speed = null;
+        [SerializeField] private float m_speed = 10;
         
         private Vector3 up = Vector3.up;
         private Vector3 direction = Vector3.zero;
