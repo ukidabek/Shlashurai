@@ -5,7 +5,7 @@ namespace Shlashurai.Items
 {
 	public class WeaponEquipmentEventHandler : EquipmentEventHandler
 	{
-		[SerializeField] private PlayerAttackStateLogic[] playerAttackStateLogics = null;
+		[SerializeField] private AttackStateLogic[] playerAttackStateLogics = null;
 		private WeaponItemComponent m_weaponItemComponent;
 
 		protected override void OnItemEquipped(IItem item)
