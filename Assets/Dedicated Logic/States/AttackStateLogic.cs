@@ -29,13 +29,16 @@ namespace Shlashurai.Player.Logic
 			if (!PerformingAttack) return;
 
 			var weaponDamage = 0f;
-
+			var attackInterval = m_attackInterval;
 			if (WeaponItemComponent != null)
+			{
 				weaponDamage = WeaponItemComponent.GetDamage();
+				attackInterval = WeaponItemComponent.AttackInterval;
+			}
 
 			m_damageDealingHandler.DamageAmount = DamageAmount + weaponDamage;
 
-			m_counter = m_attackInterval;
+			m_counter = attackInterval;
 			var position = m_model.position;
 			var forward = m_model.forward;
 			m_damageDealingHandler.DealDamage(position, forward);

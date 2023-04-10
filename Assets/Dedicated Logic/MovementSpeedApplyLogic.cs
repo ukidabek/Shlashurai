@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class MovementSpeedApplyLogic : StatisticApplyLogic
 {
-	[SerializeField] private PlayerMovementStateLogic[] m_playerMovementStateLogics = null;
+	[SerializeField] private Statistic m_movementSpeedStatistic = null;
+	[SerializeField] private PlayerMovementStateLogic m_playerMovementStateLogic = null;
+	protected override Statistic[] Statistics => new[] { m_movementSpeedStatistic };
 
 	public override void Apply()
 	{
-		foreach (var player in m_playerMovementStateLogics)
-			player.Speed = m_statisticToApply.Value;
+		m_playerMovementStateLogic.Speed = m_movementSpeedStatistic.Value;
 	}
 
 	[ContextMenu("GetMovementLogic")]
 	private void GetMovementLogic()
 	{
 		var root = transform.root;
-		m_playerMovementStateLogics = root.GetComponentsInChildren<PlayerMovementStateLogic>();
+		m_playerMovementStateLogic = root.GetComponentInChildren<PlayerMovementStateLogic>();
 	}
 }

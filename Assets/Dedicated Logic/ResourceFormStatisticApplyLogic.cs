@@ -2,23 +2,16 @@
 using Shlashurai.Statistics;
 using UnityEngine;
 
-public class ResourceFormStatisticApplyLogic : StatisticApplyLogic
+public class ResourceFormStatisticApplyLogic : StatisticToResourceApplyLogic
 {
-	[SerializeField] private ResourceManager m_resourceManager = null;
-	[SerializeField] private ResourceID m_resourceID = null;
+	[SerializeField] private Statistic m_statistic = null;
+	[SerializeField] private float m_resourceAmountPerStatisticPoint = 5;
 
-	[SerializeField] private float m_resourceAmountPerStatisticPoint = 5; 
+	protected override Statistic[] Statistics => new[] { m_statistic };
 
 	public override void Apply()
 	{
 		var resource = m_resourceManager.GetResource(m_resourceID);
-		resource.MaxValue = m_resourceAmountPerStatisticPoint * m_statisticToApply.Value;
-	}
-
-	[ContextMenu("GetResourceManager")]
-	private void GetResourceManager()
-	{
-		var root = transform.root;
-		m_resourceManager = root.GetComponent<ResourceManager>();
+		resource.MaxValue = m_resourceAmountPerStatisticPoint * m_statistic.Value;
 	}
 }
