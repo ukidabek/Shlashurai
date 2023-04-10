@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class ArmorApplyLogic : StatisticApplyLogic
 {
-	[SerializeField] private HealthDamageHandler m_damagable = null;
+	[SerializeField] private HealthDamageHandler m_damageable = null;
 
-	public override void Apply(Statistic statistic) => m_damagable.Armor = statistic.Value;
+	public override void Apply() => m_damageable.Armor = m_statisticToApply.Value;
 
-	[ContextMenu("GetDamagable")]
+	[ContextMenu("GetDamageable")]
 	private void GetMovementLogic()
 	{
 		var root = transform.root;
-		m_damagable = root.GetComponent<HealthDamageHandler>();
+		m_damageable = root.GetComponent<HealthDamageHandler>();
 	}
 }
