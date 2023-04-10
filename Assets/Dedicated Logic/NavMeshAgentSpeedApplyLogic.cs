@@ -6,9 +6,9 @@ public class NavMeshAgentSpeedApplyLogic : StatisticApplyLogic
 {
 	[SerializeField] private NavMeshAgent m_navMeshAgent = null;
 
-	public override void Apply(Statistic statistic)
+	public override void Apply()
 	{
-		m_navMeshAgent.speed = statistic.Value;
+		m_navMeshAgent.speed = m_statisticToApply.Value;
 	}
 
 	[ContextMenu("GetMovementLogic")]
