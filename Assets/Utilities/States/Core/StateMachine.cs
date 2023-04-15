@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Utilities.States
 {
-    public class StateMachine : IStateMachine
+	public class StateMachine : IStateMachine
     {
         public event Action OnStateChange; 
         
@@ -11,8 +11,18 @@ namespace Utilities.States
         private readonly IEnumerable<IStateTransitionLogic> _transitions = null;
         public IState CurrentState { get; private set; }
 
-        public StateMachine(IEnumerable<IStateLogicExecutor> stateLogicExecutor, IEnumerable<IStateTransitionLogic> transitions)
+		public string Name { get; private set; }
+
+		public IState PreviousState { get; private set; }
+
+		public StateMachine(IEnumerable<IStateLogicExecutor> stateLogicExecutor, IEnumerable<IStateTransitionLogic> transitions)
+            : this(nameof(StateMachine), stateLogicExecutor, transitions)
+		{
+		}
+
+		public StateMachine(string name, IEnumerable<IStateLogicExecutor> stateLogicExecutor, IEnumerable<IStateTransitionLogic> transitions)
         {
+            Name = name;
             _stateLogicExecutor = stateLogicExecutor;
             _transitions = transitions;
         }
@@ -20,6 +30,8 @@ namespace Utilities.States
         public void EnterState(IState statToEnter)
         {
             if(CurrentState == statToEnter) return;
+
+            PreviousState = CurrentState;
 
             foreach (var transition in _transitions)
             {

@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,7 +9,11 @@ namespace Utilities.States
 	public class SwitchStateStateLogicEditor : Editor
 	{
 		private SwitchStateStateLogic m_switchStateStateLogic = null;
-		FieldInfo m_stateFieldInfo = null;
+		private FieldInfo m_stateFieldInfo = null;
+		private IEnumerable<IStateMachine> m_stateMachines = null;
+		private bool m_showStateMachines = false;
+
+		private SerializedProperty m_stateMachineSerializedProperty = null;
 
 		private void OnEnable()
 		{
@@ -16,6 +21,8 @@ namespace Utilities.States
 			m_stateFieldInfo = m_switchStateStateLogic
 				.GetType()
 				.GetField("_stateToEnter", BindingFlags.Instance | BindingFlags.NonPublic);
+			m_stateMachines = m_switchStateStateLogic.GetComponentsFormRoot<IStateMachine>();
+			m_stateMachineSerializedProperty = serializedObject.FindProperty("_stateMachineInstance");
 		}
 
 		public override void OnInspectorGUI()
@@ -30,11 +37,14 @@ namespace Utilities.States
 			}
 
 			base.OnInspectorGUI();
-			if (GUILayout.Button("Get StateMachine"))
+
+			var stateMachine = m_stateMachines.StateMachineSelector(ref m_showStateMachines);
+			if(stateMachine != null && stateMachine is Object stateMachineObject) 
 			{
-				m_switchStateStateLogic.GetStateMachineObject();
-				EditorUtility.SetDirty(target);
+				m_stateMachineSerializedProperty.objectReferenceValue = stateMachineObject;
+				serializedObject.ApplyModifiedProperties();
 			}
+
 			if (GUILayout.Button("Get Conditions"))
 			{
 				m_switchStateStateLogic.GetConditions();
