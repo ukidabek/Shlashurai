@@ -3,7 +3,7 @@
 namespace Utilities.Events
 {
 	[CreateAssetMenu(fileName = "IntEvent.asset", menuName = "Events/IntEvent")]
-	public class IntEvent : EventBase<int>
+	public class IntEvent : Event<int>
 	{
 	}
 }

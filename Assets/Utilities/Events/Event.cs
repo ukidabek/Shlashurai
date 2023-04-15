@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace Utilities.Events
 {
-    public abstract class EventBase<T> : ScriptableObject
+	public abstract class Event<T> : ScriptableObject
     {
         [SerializeField] private bool m_debugLog = false;
         
         private event Action<T> m_delegate = null;
 
-        public void Invoke(T context)
+        public void Invoke(T context = default)
         {
             if (m_debugLog) 
                 Debug.Log($"Event {name} was invoked witch context {context}");
