@@ -5,12 +5,16 @@ namespace Utilities.States
 {
     public class StateMachineManager : MonoBehaviour, IStateMachine
     {
+		public string Name => name;
+
         [SerializeField] private State m_currentState = null;
         public IState CurrentState => m_currentState;
 
-        [SerializeField] private Object[] m_logicExecutor;
-        private StateMachine m_stateMachine = null;
+		public IState PreviousState => m_stateMachine.PreviousState;
 
+
+		[SerializeField] private Object[] m_logicExecutor;
+        private StateMachine m_stateMachine = null;
 
         [SerializeField] private Object[] m_stateTransitions = null;
 
@@ -19,6 +23,7 @@ namespace Utilities.States
         private void Awake()
 		{
 			m_stateMachine = new StateMachine(
+							name,
 							m_logicExecutor.OfType<IStateLogicExecutor>(),
 							m_stateTransitions.OfType<IStateTransitionLogic>()); 
 			m_stateMachine.OnStateChange += OnStateChange;
