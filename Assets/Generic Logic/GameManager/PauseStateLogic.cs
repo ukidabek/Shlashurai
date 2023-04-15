@@ -6,16 +6,11 @@ public class PauseStateLogic : StateLogic, ISwitchStateCondition
 {
 	[SerializeField] private InputValues m_inputValues = null;
 
-	public bool Condition
+	public bool Condition => m_inputValues.Pause;
+
+	public override void Deactivate()
 	{
-		get
-		{
-			if(m_inputValues.Pause)
-			{
-				m_inputValues.Pause = false;
-				return true;
-			}
-			return false;
-		}
+		base.Deactivate();
+		m_inputValues.Pause = false;
 	}
 }
