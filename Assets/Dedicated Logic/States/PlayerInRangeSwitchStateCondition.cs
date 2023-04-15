@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.Enemy.Logic
 {
-    public class PlayerInRangeSwitchStateCondition : SwitchStateConditionBase
+	public class PlayerInRangeSwitchStateCondition : SwitchStateConditionBase
     {
         [SerializeField] private Transform m_root = null;
         [SerializeField] public TransformReferenceHost m_playerTransform = null;
