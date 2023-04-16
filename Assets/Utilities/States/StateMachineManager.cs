@@ -5,27 +5,27 @@ namespace Utilities.States
 {
     public class StateMachineManager : MonoBehaviour, IStateMachine
     {
+        [SerializeField] private State m_currentState = null;
+		[SerializeField] private Object[] m_logicExecutor;
+        [SerializeField] private Object[] m_stateTransitions = null;
+		[SerializeField] private StateSetter m_defaultStateSetter = null;
+		[SerializeField] private Object[] m_statePreProcessors = null;
+
 		public string Name => name;
 
-        [SerializeField] private State m_currentState = null;
         public IState CurrentState => m_currentState;
 
 		public IState PreviousState => m_stateMachine.PreviousState;
 
-
-		[SerializeField] private Object[] m_logicExecutor;
         private StateMachine m_stateMachine = null;
-
-        [SerializeField] private Object[] m_stateTransitions = null;
-
-		[SerializeField] private StateSetter m_defaultStateSetter = null;
 
         private void Awake()
 		{
 			m_stateMachine = new StateMachine(
 							name,
 							m_logicExecutor.OfType<IStateLogicExecutor>(),
-							m_stateTransitions.OfType<IStateTransitionLogic>()); 
+							m_stateTransitions.OfType<IStateTransitionLogic>(),
+							m_statePreProcessors.OfType<IStatePreProcessor>()); 
 			m_stateMachine.OnStateChange += OnStateChange;
 		}
 

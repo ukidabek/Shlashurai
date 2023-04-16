@@ -6,20 +6,19 @@ namespace Utilities.States
 {
 	public class SubStateMachine : StateLogic, IStateMachine
 	{
-		public string Name => name;
-
 		[SerializeField] private State _currentState = null;
+		[SerializeField] private Object[] m_stateLogicExecutorsObjects = null;
+		[SerializeField] private Object[] m_stateTransitionObject;
+		[SerializeField] private Object[] m_statePreProcessors = null;
+		[SerializeField] private StateSetter m_defaultStateSetter = null;
+
+		public string Name => name;
 		public IState CurrentState => _currentState;
 		public IState PreviousState => m_stateMachine.PreviousState;
 
-		[SerializeField] private Object[] m_stateLogicExecutorsObjects = null;
-		[SerializeField] private Object[] m_stateTransitionObject;
-
-		private StateMachine m_stateMachine;
-
 		private IEnumerable<IStateLogicExecutor> m_stateLogicExecutors = null;
 
-		[SerializeField] private StateSetter m_defaultStateSetter = null;
+		private StateMachine m_stateMachine;
 
 		private void CreateStateMachine()
 		{
@@ -30,7 +29,8 @@ namespace Utilities.States
 				m_stateMachine = new StateMachine(
 					$"{name}{nameof(SubStateMachine)}",
 					m_stateLogicExecutors,
-					m_stateTransitionObject.OfType<IStateTransitionLogic>());
+					m_stateTransitionObject.OfType<IStateTransitionLogic>(),
+					m_statePreProcessors.OfType<IStatePreProcessor>());
 
 				m_stateMachine.OnStateChange += StateMachineOnOnStateChange;
 			}
