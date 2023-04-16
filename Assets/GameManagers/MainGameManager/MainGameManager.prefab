@@ -166,6 +166,7 @@ MonoBehaviour:
   m_stateLogicExecutorsObjects:
   - {fileID: 1304540710}
   m_stateTransitionObject: []
+  m_statePreProcessors: []
   m_defaultStateSetter: {fileID: 7235027028772129929}
 --- !u!114 &1304540710
 MonoBehaviour:
@@ -850,6 +851,7 @@ MonoBehaviour:
   - {fileID: 7287675633480904382}
   m_stateTransitions: []
   m_defaultStateSetter: {fileID: 2130823944306415670}
+  m_statePreProcessors: []
 --- !u!114 &2130823944306415670
 MonoBehaviour:
   m_ObjectHideFlags: 0
