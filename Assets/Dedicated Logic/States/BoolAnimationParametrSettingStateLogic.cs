@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using Utilities.General;
+using Utilities.ReferenceHost;
 using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
 	public class BoolAnimationParametrSettingStateLogic : StateLogic
 	{
-        [SerializeField] private Animator m_animator = null;
+        [SerializeField, Inject] private Animator m_animator = null;
         [SerializeField] private AnimatorParameterDefinition m_animatorParameterDefinition = null;
 
         [SerializeField] protected bool m_onActivateState = true;

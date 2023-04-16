@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
+using Utilities.ReferenceHost;
 using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
 	public class PlayerIdleState : StateLogic
 	{
-		[SerializeField] private Transform m_root = null;
-		[SerializeField] private Rigidbody m_rigidbody = null;
+		[SerializeField, Inject("Root")] private Transform m_root = null;
+		[SerializeField, Inject] private Rigidbody m_rigidbody = null;
 
 		public override void Activate()
 		{
