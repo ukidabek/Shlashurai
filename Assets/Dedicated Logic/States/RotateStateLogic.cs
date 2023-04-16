@@ -1,12 +1,13 @@
 using Shlashurai.Player.Input;
 using UnityEngine;
+using Utilities.ReferenceHost;
 using Utilities.States;
 
 namespace Shlashurai.Player.Logic
 {
 	public class RotateStateLogic : StateLogic, IOnUpdateLogic
     {
-        [SerializeField] private Transform m_root = null;
+        [SerializeField, Inject("Model")] private Transform m_root = null;
         [SerializeField] private InputValues m_inputValues = null;
         [SerializeField] private float m_speed = 10;
         

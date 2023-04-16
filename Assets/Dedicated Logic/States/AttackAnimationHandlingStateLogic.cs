@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Utilities.General;
+using Utilities.ReferenceHost;
 using Utilities.States;
 
 namespace Shlashurai.Player.Logic
@@ -8,7 +9,7 @@ namespace Shlashurai.Player.Logic
 	{
 
 		[SerializeField] AttackStateLogic m_attackStateLogic = null;
-		[SerializeField] private Animator m_animatior = null;
+		[SerializeField, Inject] private Animator m_animatior = null;
 		[SerializeField] private AnimatorParameterDefinition m_attackTriggerParametrDefinition = null;
 
 		public void OnUpdate(float deltaTime, float timeScale)

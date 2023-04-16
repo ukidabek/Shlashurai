@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utilities.ReferenceHost;
 using Utilities.States;
 
 namespace Shlashurai.Player.Logic
@@ -8,7 +9,7 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] protected DamageDealingHandler m_damageDealingHandler = new DamageDealingHandler();
 		[SerializeField] private float m_attackInterval = 0.3f;
 		[SerializeField] private float m_counter = 0f;
-		[SerializeField] private Transform m_model = null;		
+		[SerializeField, Inject("Model")] protected Transform m_model = null;		
 		[SerializeField] protected float m_damageAmount = 10f;
 		public float DamageAmount
 		{
