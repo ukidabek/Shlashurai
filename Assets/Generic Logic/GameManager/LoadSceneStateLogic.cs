@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utilities.States;
@@ -23,8 +24,17 @@ public class LoadSceneStateLogic : StateLogic, ISwitchStateCondition
 	{
 #if UNITY_EDITOR
 		if(scentToLoad == null) return;
-		var scene = SceneManager.GetSceneByName(scentToLoad.name);
-		m_sceneIndex = scene.buildIndex;
+		var length = UnityEditor.EditorBuildSettings.scenes.Length;
+		for (int i = 0; i < length; i++)
+		{
+			var editorScene = UnityEditor.EditorBuildSettings.scenes[i];
+			var path = UnityEditor.AssetDatabase.GetAssetPath(scentToLoad);
+			if (editorScene.path == path)
+			{
+				m_sceneIndex = i;
+				break;
+			}
+		}
 #endif
 	}
 }
