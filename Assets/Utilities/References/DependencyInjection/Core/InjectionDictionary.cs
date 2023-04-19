@@ -10,6 +10,7 @@ namespace Utilities.ReferenceHost
 	{
 		[SerializeField] private List<InjectDefinition> m_injectDefinitions = new List<InjectDefinition>();
 		public List<InjectDefinition> InjectDefinitions => m_injectDefinitions;
+
 		public void OnAfterDeserialize()
 		{
 			this.Clear();
