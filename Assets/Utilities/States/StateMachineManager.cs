@@ -9,7 +9,7 @@ namespace Utilities.States
 		[SerializeField] private Object[] m_logicExecutor;
         [SerializeField] private Object[] m_stateTransitions = null;
 		[SerializeField] private StateSetter m_defaultStateSetter = null;
-		[SerializeField] private Object[] m_statePreProcessors = null;
+		[SerializeField] private Object[] m_stateProcessors = null;
 
 		public string Name => name;
 
@@ -25,7 +25,8 @@ namespace Utilities.States
 							name,
 							m_logicExecutor.OfType<IStateLogicExecutor>(),
 							m_stateTransitions.OfType<IStateTransitionLogic>(),
-							m_statePreProcessors.OfType<IStatePreProcessor>()); 
+							m_stateProcessors.OfType<IStatePreProcessor>(),
+							m_stateProcessors.OfType<IStatePostProcessor>()); 
 			m_stateMachine.OnStateChange += OnStateChange;
 		}
 
