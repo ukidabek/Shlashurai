@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Shlashurai.Items
@@ -35,5 +36,17 @@ namespace Shlashurai.Items
 		private void InvokeOnItemEquipped(IItem item) => OnItemEquipped?.Invoke(item);
 
 		private void InvokeOnItemUnequipped(IItem item) => OnItemUnequipped?.Invoke(item);
+
+		public void SetTransformsForSlots(IEnumerable<SlotParentDefinition> m_slotParentDefinitions)
+		{
+			foreach (var item in m_slotParentDefinitions)
+			{
+				var descriptors = item.Descriptors;
+				var descriptorsCount = descriptors.Count();
+				var slot = m_slots.FirstOrDefault(slot => slot.Descriptors.Intersect(descriptors).Count() == descriptorsCount);
+				if (slot == null) continue;
+                slot.SlotParent = item.transform;
+			}
+		}
 	}
 }
