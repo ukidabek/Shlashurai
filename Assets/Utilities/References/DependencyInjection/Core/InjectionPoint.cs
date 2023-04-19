@@ -13,12 +13,11 @@ namespace Utilities.ReferenceHost
 		[SerializeField] private string m_fieldName = string.Empty;
 		[SerializeField] private string m_injectionID = string.Empty;
 		public string InjectionID => m_injectionID;
-
 		private string m_id = string.Empty;
 		public string ID => m_id;
-
 		public string FieldTypeName => m_fieldInfo.FieldType.Name;
 
+		protected IDynamicInjector m_injector = null;
 		private FieldInfo m_fieldInfo = null;
 		private const BindingFlags Binding_Flags = BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -40,22 +39,33 @@ namespace Utilities.ReferenceHost
 
 		public void Inject(IDictionary<string, Object> dictionary)
 		{
+			if(m_injector != null)
+			{
+				m_injector.Inject -= Inject;
+				m_injector = null;
+			}
+
 			if (dictionary.TryGetValue(m_id, out var instance))
-				m_fieldInfo.SetValue(m_injectDestination, instance);
+			{
+				if (instance is IDynamicInjector injector)
+				{
+					m_injector = injector;
+					m_injector.Inject += Inject;
+					Inject(m_injector.ObjectToInject);
+				}
+				else
+					Inject(instance);
+			}
 		}
 
-		public void Clear()
-		{
-			m_fieldInfo.SetValue(m_injectDestination, null);
-		}
+		private void Inject(Object instance) => m_fieldInfo.SetValue(m_injectDestination, instance);
 
-		public void OnBeforeSerialize() => Initialize();
+		public void Clear() => m_fieldInfo.SetValue(m_injectDestination, null);
+
+		public void OnBeforeSerialize() { }
 
 		public void OnAfterDeserialize() => Initialize();
 
-		public static implicit operator InjectDefinition(InjectionPoint point) 
-		{
-			return new InjectDefinition(point.ID, point.FieldTypeName);
-		}
+		public static implicit operator InjectDefinition(InjectionPoint point) => new InjectDefinition(point.ID, point.FieldTypeName, true);
 	}
 }

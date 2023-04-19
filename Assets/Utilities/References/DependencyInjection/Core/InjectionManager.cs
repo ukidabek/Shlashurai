@@ -15,19 +15,25 @@ namespace Utilities.ReferenceHost
 		{
 			var rootGameObject = transform.root.gameObject;
 			var injectCollections = rootGameObject.GetComponentsInChildren<InjectionPointCollection>();
-			var injectionDefinitions = m_injectionDefinitionDictionary.InjectDefinitions;
-			//injectionDefinitions.Clear();
+			var baseInjectionDefinitionsList = m_injectionDefinitionDictionary
+				.InjectDefinitions
+				.Where(injector => injector.Lock)
+				.ToList();
 
 			foreach (var injectCollection in injectCollections)
 			{
 				var injectionPoints = injectCollection.InjectionPoints;
 				foreach (var injectionPoint in injectionPoints)
 				{
-					var definition = injectionDefinitions.FirstOrDefault(def => def.IsEqual(injectionPoint));
+					var definition = baseInjectionDefinitionsList.FirstOrDefault(def => def.IsEqual(injectionPoint));
 					if (definition != null) continue;
-					injectionDefinitions.Add(injectionPoint);
+					baseInjectionDefinitionsList.Add(injectionPoint);
 				}
 			}
+
+			var InjectDefinitions = m_injectionDefinitionDictionary.InjectDefinitions;
+			InjectDefinitions.Clear();
+			InjectDefinitions.AddRange(baseInjectionDefinitionsList);
 		}
 	}
 }
