@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Shlashurai.Items
 {
 	public class EquipmentSlot : MonoBehaviour, IEquipmentSlot
 	{
-		[SerializeField] private EquipmentDescriptor[] m_descriptors = null;
+		[SerializeField] private Object[] m_descriptors = null;
+		public IEnumerable<IEquipmentDescriptor> Descriptors => m_descriptors.OfType<IEquipmentDescriptor>();
+		
 		[SerializeField] private Transform m_slotParent = null;
-		public IEnumerable<IEquipmentDescriptor> Descriptors => m_descriptors;
-
-		private IItem m_item = null;
+		public Transform SlotParent
+		{
+			get => m_slotParent;
+			set => m_slotParent = value;
+		}
 
 		public event Action OnItemChanged;
 
+		private IItem m_item = null;
 		public IItem Item => m_item;
 
 		public bool CanEquip(IItem item)
