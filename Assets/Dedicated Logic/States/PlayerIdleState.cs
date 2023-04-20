@@ -2,7 +2,7 @@
 using Utilities.ReferenceHost;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class PlayerIdleState : StateLogic
 	{

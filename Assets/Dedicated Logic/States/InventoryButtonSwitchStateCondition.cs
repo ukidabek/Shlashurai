@@ -1,8 +1,8 @@
-﻿using Shlashurai.Player.Input;
+﻿using Shlashurai.Input;
 using UnityEngine;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class InventoryButtonSwitchStateCondition : StateLogic, ISwitchStateCondition
 	{
@@ -11,7 +11,7 @@ namespace Shlashurai.Player.Logic
 		{
 			get
 			{
-				if(m_toggle == m_inputValues.Inventory)
+				if (m_toggle == m_inputValues.Inventory)
 					m_toggle = true;
 				return m_toggle && m_inputValues.Inventory;
 			}

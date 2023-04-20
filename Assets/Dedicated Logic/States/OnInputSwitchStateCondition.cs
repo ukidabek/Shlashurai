@@ -1,20 +1,20 @@
-using Shlashurai.Player.Input;
+using Shlashurai.Input;
 using UnityEngine;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
-    public abstract class OnInputSwitchStateCondition : SwitchStateConditionBase
-    {
-        [SerializeField] protected InputValues m_values = null;
-        [SerializeField] protected bool m_inputStatus = false;
+	public abstract class OnInputSwitchStateCondition : SwitchStateConditionBase
+	{
+		[SerializeField] protected InputValues m_values = null;
+		[SerializeField] protected bool m_inputStatus = false;
 
-        public override void Deactivate()
-        {
-            base.Deactivate();
-            Reset();
-        }
+		public override void Deactivate()
+		{
+			base.Deactivate();
+			Reset();
+		}
 
-        protected virtual void Reset() { }
-    }
+		protected virtual void Reset() { }
+	}
 }

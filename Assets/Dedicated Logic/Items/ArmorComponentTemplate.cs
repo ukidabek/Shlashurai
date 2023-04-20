@@ -1,10 +1,12 @@
-﻿using Shlashurai.Items;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "ArmorComponentTemplate", menuName = "Items/Components/ArmorComponentTemplate")]
-public class ArmorComponentTemplate : ItemComponentTemplate
+namespace Shlashurai.Items
 {
-	[SerializeField] private float m_armorValue = 0f;
+	[CreateAssetMenu(fileName = "ArmorComponentTemplate", menuName = "Items/Components/ArmorComponentTemplate")]
+	public class ArmorComponentTemplate : ItemComponentTemplate
+	{
+		[SerializeField] private float m_armorValue = 0f;
 
-	public override IItemComponent Create() => new ArmorItemComponent(m_armorValue);
+		public override IItemComponent Create() => new ArmorItemComponent(m_armorValue);
+	}
 }

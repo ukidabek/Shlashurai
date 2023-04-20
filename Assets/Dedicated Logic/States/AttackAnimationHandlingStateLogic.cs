@@ -3,8 +3,8 @@ using Utilities.General;
 using Utilities.ReferenceHost;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
-{	
+namespace Shlashurai.States
+{
 	public class AttackAnimationHandlingStateLogic : StateLogic, IOnUpdateLogic
 	{
 
@@ -14,7 +14,7 @@ namespace Shlashurai.Player.Logic
 
 		public void OnUpdate(float deltaTime, float timeScale)
 		{
-			if(m_attackStateLogic.PerformingAttack == false) 
+			if (m_attackStateLogic.PerformingAttack == false)
 				return;
 
 			m_attackTriggerParametrDefinition.SetTrigger(m_animatior);

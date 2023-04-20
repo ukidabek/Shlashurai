@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentSlotDisplay : MonoBehaviour
+namespace Shlashurai.UI
 {
-	[SerializeField] private ItemDisplay m_itemDisplay;
-
-	[SerializeField] private EquipmentDescriptor[] m_descriptors = null;
-
-	private IEquipmentSlot m_slot = null;
-
-	public IEnumerable<IEquipmentDescriptor> Descriptors => m_descriptors;
-
-	public void Initialize(IEquipmentSlot slot)
+	public class EquipmentSlotDisplay : MonoBehaviour
 	{
-		if(m_slot != null)
-			m_slot.OnItemChanged -= ManageDisplay;
+		[SerializeField] private ItemDisplay m_itemDisplay;
 
-		m_slot = slot;
+		[SerializeField] private EquipmentDescriptor[] m_descriptors = null;
 
-		m_slot.OnItemChanged += ManageDisplay;
-		if (m_slot.Item != null)
-			ManageDisplay();
-	}
+		private IEquipmentSlot m_slot = null;
 
-	private void ManageDisplay()
-	{
-		m_itemDisplay.Initialize(m_slot.Item);
+		public IEnumerable<IEquipmentDescriptor> Descriptors => m_descriptors;
+
+		public void Initialize(IEquipmentSlot slot)
+		{
+			if (m_slot != null)
+				m_slot.OnItemChanged -= ManageDisplay;
+
+			m_slot = slot;
+
+			m_slot.OnItemChanged += ManageDisplay;
+			if (m_slot.Item != null)
+				ManageDisplay();
+		}
+
+		private void ManageDisplay()
+		{
+			m_itemDisplay.Initialize(m_slot.Item);
+		}
 	}
 }

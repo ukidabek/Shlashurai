@@ -2,15 +2,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemImageComponentItemDescriptionDisplayHandler : ItemComponentDescriptionDisplayHandler<ItemImageComponent>
+namespace Shlashurai.UI
 {
-	[SerializeField] private Image m_image = null;
-
-	public override void Clear() => m_image.sprite = null;
-
-	public override void Handle(IItemComponent component)
+	public class ItemImageComponentItemDescriptionDisplayHandler : ItemComponentDescriptionDisplayHandler<ItemImageComponent>
 	{
-		var imageComponent = Cast(component);
-		m_image.sprite = imageComponent.ItemImage;
+		[SerializeField] private Image m_image = null;
+
+		public override void Clear() => m_image.sprite = null;
+
+		public override void Handle(IItemComponent component)
+		{
+			var imageComponent = Cast(component);
+			m_image.sprite = imageComponent.ItemImage;
+		}
 	}
 }

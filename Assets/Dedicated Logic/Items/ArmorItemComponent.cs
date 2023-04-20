@@ -1,11 +1,12 @@
-﻿using Shlashurai.Items;
-
-public class ArmorItemComponent : IItemComponent, IArmor
+﻿namespace Shlashurai.Items
 {
-	public float Value {get; private set;}
-
-	public ArmorItemComponent(float value)
+	public class ArmorItemComponent : IItemComponent, IArmor
 	{
-		Value = value;
+		public float Value { get; private set; }
+
+		public ArmorItemComponent(float value)
+		{
+			Value = value;
+		}
 	}
 }

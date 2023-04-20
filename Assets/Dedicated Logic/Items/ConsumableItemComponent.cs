@@ -1,16 +1,18 @@
-﻿using Shlashurai.Items;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Utilities.Consumable;
 
-public class ConsumableItemComponent : IItemComponent, IConsumable
+namespace Shlashurai.Items
 {
-	public IEnumerable<IConsumableEffect> Effects { get; }
-
-	public bool Instant { get; private set; }
-
-	public ConsumableItemComponent(IEnumerable<IConsumableEffect> effects, bool instant)
+	public class ConsumableItemComponent : IItemComponent, IConsumable
 	{
-		Effects = effects;
-		Instant = instant;
+		public IEnumerable<IConsumableEffect> Effects { get; }
+
+		public bool Instant { get; private set; }
+
+		public ConsumableItemComponent(IEnumerable<IConsumableEffect> effects, bool instant)
+		{
+			Effects = effects;
+			Instant = instant;
+		}
 	}
 }

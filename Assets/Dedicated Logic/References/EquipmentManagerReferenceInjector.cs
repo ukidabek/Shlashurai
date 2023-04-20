@@ -1,7 +1,7 @@
 ﻿using Shlashurai.Items;
 using Utilities.ReferenceHost;
 
-namespace Shlashurai.Player
+namespace Shlashurai.References
 {
 	public class EquipmentManagerReferenceInjector : ReferenceHostInjector<EquipmentManagerReferenceHost, EquipmentManager, IEquipment>
 	{

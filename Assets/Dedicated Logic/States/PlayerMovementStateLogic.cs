@@ -1,9 +1,9 @@
-﻿using Shlashurai.Player.Input;
+﻿using Shlashurai.Input;
 using UnityEngine;
 using Utilities.ReferenceHost;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class PlayerMovementStateLogic : StateLogic, IOnUpdateLogic, IOnFixUpdateLogic
 	{
@@ -12,19 +12,19 @@ namespace Shlashurai.Player.Logic
 		[SerializeField] private InputValues m_inputValues = null;
 		[SerializeField, Inject] private Rigidbody m_rigidbody = null;
 		[SerializeField] private float m_speed = 4;
-        public float Speed 
-		{ 
-			get => m_speed; 
-			set => m_speed = value; 
+		public float Speed
+		{
+			get => m_speed;
+			set => m_speed = value;
 		}
 
-        [SerializeField] private bool m_freezeDirections = false;
+		[SerializeField] private bool m_freezeDirections = false;
 		[SerializeField, Range(0, 1f)] float m_slerpOverRange = 1f;
 
-		private Vector3 m_frizzedForwardDirection, 
-			m_frizzedRightDirection, 
-			m_input, 
-			m_normalInput, 
+		private Vector3 m_frizzedForwardDirection,
+			m_frizzedRightDirection,
+			m_input,
+			m_normalInput,
 			m_reflectedInput;
 
 		public override void Activate()

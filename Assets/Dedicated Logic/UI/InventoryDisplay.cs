@@ -3,70 +3,73 @@ using UnityEngine;
 using Utilities.Pool;
 using Utilities.ReferenceHost;
 
-public class InventoryDisplay : MonoBehaviour, IInitializable
+namespace Shlashurai.UI
 {
-	[Inject] private IInventory m_inventory = null;
-	private IItem m_item = null;
-
-	[SerializeField] private InventorySlotDisplay m_inventorySlotPrefab = null;
-	[SerializeField] private Transform m_slotDisplayParent = null;
-	[SerializeField] private ItemDisplay m_itemDescriptionDisplay = null;
-	[SerializeField] private InventoryDisplayButtonHandler[] m_buttonHandlers = null;
-
-	private ComponentPool<InventorySlotDisplay> m_inventorySlotDisplayPool = null;
-
-	protected void OnDestroy()
+	public class InventoryDisplay : MonoBehaviour, IInitializable
 	{
-		if (m_inventory == null) return;
-		m_inventory.OnItemAdded -= OnItemAddedCallback;
-		m_inventory.OnItemRemoved -= OnItemRemovedCallback;
-	}
+		[Inject] private IInventory m_inventory = null;
+		private IItem m_item = null;
 
-	private void OnItemAddedCallback(IItemSlot obj) => OnInventoryChanged();
+		[SerializeField] private InventorySlotDisplay m_inventorySlotPrefab = null;
+		[SerializeField] private Transform m_slotDisplayParent = null;
+		[SerializeField] private ItemDisplay m_itemDescriptionDisplay = null;
+		[SerializeField] private InventoryDisplayButtonHandler[] m_buttonHandlers = null;
 
-	private void OnItemRemovedCallback(IItemSlot obj)
-	{
-		OnInventoryChanged();
-		if(obj.Item == m_item && obj.Count == 0)
-			m_itemDescriptionDisplay.ClearHandlers();
-	}
+		private ComponentPool<InventorySlotDisplay> m_inventorySlotDisplayPool = null;
 
-	public void OnInventoryChanged()
-	{
-		foreach (var item in m_inventorySlotDisplayPool.ActiveObject)
+		protected void OnDestroy()
 		{
-			item.OnItemSelected -= OnItemSelected;
-			m_inventorySlotDisplayPool.Return(item);
+			if (m_inventory == null) return;
+			m_inventory.OnItemAdded -= OnItemAddedCallback;
+			m_inventory.OnItemRemoved -= OnItemRemovedCallback;
 		}
 
-		foreach (var item in m_inventory.Slots)
+		private void OnItemAddedCallback(IItemSlot obj) => OnInventoryChanged();
+
+		private void OnItemRemovedCallback(IItemSlot obj)
 		{
-			var display = m_inventorySlotDisplayPool.Get();
-			display.Initialize(item);
-			display.OnItemSelected += OnItemSelected;
+			OnInventoryChanged();
+			if (obj.Item == m_item && obj.Count == 0)
+				m_itemDescriptionDisplay.ClearHandlers();
 		}
-	}
 
-	private void OnItemSelected(IItem item)
-	{
-		m_item = item;
+		public void OnInventoryChanged()
+		{
+			foreach (var item in m_inventorySlotDisplayPool.ActiveObject)
+			{
+				item.OnItemSelected -= OnItemSelected;
+				m_inventorySlotDisplayPool.Return(item);
+			}
 
-		foreach (var buttonHandler in m_buttonHandlers)
-			buttonHandler.SetItem(item);
-		m_itemDescriptionDisplay.Initialize(item);
-	}
+			foreach (var item in m_inventory.Slots)
+			{
+				var display = m_inventorySlotDisplayPool.Get();
+				display.Initialize(item);
+				display.OnItemSelected += OnItemSelected;
+			}
+		}
 
-	public void Initialize()
-	{
-		if (m_inventorySlotDisplayPool == null)
-			m_inventorySlotDisplayPool = new ComponentPool<InventorySlotDisplay>(m_inventorySlotPrefab, m_slotDisplayParent, 20);
+		private void OnItemSelected(IItem item)
+		{
+			m_item = item;
 
-		m_inventory.OnItemAdded += OnItemAddedCallback;
-		m_inventory.OnItemRemoved += OnItemRemovedCallback;
+			foreach (var buttonHandler in m_buttonHandlers)
+				buttonHandler.SetItem(item);
+			m_itemDescriptionDisplay.Initialize(item);
+		}
 
-		foreach (var buttonHandler in m_buttonHandlers)
-			buttonHandler.Initialize(m_inventory);
+		public void Initialize()
+		{
+			if (m_inventorySlotDisplayPool == null)
+				m_inventorySlotDisplayPool = new ComponentPool<InventorySlotDisplay>(m_inventorySlotPrefab, m_slotDisplayParent, 20);
 
-		OnInventoryChanged();
+			m_inventory.OnItemAdded += OnItemAddedCallback;
+			m_inventory.OnItemRemoved += OnItemRemovedCallback;
+
+			foreach (var buttonHandler in m_buttonHandlers)
+				buttonHandler.Initialize(m_inventory);
+
+			OnInventoryChanged();
+		}
 	}
 }

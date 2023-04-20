@@ -2,7 +2,7 @@
 using Utilities.ReferenceHost;
 using Utilities.States;
 
-namespace Shlashurai.Character
+namespace Shlashurai.States
 {
 	public class StatePreProcessor : MonoBehaviour, IStatePreProcessor
 	{

@@ -2,10 +2,10 @@
 using UnityEngine;
 using Weapons;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.Character
 {
 	[Serializable]
-	public class DamageDealingHandler 
+	public class DamageDealingHandler
 	{
 		[SerializeField] private float m_radius = 5f;
 		public float Radius

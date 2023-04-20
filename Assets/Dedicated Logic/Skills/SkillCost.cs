@@ -3,16 +3,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class SkillCost : ISkillCost
+namespace Shlashurai.Skills
 {
-	[SerializeField] private SkillCostDefinition[] m_cost = null;
-	public IEnumerable<SkillCostDefinition> Cost => m_cost;
+	[Serializable]
+	public class SkillCost : ISkillCost
+	{
+		[SerializeField] private SkillCostDefinition[] m_cost = null;
+		public IEnumerable<SkillCostDefinition> Cost => m_cost;
 
-	[SerializeField] private float m_coolDownTime = 0;
+		[SerializeField] private float m_coolDownTime = 0;
 
-	public float CoolDownTime => m_coolDownTime;
+		public float CoolDownTime => m_coolDownTime;
 
-	[SerializeField] private float m_castTime = 0;
-	public float CastTime => m_castTime;
+		[SerializeField] private float m_castTime = 0;
+		public float CastTime => m_castTime;
+	}
 }

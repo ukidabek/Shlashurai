@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shlashurai.Items;
+using System;
 using UnityEngine;
 
 namespace Shlashurai.PickUp

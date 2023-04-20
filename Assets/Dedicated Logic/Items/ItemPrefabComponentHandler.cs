@@ -1,13 +1,15 @@
-﻿using Shlashurai.Items;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ItemPrefabComponentHandler : ItemComponentHandler<ItemPrefabComponent>
+namespace Shlashurai.Items
 {
-	public override void Handle(IItemComponent itemComponent)
+	public class ItemPrefabComponentHandler : ItemComponentHandler<ItemPrefabComponent>
 	{
-		var itemPrefabComponent = (ItemPrefabComponent)itemComponent;
-		itemPrefabComponent.SetActive(false);
-		itemPrefabComponent.SetParent(transform, false);
-		itemPrefabComponent.Instance.transform.localPosition = Vector3.zero;
+		public override void Handle(IItemComponent itemComponent)
+		{
+			var itemPrefabComponent = (ItemPrefabComponent)itemComponent;
+			itemPrefabComponent.SetActive(false);
+			itemPrefabComponent.SetParent(transform, false);
+			itemPrefabComponent.Instance.transform.localPosition = Vector3.zero;
+		}
 	}
 }

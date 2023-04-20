@@ -1,7 +1,7 @@
-﻿using Shlashurai.Logic;
+﻿using Shlashurai.Character;
 using UnityEngine;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class SlashDamageDealerStateLogic : OnCollisionEnterStateLogic
 	{

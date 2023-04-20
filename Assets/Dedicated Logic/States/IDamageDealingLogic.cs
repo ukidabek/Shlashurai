@@ -1,4 +1,7 @@
-﻿public interface IDamageDealingLogic
+﻿namespace Shlashurai.States
 {
-	float DamageAmount { get; set; }
+	public interface IDamageDealingLogic
+	{
+		float DamageAmount { get; set; }
+	}
 }

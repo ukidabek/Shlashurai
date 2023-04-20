@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public class SkillEfectPrefab : MonoBehaviour 
+namespace Shlashurai.Skills
 {
-	public GameObject Target { get; set; }
+	public class SkillEfectPrefab : MonoBehaviour
+	{
+		public GameObject Target { get; set; }
+	}
 }

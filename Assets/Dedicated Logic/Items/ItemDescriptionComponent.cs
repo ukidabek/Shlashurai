@@ -1,11 +1,12 @@
-﻿using Shlashurai.Items;
-
-public class ItemDescriptionComponent : IItemComponent
+﻿namespace Shlashurai.Items
 {
-	public string Description { get; private set; }
-
-	public ItemDescriptionComponent(string description)
+	public class ItemDescriptionComponent : IItemComponent
 	{
-		Description = description;
+		public string Description { get; private set; }
+
+		public ItemDescriptionComponent(string description)
+		{
+			Description = description;
+		}
 	}
 }

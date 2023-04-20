@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Logic.SkillEffectsUtilities
+namespace Shlashurai.Skills.Utilities
 {
 	public class AfterTimeObjectDisabler : MonoBehaviour
 	{

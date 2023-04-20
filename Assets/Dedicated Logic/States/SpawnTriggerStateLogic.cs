@@ -2,16 +2,16 @@
 using UnityEngine;
 using Utilities.States;
 
-namespace Shlashurai.Enemy.Logic
+namespace Shlashurai.States
 {
 	public class SpawnTriggerStateLogic : StateLogic
-    {
-        [SerializeField] private ItemSpawnManager m_spawn = null;
+	{
+		[SerializeField] private ItemSpawnManager m_spawn = null;
 
 		public override void Activate()
 		{
 			base.Activate();
-            m_spawn.Spawn();
+			m_spawn.Spawn();
 		}
 	}
 }

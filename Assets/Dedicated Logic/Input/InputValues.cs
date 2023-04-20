@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shlashurai.Player.Input
+namespace Shlashurai.Input
 {
 	[CreateAssetMenu(menuName = "Shlashurai/Input/InputValues", fileName = "InputValues")]
 	public class InputValues : ScriptableObject
@@ -48,17 +48,17 @@ namespace Shlashurai.Player.Input
 		}
 
 		[SerializeField] private bool m_pause = false;
-		public bool Pause 
-		{ 
-			get => m_pause; 
-			set => m_pause = value; 
+		public bool Pause
+		{
+			get => m_pause;
+			set => m_pause = value;
 		}
 
 		[SerializeField] protected bool m_inventory = false;
-		public bool Inventory 
-		{ 
-			get => m_inventory; 
-			set => m_inventory = value; 
+		public bool Inventory
+		{
+			get => m_inventory;
+			set => m_inventory = value;
 		}
 	}
 }

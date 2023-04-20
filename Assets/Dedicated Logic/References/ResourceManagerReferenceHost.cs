@@ -2,10 +2,10 @@
 using UnityEngine;
 using Utilities.ReferenceHost;
 
-namespace Shlashurai.Player
+namespace Shlashurai.References
 {
 	[CreateAssetMenu(fileName = "ResourceManagerReferenceHost", menuName = "ReferenceHost/ResourceManagerReferenceHost")]
-    public class ResourceManagerReferenceHost : ReferenceHost<ResourceManager>
-    {
-    }
+	public class ResourceManagerReferenceHost : ReferenceHost<ResourceManager>
+	{
+	}
 }

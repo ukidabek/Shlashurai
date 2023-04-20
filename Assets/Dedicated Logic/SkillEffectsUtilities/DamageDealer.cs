@@ -1,7 +1,7 @@
-﻿using Shlashurai.Player.Logic;
+﻿using Shlashurai.Character;
 using UnityEngine;
 
-namespace Logic.SkillEffectsUtilities
+namespace Shlashurai.Skills.Utilities
 {
 	public class DamageDealer : MonoBehaviour
 	{

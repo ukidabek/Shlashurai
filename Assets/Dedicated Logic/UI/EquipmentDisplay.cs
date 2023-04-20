@@ -3,20 +3,23 @@ using System.Linq;
 using UnityEngine;
 using Utilities.ReferenceHost;
 
-public class EquipmentDisplay : MonoBehaviour, IInitializable
+namespace Shlashurai.UI
 {
-	[SerializeField] private EquipmentSlotDisplay[] m_itemDisplays = null;
-	[Inject] private IEquipment m_equipmentManager = null;
-
-	public void Initialize() => Refresh();
-
-	public void Refresh()
+	public class EquipmentDisplay : MonoBehaviour, IInitializable
 	{
-		var slots = m_equipmentManager.Slots;
-		foreach (var slot in slots)
+		[SerializeField] private EquipmentSlotDisplay[] m_itemDisplays = null;
+		[Inject] private IEquipment m_equipmentManager = null;
+
+		public void Initialize() => Refresh();
+
+		public void Refresh()
 		{
-			var display = m_itemDisplays.FirstOrDefault(display => display.Descriptors.Intersect(slot.Descriptors).Any());
-			display?.Initialize(slot);
+			var slots = m_equipmentManager.Slots;
+			foreach (var slot in slots)
+			{
+				var display = m_itemDisplays.FirstOrDefault(display => display.Descriptors.Intersect(slot.Descriptors).Any());
+				display?.Initialize(slot);
+			}
 		}
 	}
 }

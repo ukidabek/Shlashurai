@@ -1,10 +1,12 @@
-﻿using Shlashurai.Items;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemPrefabComponentTemplate", menuName = "Items/Components/ItemPrefabComponentTemplate")]
-public class ItemPrefabComponentTemplate : ItemComponentTemplate
+namespace Shlashurai.Items
 {
-	[SerializeField] private ItemBinder prefab;
+	[CreateAssetMenu(fileName = "ItemPrefabComponentTemplate", menuName = "Items/Components/ItemPrefabComponentTemplate")]
+	public class ItemPrefabComponentTemplate : ItemComponentTemplate
+	{
+		[SerializeField] private ItemBinder prefab;
 
-	public override IItemComponent Create() => new ItemPrefabComponent(prefab);
+		public override IItemComponent Create() => new ItemPrefabComponent(prefab);
+	}
 }

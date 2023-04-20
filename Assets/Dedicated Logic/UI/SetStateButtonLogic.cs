@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using Utilities.States;
 
-public class SetStateButtonLogic : ButtonLogic
+namespace Shlashurai.UI
 {
-	[SerializeField] protected StateDictionaryReferenceHost m_stateDictionaryReferenceHost = null;
-	[SerializeField] protected StateID stateID = null;
+	public class SetStateButtonLogic : ButtonLogic
+	{
+		[SerializeField] protected StateDictionaryReferenceHost m_stateDictionaryReferenceHost = null;
+		[SerializeField] protected StateID stateID = null;
 
-	protected override void OnClickCallback() => m_stateDictionaryReferenceHost.Instance.SetState(stateID);
+		protected override void OnClickCallback() => m_stateDictionaryReferenceHost.Instance.SetState(stateID);
+	}
 }

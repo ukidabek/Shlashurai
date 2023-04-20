@@ -2,7 +2,10 @@
 using UnityEngine;
 using Utilities.ReferenceHost;
 
-[CreateAssetMenu(fileName = "StatisticManagerReferenceHost", menuName = "ReferenceHost/StatisticManagerReferenceHost")]
-public class StatisticManagerReferenceHost : ReferenceHost<StatisticManager>
+namespace Shlashurai.References
 {
+	[CreateAssetMenu(fileName = "StatisticManagerReferenceHost", menuName = "ReferenceHost/StatisticManagerReferenceHost")]
+	public class StatisticManagerReferenceHost : ReferenceHost<StatisticManager>
+	{
+	}
 }

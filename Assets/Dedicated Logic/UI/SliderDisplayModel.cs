@@ -1,19 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class SliderDisplayModel : ISliderDisplayModel
+namespace Shlashurai.UI
 {
-	[SerializeField] protected SliderDisplay m_display = null;
-
-	public void Initialize()
+	public abstract class SliderDisplayModel : ISliderDisplayModel
 	{
-		PreProcess();
-		m_display.Initialize(this);
+		[SerializeField] protected SliderDisplay m_display = null;
+
+		public void Initialize()
+		{
+			PreProcess();
+			m_display.Initialize(this);
+		}
+
+		protected abstract void PreProcess();
+
+		public abstract float Percent { get; }
+
+		public abstract event Action OnValueChanged;
 	}
-
-	protected abstract void PreProcess();
-
-    public abstract float Percent { get; }
-
-	public abstract event Action OnValueChanged;
 }

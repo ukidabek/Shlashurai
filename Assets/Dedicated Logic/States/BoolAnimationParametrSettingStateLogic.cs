@@ -3,20 +3,20 @@ using Utilities.General;
 using Utilities.ReferenceHost;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class BoolAnimationParametrSettingStateLogic : StateLogic
 	{
-        [SerializeField, Inject] private Animator m_animator = null;
-        [SerializeField] private AnimatorParameterDefinition m_animatorParameterDefinition = null;
+		[SerializeField, Inject] private Animator m_animator = null;
+		[SerializeField] private AnimatorParameterDefinition m_animatorParameterDefinition = null;
 
-        [SerializeField] protected bool m_onActivateState = true;
+		[SerializeField] protected bool m_onActivateState = true;
 
 		public override void Activate()
 		{
 			base.Activate();
-            m_animatorParameterDefinition.SetBool(m_animator, m_onActivateState);
-        }
+			m_animatorParameterDefinition.SetBool(m_animator, m_onActivateState);
+		}
 
 		public override void Deactivate()
 		{

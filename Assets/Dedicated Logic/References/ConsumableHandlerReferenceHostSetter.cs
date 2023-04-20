@@ -1,7 +1,7 @@
 ﻿using Utilities.Consumable;
 using Utilities.ReferenceHost;
 
-namespace Shlashurai.Player
+namespace Shlashurai.References
 {
 	public class ConsumableHandlerReferenceHostSetter : ReferenceHostSetter<ConsumableHandlerReferenceHost, ConsumableHandler>
 	{

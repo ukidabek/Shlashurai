@@ -1,6 +1,9 @@
 ﻿using Utilities.ReferenceHost;
 using Utilities.States;
 
-public class SwitchStateStateLogicReferenceInjector : ReferenceHostInjector<SwitchStateStateLogicReferenceHost, SwitchStateStateLogic>
+namespace Shlashurai.References
 {
+	public class SwitchStateStateLogicReferenceInjector : ReferenceHostInjector<SwitchStateStateLogicReferenceHost, SwitchStateStateLogic>
+	{
+	}
 }

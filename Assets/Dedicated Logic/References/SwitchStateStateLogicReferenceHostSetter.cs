@@ -1,6 +1,9 @@
 ﻿using Utilities.ReferenceHost;
 using Utilities.States;
 
-public class SwitchStateStateLogicReferenceHostSetter : ReferenceHostSetter<SwitchStateStateLogicReferenceHost, SwitchStateStateLogic>
+namespace Shlashurai.References
 {
+	public class SwitchStateStateLogicReferenceHostSetter : ReferenceHostSetter<SwitchStateStateLogicReferenceHost, SwitchStateStateLogic>
+	{
+	}
 }

@@ -2,11 +2,11 @@
 using Utilities.General;
 using Utilities.States;
 
-namespace Shlashurai.Enemy.Logic
+namespace Shlashurai.States
 {
 	public class EnemyAttackAnimationStateLogic : StateLogic
-    {
-        [SerializeField] private EnemyAttackStateLogic m_enemyAttackStateLogic = null;
+	{
+		[SerializeField] private EnemyAttackStateLogic m_enemyAttackStateLogic = null;
 		[SerializeField] private Animator m_animator = null;
 		[SerializeField] private AnimatorParameterDefinition m_chargeAttackAnimationParameterDefinition = null;
 		[SerializeField] private AnimatorParameterDefinition m_attackAnimationParameterDefinition = null;
@@ -14,7 +14,7 @@ namespace Shlashurai.Enemy.Logic
 		public override void Activate()
 		{
 			base.Activate();
-            m_enemyAttackStateLogic.AttackPhaseChanged += HandlePhaseChanging;
+			m_enemyAttackStateLogic.AttackPhaseChanged += HandlePhaseChanging;
 		}
 
 		private void HandlePhaseChanging(EnemyAttackStateLogic.AttackPhase phase)

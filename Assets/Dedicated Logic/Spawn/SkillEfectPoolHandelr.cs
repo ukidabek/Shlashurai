@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Shlashurai.Skills;
+using UnityEngine;
 
 namespace Shlashurai.Spawn
 {
