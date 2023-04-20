@@ -5,7 +5,7 @@ namespace Shlashurai.Items
 	public class SlotParentDefinitionCollectionProvider : MonoBehaviour
 	{
 		[SerializeField] private EquipmentManager m_equipmentManager = null;
-		[SerializeField] private SlotParentDefinitionCollection m_slotParentDefinitionCollection = null;
+		[SerializeField] private SlotParentDefinition[] m_slotDefinitions = null;
 
 		private void Awake() => SetParents();
 
@@ -13,9 +13,9 @@ namespace Shlashurai.Items
 
 		private void SetParents()
 		{
-			m_slotParentDefinitionCollection = GetComponentInChildren<SlotParentDefinitionCollection>();
-			if (m_slotParentDefinitionCollection == null) return;
-			m_equipmentManager.SetTransformsForSlots(m_slotParentDefinitionCollection.SlotParentDefinitions);
+			m_slotDefinitions = GetComponentsInChildren<SlotParentDefinition>();
+			if (m_slotDefinitions == null) return;
+			m_equipmentManager.SetTransformsForSlots(m_slotDefinitions);
 		}
 	}
 }
