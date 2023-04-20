@@ -6,7 +6,7 @@ namespace Utilities.ReferenceHost
 {
 	public abstract class DynamicInjector : MonoBehaviour, IDynamicInjector
 	{
-		[SerializeField] private string m_gameObjectPath = string.Empty;
+		[SerializeField] private string m_transformPath = string.Empty;
 		public abstract Type Type { get; }
 		[SerializeField] private Object m_objectToInject = null;
 		public Object ObjectToInject => m_objectToInject;
@@ -17,14 +17,18 @@ namespace Utilities.ReferenceHost
 
 		private void GetReferenceAndInject()
 		{
-			if (string.IsNullOrEmpty(m_gameObjectPath))
+			if (string.IsNullOrEmpty(m_transformPath))
 			{
 				m_objectToInject = GetComponentInChildren(Type);
 			}
 			else
 			{
-				var selectedTransform = transform.Find(m_gameObjectPath);
-				if (selectedTransform == null) return;
+				var selectedTransform = transform.Find(m_transformPath);
+				if (selectedTransform == null)
+				{
+					Debug.LogError($"There is no transform at path {m_transformPath}.");
+					return;
+				}
 				var gameObject = selectedTransform.gameObject;
 				m_objectToInject = gameObject.GetComponent(Type);
 			}
