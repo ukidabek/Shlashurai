@@ -4,29 +4,32 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public class SkillCostManager : MonoBehaviour, ISkilCostManager
+namespace Shlashurai.Skills
 {
-	[SerializeField] private ResourceManager m_resourceManager = null;
-
-	private Action m_action = null;
-
-	public bool CanCast(ISkill skill)
+	public class SkillCostManager : MonoBehaviour, ISkilCostManager
 	{
-		var spellCost = skill.Cost as SkillCost;
+		[SerializeField] private ResourceManager m_resourceManager = null;
 
-		m_action = null;
+		private Action m_action = null;
 
-		var enoughResources = spellCost.Cost.All(cost =>
+		public bool CanCast(ISkill skill)
 		{
-			var resource = m_resourceManager.GetResource(cost.Id);
-			m_action += () => resource.Value -= cost.Cost;
-			return resource.Value >= cost.Cost;
-		});
+			var spellCost = skill.Cost as SkillCost;
 
-		var hasCoolDownStatus = skill.Status.OfType<CoolDownSkillStatus>().Any();
+			m_action = null;
 
-		return enoughResources && !hasCoolDownStatus;
+			var enoughResources = spellCost.Cost.All(cost =>
+			{
+				var resource = m_resourceManager.GetResource(cost.Id);
+				m_action += () => resource.Value -= cost.Cost;
+				return resource.Value >= cost.Cost;
+			});
+
+			var hasCoolDownStatus = skill.Status.OfType<CoolDownSkillStatus>().Any();
+
+			return enoughResources && !hasCoolDownStatus;
+		}
+
+		public void ApplyCost() => m_action?.Invoke();
 	}
-
-	public void ApplyCost() => m_action?.Invoke();
 }

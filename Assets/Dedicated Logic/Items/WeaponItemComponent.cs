@@ -1,17 +1,18 @@
-﻿using Shlashurai.Items;
-
-public class WeaponItemComponent : IItemComponent
+﻿namespace Shlashurai.Items
 {
-	public float MinDamage { get; }
-	public float MaxDamage { get; }
-	public float AttackInterval { get; }
-
-	public WeaponItemComponent(float minDamage, float maxDamage, float attackInterval)
+	public class WeaponItemComponent : IItemComponent
 	{
-		MinDamage = minDamage;
-		MaxDamage = maxDamage;
-		AttackInterval = attackInterval;
-	}
+		public float MinDamage { get; }
+		public float MaxDamage { get; }
+		public float AttackInterval { get; }
 
-	public float GetDamage() => UnityEngine.Random.Range(MinDamage, MaxDamage);
+		public WeaponItemComponent(float minDamage, float maxDamage, float attackInterval)
+		{
+			MinDamage = minDamage;
+			MaxDamage = maxDamage;
+			AttackInterval = attackInterval;
+		}
+
+		public float GetDamage() => UnityEngine.Random.Range(MinDamage, MaxDamage);
+	}
 }

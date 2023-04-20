@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
 namespace Shlashurai.Containers
 {
 	public class ItemSpawnManager : MonoBehaviour

@@ -1,4 +1,4 @@
-﻿using Shlashurai.Player.Input;
+﻿using Shlashurai.Input;
 using UnityEngine;
 using Utilities.States;
 

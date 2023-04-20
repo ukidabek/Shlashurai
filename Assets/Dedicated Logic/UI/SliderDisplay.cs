@@ -1,23 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderDisplay : MonoBehaviour
+namespace Shlashurai.UI
 {
-    [SerializeField] private Slider m_slider = null;
+	public class SliderDisplay : MonoBehaviour
+	{
+		[SerializeField] private Slider m_slider = null;
 
-    ISliderDisplayModel m_displayModel = null;
+		ISliderDisplayModel m_displayModel = null;
 
-	public void Initialize(ISliderDisplayModel displayModel)
-    {
-		(m_displayModel = displayModel).OnValueChanged += OnValueChangedCallback;
-        OnValueChangedCallback();
+		public void Initialize(ISliderDisplayModel displayModel)
+		{
+			(m_displayModel = displayModel).OnValueChanged += OnValueChangedCallback;
+			OnValueChangedCallback();
+		}
+
+		private void OnDestroy()
+		{
+			if (m_displayModel == null) return;
+			m_displayModel.OnValueChanged -= OnValueChangedCallback;
+		}
+
+		private void OnValueChangedCallback() => m_slider.value = m_displayModel.Percent;
 	}
-
-    private void OnDestroy()
-    {
-        if (m_displayModel == null) return;
-		m_displayModel.OnValueChanged -= OnValueChangedCallback;
-    }
-
-    private void OnValueChangedCallback() => m_slider.value = m_displayModel.Percent;
 }

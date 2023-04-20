@@ -1,4 +1,4 @@
-﻿using Shlashurai.Player.Logic;
+﻿using Shlashurai.States;
 using UnityEngine;
 
 namespace Shlashurai.Items

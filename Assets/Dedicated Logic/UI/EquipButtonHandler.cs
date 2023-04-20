@@ -1,24 +1,27 @@
 ﻿using Shlashurai.Items;
-using Shlashurai.Player;
+using Shlashurai.References;
 using UnityEngine;
 
-public class EquipButtonHandler : InventoryDisplayButtonHandler
+namespace Shlashurai.UI
 {
-	[SerializeField] private EquipmentManagerReferenceHost m_equipmentManagerReferenceHost = null;
-	
-	public override void SetItem(IItem item)
+	public class EquipButtonHandler : InventoryDisplayButtonHandler
 	{
-		base.SetItem(item);
+		[SerializeField] private EquipmentManagerReferenceHost m_equipmentManagerReferenceHost = null;
 
-		if (item == null) return;
+		public override void SetItem(IItem item)
+		{
+			base.SetItem(item);
 
-		var isEquipable = item.HasComponent<IEquipable>();
-		m_button.gameObject.SetActive(isEquipable);
-	}
+			if (item == null) return;
 
-	protected override void OnClick()
-	{
-		var equipmentManager = m_equipmentManagerReferenceHost.Instance;
-		equipmentManager.Equip(m_item, true);
+			var isEquipable = item.HasComponent<IEquipable>();
+			m_button.gameObject.SetActive(isEquipable);
+		}
+
+		protected override void OnClick()
+		{
+			var equipmentManager = m_equipmentManagerReferenceHost.Instance;
+			equipmentManager.Equip(m_item, true);
+		}
 	}
 }

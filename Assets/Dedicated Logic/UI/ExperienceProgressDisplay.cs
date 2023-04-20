@@ -4,35 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utilities.ReferenceHost;
 
-public class ExperienceProgressDisplay : MonoBehaviour
+namespace Shlashurai.UI
 {
-	[Inject] private IProgressManager m_progressManager = null;
-	[SerializeField] private Slider m_experienceProgress = null;
-
-	public void Initialize()
+	public class ExperienceProgressDisplay : MonoBehaviour
 	{
-		if (m_progressManager == null) return;
-		m_progressManager.OnExperienceAdded += OnExperienceAdded;
-		m_progressManager.OnLevelChanged += OnExperienceAdded;
-		OnExperienceAdded();
-	}
+		[Inject] private IProgressManager m_progressManager = null;
+		[SerializeField] private Slider m_experienceProgress = null;
 
-	private void OnDestroy()
-	{
-		if (m_progressManager == null) return;
-		m_progressManager.OnExperienceAdded -= OnExperienceAdded;
-		m_progressManager.OnLevelChanged -= OnExperienceAdded;
-	}
+		public void Initialize()
+		{
+			if (m_progressManager == null) return;
+			m_progressManager.OnExperienceAdded += OnExperienceAdded;
+			m_progressManager.OnLevelChanged += OnExperienceAdded;
+			OnExperienceAdded();
+		}
 
-	private void OnExperienceAdded(int obj = 0)
-	{
-		var currentLevelExperience = m_progressManager.CurrentLevelExperience;
-		var nextLevelExperience = m_progressManager.NextLevelExperience;
+		private void OnDestroy()
+		{
+			if (m_progressManager == null) return;
+			m_progressManager.OnExperienceAdded -= OnExperienceAdded;
+			m_progressManager.OnLevelChanged -= OnExperienceAdded;
+		}
 
-		var experienceDoGet = (nextLevelExperience - currentLevelExperience);
-		var experienceDelta = Math.Abs(currentLevelExperience - m_progressManager.Experience);
-		var experienceCollectingProgress = experienceDelta / (float)experienceDoGet;
+		private void OnExperienceAdded(int obj = 0)
+		{
+			var currentLevelExperience = m_progressManager.CurrentLevelExperience;
+			var nextLevelExperience = m_progressManager.NextLevelExperience;
 
-		m_experienceProgress.value = experienceCollectingProgress;
+			var experienceDoGet = nextLevelExperience - currentLevelExperience;
+			var experienceDelta = Math.Abs(currentLevelExperience - m_progressManager.Experience);
+			var experienceCollectingProgress = experienceDelta / (float)experienceDoGet;
+
+			m_experienceProgress.value = experienceCollectingProgress;
+		}
 	}
 }

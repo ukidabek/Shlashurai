@@ -2,26 +2,29 @@ using Money;
 using TMPro;
 using UnityEngine;
 
-public class CurrencyDisplay : MonoBehaviour
+namespace Shlashurai.UI
 {
-	[SerializeField] private Currency m_currency = null;
-	[SerializeField] private TMP_Text m_name = null;
-	[SerializeField] private TMP_Text m_amount = null;
-
-	private void Awake()
+	public class CurrencyDisplay : MonoBehaviour
 	{
-		m_currency.OnCurencyChanged += OnCurencyChanged;
-		m_name.text = m_currency.name;
-		OnCurencyChanged();
-	}
+		[SerializeField] private Currency m_currency = null;
+		[SerializeField] private TMP_Text m_name = null;
+		[SerializeField] private TMP_Text m_amount = null;
 
-	private void OnDestroy()
-	{
-		m_currency.OnCurencyChanged -= OnCurencyChanged;
-	}
+		private void Awake()
+		{
+			m_currency.OnCurencyChanged += OnCurencyChanged;
+			m_name.text = m_currency.name;
+			OnCurencyChanged();
+		}
 
-	private void OnCurencyChanged()
-	{
-		m_amount.text = m_currency.Amount.ToString("0");
+		private void OnDestroy()
+		{
+			m_currency.OnCurencyChanged -= OnCurencyChanged;
+		}
+
+		private void OnCurencyChanged()
+		{
+			m_amount.text = m_currency.Amount.ToString("0");
+		}
 	}
 }

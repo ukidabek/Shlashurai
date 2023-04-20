@@ -1,9 +1,9 @@
 ﻿using Utilities.States;
 using UnityEngine;
-using Shlashurai.Player.Input;
 using Shlashurai.Skill;
+using Shlashurai.Input;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class SkillCastStateLogic : StateLogic, IOnUpdateLogic, ISwitchStateCondition
 	{

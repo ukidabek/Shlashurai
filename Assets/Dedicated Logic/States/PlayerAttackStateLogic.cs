@@ -1,8 +1,7 @@
-﻿using Shlashurai.Player.Input;
+﻿using Shlashurai.Input;
 using UnityEngine;
-using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class PlayerAttackStateLogic : AttackStateLogic
 	{

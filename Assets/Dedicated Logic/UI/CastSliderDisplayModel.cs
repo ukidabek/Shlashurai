@@ -1,33 +1,36 @@
 ﻿using Shlashurai.Skill;
 using System;
 
-[Serializable]
-public class CastSliderDisplayModel : SliderDisplayModel
+namespace Shlashurai.UI
 {
-	public SkillCastManager SkillCastManager { get; set; }
-
-    private float m_percent = 0f;
-	public override float Percent => m_percent;
-
-    public override event Action OnValueChanged;
-
-	protected override void PreProcess()
+	[Serializable]
+	public class CastSliderDisplayModel : SliderDisplayModel
 	{
-		var castManager = SkillCastManager;
-		castManager.OnSkillCastBegin += OnCastBegin;
-		castManager.OnSkillCastProgress += OnSkillCastProgress;
-		castManager.OnSkillCastEnd += OnCastEnd;
+		public SkillCastManager SkillCastManager { get; set; }
 
-		m_display.gameObject.SetActive(false);
-	}
+		private float m_percent = 0f;
+		public override float Percent => m_percent;
 
-	private void OnCastBegin(ISkill obj) => m_display.gameObject.SetActive(true);
+		public override event Action OnValueChanged;
 
-	private void OnCastEnd(ISkill obj) => m_display.gameObject.SetActive(false);
+		protected override void PreProcess()
+		{
+			var castManager = SkillCastManager;
+			castManager.OnSkillCastBegin += OnCastBegin;
+			castManager.OnSkillCastProgress += OnSkillCastProgress;
+			castManager.OnSkillCastEnd += OnCastEnd;
 
-	private void OnSkillCastProgress(float percent)
-	{
-		m_percent = percent;
-		OnValueChanged?.Invoke();
+			m_display.gameObject.SetActive(false);
+		}
+
+		private void OnCastBegin(ISkill obj) => m_display.gameObject.SetActive(true);
+
+		private void OnCastEnd(ISkill obj) => m_display.gameObject.SetActive(false);
+
+		private void OnSkillCastProgress(float percent)
+		{
+			m_percent = percent;
+			OnValueChanged?.Invoke();
+		}
 	}
 }

@@ -1,10 +1,10 @@
-﻿using Shlashurai.Player.Input;
+﻿using Shlashurai.Input;
 using UnityEngine;
 using Utilities.General;
 using Utilities.ReferenceHost;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class MovementAnimationStateLogic : StateLogic, IOnUpdateLogic
 	{
@@ -17,7 +17,7 @@ namespace Shlashurai.Player.Logic
 		public void OnUpdate(float deltaTime, float timeScale)
 		{
 			var move = m_inputValues.Move;
-            m_movementParameterDefinition.SetFloat(m_animator, move.magnitude);
+			m_movementParameterDefinition.SetFloat(m_animator, move.magnitude);
 			m_forwardMovementParameterDefinition.SetFloat(m_animator, move.y);
 			m_rightMovementParameterDefinition.SetFloat(m_animator, move.x);
 		}

@@ -1,39 +1,41 @@
-﻿using Shlashurai.Items;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
-public class DefaultEquipmentSetter : MonoBehaviour
+namespace Shlashurai.Items
 {
-	[SerializeField] private Object m_equipmentObject = null;
-	private IEquipment m_equipment = null;
-
-	[SerializeField] private ItemTemplate[] m_defaultItems = null;
-
-	private void Awake()
+	public class DefaultEquipmentSetter : MonoBehaviour
 	{
-		m_equipment = m_equipmentObject as IEquipment;
-	}
+		[SerializeField] private Object m_equipmentObject = null;
+		private IEquipment m_equipment = null;
 
-	private void Start()
-	{
-		if (m_equipment == null) return;
+		[SerializeField] private ItemTemplate[] m_defaultItems = null;
 
-		foreach (var template in m_defaultItems)
+		private void Awake()
 		{
-			var item = SpawnItem(template);
-			m_equipment.Equip(item);
+			m_equipment = m_equipmentObject as IEquipment;
 		}
-	}
 
-	public IItem SpawnItem(ItemTemplate template)
-	{
-		var item = template.Create();
+		private void Start()
+		{
+			if (m_equipment == null) return;
 
-		item.IsActive = true;
-		var managableComponents = item.Components.OfType<IManageableItemComponent>();
-		foreach (var component in managableComponents)
-			component.SetActive(true);
+			foreach (var template in m_defaultItems)
+			{
+				var item = SpawnItem(template);
+				m_equipment.Equip(item);
+			}
+		}
 
-		return item;
+		public IItem SpawnItem(ItemTemplate template)
+		{
+			var item = template.Create();
+
+			item.IsActive = true;
+			var managableComponents = item.Components.OfType<IManageableItemComponent>();
+			foreach (var component in managableComponents)
+				component.SetActive(true);
+
+			return item;
+		}
 	}
 }

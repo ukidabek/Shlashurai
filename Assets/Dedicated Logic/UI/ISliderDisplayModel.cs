@@ -1,7 +1,10 @@
 ﻿using System;
 
-public interface ISliderDisplayModel
+namespace Shlashurai.UI
 {
-	float Percent { get; }
-	event Action OnValueChanged;
+	public interface ISliderDisplayModel
+	{
+		float Percent { get; }
+		event Action OnValueChanged;
+	}
 }

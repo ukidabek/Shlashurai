@@ -1,10 +1,12 @@
-﻿using Shlashurai.Items;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemDescriptionComponentTemplate", menuName = "Items/Components/ItemDescriptionComponentTemplate")]
-public class ItemDescriptionComponentTemplate : ItemComponentTemplate
+namespace Shlashurai.Items
 {
-	[SerializeField, TextArea(2, 2)] private string m_description = null;
+	[CreateAssetMenu(fileName = "ItemDescriptionComponentTemplate", menuName = "Items/Components/ItemDescriptionComponentTemplate")]
+	public class ItemDescriptionComponentTemplate : ItemComponentTemplate
+	{
+		[SerializeField, TextArea(2, 2)] private string m_description = null;
 
-	public override IItemComponent Create() => new ItemDescriptionComponent(m_description);
+		public override IItemComponent Create() => new ItemDescriptionComponent(m_description);
+	}
 }

@@ -2,13 +2,16 @@ using Shlashurai.Items;
 using UnityEngine.Events;
 using Utilities.Interactions;
 
-public class ItemPickUp : ItemBinder, IPickUpable
+namespace Shlashurai.PickUp
 {
-	public UnityEvent OnPickUp = new UnityEvent();
-
-	public object PickUp()
+	public class ItemPickUp : ItemBinder, IPickUpable
 	{
-		OnPickUp.Invoke();
-		return Item;
+		public UnityEvent OnPickUp = new UnityEvent();
+
+		public object PickUp()
+		{
+			OnPickUp.Invoke();
+			return Item;
+		}
 	}
 }

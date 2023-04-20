@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 
-public class SliderDisplayInitializer : MonoBehaviour
+namespace Shlashurai.UI
 {
-    [SerializeField] private ResourceSliderDisplayModel m_sliderDisplayModel = null;
-
-	private void Start()
+	public class SliderDisplayInitializer : MonoBehaviour
 	{
-		m_sliderDisplayModel.Initialize();
+		[SerializeField] private ResourceSliderDisplayModel m_sliderDisplayModel = null;
+
+		private void Start()
+		{
+			m_sliderDisplayModel.Initialize();
+		}
 	}
 }

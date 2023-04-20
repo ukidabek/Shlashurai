@@ -2,7 +2,7 @@
 using UnityEngine;
 using Utilities.States;
 
-namespace Shlashurai.Logic
+namespace Shlashurai.States
 {
 	public class WaitForSecondsSwitchStateLogicCondition : CoroutineStateLogic, ISwitchStateCondition
 	{

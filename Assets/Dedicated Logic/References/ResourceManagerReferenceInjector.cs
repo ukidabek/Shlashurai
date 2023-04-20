@@ -1,7 +1,7 @@
 ﻿using Shlashurai.Characters;
 using Utilities.ReferenceHost;
 
-namespace Shlashurai.Player
+namespace Shlashurai.References
 {
 	public class ResourceManagerReferenceInjector : ReferenceHostInjector<ResourceManagerReferenceHost, ResourceManager>
 	{

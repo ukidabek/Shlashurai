@@ -2,7 +2,7 @@
 using UnityEngine;
 using Utilities.States;
 
-namespace Shlashurai.Player.Logic
+namespace Shlashurai.States
 {
 	public class SkillCastStateLogicCondition : StateLogic, ISwitchStateCondition
 	{

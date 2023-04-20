@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Logic.SkillEffectsUtilities
+namespace Shlashurai.Skills.Utilities
 {
 	public class RigidBodySpeedSetter : MonoBehaviour
 	{

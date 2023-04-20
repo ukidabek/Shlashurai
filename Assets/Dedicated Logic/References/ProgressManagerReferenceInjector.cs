@@ -1,7 +1,7 @@
 ﻿using Progress;
 using Utilities.ReferenceHost;
 
-namespace Shlashurai.Player
+namespace Shlashurai.References
 {
 	public class ProgressManagerReferenceInjector : ReferenceHostInjector<ProgressManagerReferenceHost, ProgressManager, IProgressManager>
 	{

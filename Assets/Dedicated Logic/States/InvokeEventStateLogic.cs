@@ -2,13 +2,16 @@
 using Utilities.Events;
 using Utilities.States;
 
-public abstract class InvokeEventStateLogic<EventType, Type> : StateLogic where EventType : Event<Type>
+namespace Shlashurai.States
 {
-    [SerializeField] private EventType m_event = null;
-    [SerializeField] private Type m_params = default;
-	public override void Activate()
+	public abstract class InvokeEventStateLogic<EventType, Type> : StateLogic where EventType : Event<Type>
 	{
-		base.Activate();
-        m_event.Invoke(m_params);
-    }
+		[SerializeField] private EventType m_event = null;
+		[SerializeField] private Type m_params = default;
+		public override void Activate()
+		{
+			base.Activate();
+			m_event.Invoke(m_params);
+		}
+	}
 }

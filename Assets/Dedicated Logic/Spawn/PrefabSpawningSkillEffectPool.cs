@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using Shlashurai.Skills;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utilities.Pool;
 

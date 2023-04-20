@@ -1,12 +1,14 @@
-﻿using Shlashurai.Items;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ItemImageComponent : IItemComponent
+namespace Shlashurai.Items
 {
-	public Sprite ItemImage { get; private set; }
-
-	public ItemImageComponent(Sprite sprite)
+	public class ItemImageComponent : IItemComponent
 	{
-		ItemImage = sprite;
+		public Sprite ItemImage { get; private set; }
+
+		public ItemImageComponent(Sprite sprite)
+		{
+			ItemImage = sprite;
+		}
 	}
 }

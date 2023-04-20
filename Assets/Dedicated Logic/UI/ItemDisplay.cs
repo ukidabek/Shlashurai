@@ -2,31 +2,34 @@
 using System.Linq;
 using UnityEngine;
 
-public class ItemDisplay : MonoBehaviour
+namespace Shlashurai.UI
 {
-	[SerializeField] private ItemComponentDescriptionDisplayHandler[] m_itemComponentDescriptionDisplayHandlers = null;
-
-	private void Awake() => ClearHandlers();
-
-	public void Initialize(IItem item)
+	public class ItemDisplay : MonoBehaviour
 	{
-		if(item == null)
+		[SerializeField] private ItemComponentDescriptionDisplayHandler[] m_itemComponentDescriptionDisplayHandlers = null;
+
+		private void Awake() => ClearHandlers();
+
+		public void Initialize(IItem item)
 		{
-			ClearHandlers(); 
-			return;
+			if (item == null)
+			{
+				ClearHandlers();
+				return;
+			}
+
+			foreach (var component in item.Components)
+			{
+				var handlers = m_itemComponentDescriptionDisplayHandlers.Where(handler => handler.CanHandle(component));
+				foreach (var handler in handlers)
+					handler.Handle(component);
+			}
 		}
 
-		foreach (var component in item.Components)
+		public void ClearHandlers()
 		{
-			var handlers = m_itemComponentDescriptionDisplayHandlers.Where(handler => handler.CanHandle(component));
-			foreach (var handler in handlers)
-				handler.Handle(component);
+			foreach (var handler in m_itemComponentDescriptionDisplayHandlers)
+				handler.Clear();
 		}
-	}
-
-	public void ClearHandlers()
-	{
-		foreach (var handler in m_itemComponentDescriptionDisplayHandlers)
-			handler.Clear();
 	}
 }
