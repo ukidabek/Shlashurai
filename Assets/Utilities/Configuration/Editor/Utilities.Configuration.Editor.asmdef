@@ -1,0 +1,18 @@
+{
+    "name": "Utilities.Configuration.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ae3a53b540919af43a99f4149c37f159"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
