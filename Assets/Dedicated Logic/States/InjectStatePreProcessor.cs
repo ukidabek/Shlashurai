@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.States
 {
-	public class StatePreProcessor : MonoBehaviour, IStatePreProcessor
+	public class InjectStatePreProcessor : MonoBehaviour, IStatePreProcessor
 	{
 		[SerializeField] private InjectionManager m_injectionManager = null;
 		public void Process(IState state)
