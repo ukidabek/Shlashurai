@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263399900}
   - component: {fileID: 263399898}
+  - component: {fileID: 8970603095036363722}
   - component: {fileID: 263399899}
   - component: {fileID: 3370493310541437891}
   - component: {fileID: 8168539298658036163}
@@ -49,9 +50,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stateID: {fileID: 0}
   m_logic:
+  - {fileID: 8970603095036363722}
   - {fileID: 263399899}
   - {fileID: 3370493310541437891}
   - {fileID: 8168539298658036163}
+--- !u!114 &8970603095036363722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263399897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec338ef41278eca4280eadf2bcf79d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_configuration: {fileID: 11400000, guid: 7ebae62d2b3da3444817bbb634fd0985, type: 2}
+  m_consumableHandlerReferenceHost: {fileID: 11400000, guid: 91b4daaa2bc609343aa52a4f816892cb, type: 2}
+  m_equipmentSetterReferenceHost: {fileID: 11400000, guid: 8fa959798504f744783b587fd1943f05, type: 2}
 --- !u!114 &263399899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +183,7 @@ MonoBehaviour:
   m_stateLogicExecutorsObjects:
   - {fileID: 1304540710}
   m_stateTransitionObject: []
-  m_statePreProcessors: []
+  m_stateProcessors: []
   m_defaultStateSetter: {fileID: 7235027028772129929}
 --- !u!114 &1304540710
 MonoBehaviour:
@@ -851,7 +868,7 @@ MonoBehaviour:
   - {fileID: 7287675633480904382}
   m_stateTransitions: []
   m_defaultStateSetter: {fileID: 2130823944306415670}
-  m_statePreProcessors: []
+  m_stateProcessors: []
 --- !u!114 &2130823944306415670
 MonoBehaviour:
   m_ObjectHideFlags: 0
