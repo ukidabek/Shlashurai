@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,14 +13,18 @@ namespace Utilities.States
 			return rootGameObject.GetComponentsInChildren<T>();
 		}
 
-		public static IStateMachine StateMachineSelector(this IEnumerable<IStateMachine> stateMachines, ref bool show)
+
+		public static T ObjectSelector<T>(this IEnumerable<T> stateMachines, ref bool show, string text, Func<T, string> getName = null)
 		{
+			if (getName == null) 
+				getName = (T item) => item.ToString();
+
 			if(show)
 			{
 				foreach (var stateMachine in stateMachines)
 				{
 					EditorGUILayout.BeginHorizontal();
-					GUILayout.Label(stateMachine.Name);
+					GUILayout.Label(getName(stateMachine));
 					if (GUILayout.Button("Select", GUILayout.Width(45)))
 					{
 						show = false;
@@ -33,10 +38,10 @@ namespace Utilities.States
 			}
 			else
 			{
-				if (GUILayout.Button("Select"))
+				if (GUILayout.Button(text))
 					show = true;
 			}
-			return null;
+			return default;
 		}
 	}
 }

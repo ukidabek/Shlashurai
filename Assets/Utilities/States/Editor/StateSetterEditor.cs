@@ -22,8 +22,10 @@ namespace Utilities.States
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
-			var stateMachine = m_statesMachines.StateMachineSelector(ref m_show);
-			if(stateMachine != null && stateMachine is Object unityObjectStateMachine)
+			var selectedStateMachine = m_statesMachines.ObjectSelector(ref m_show, "Select state machine",
+				stateMachine => stateMachine.Name);
+
+			if(selectedStateMachine != null && selectedStateMachine is Object unityObjectStateMachine)
 			{
 				m_objectProperty.objectReferenceValue = unityObjectStateMachine;
 				serializedObject.ApplyModifiedProperties();
