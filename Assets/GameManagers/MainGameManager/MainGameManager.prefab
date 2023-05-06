@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_referenceHost: {fileID: 11400000, guid: 91b4daaa2bc609343aa52a4f816892cb, type: 2}
-  m_configuration: {fileID: 11400000, guid: 7ebae62d2b3da3444817bbb634fd0985, type: 2}
+  m_characterSelectionManager: {fileID: 11400000, guid: b06ebd4ae2a477d4d9e9d95b4ebedda8, type: 2}
 --- !u!114 &2696376482125586074
 MonoBehaviour:
   m_ObjectHideFlags: 0
