@@ -13,9 +13,9 @@ namespace Shlashurai.States
 			base.Activate();
 
 			if (m_referenceHost == null) return;
-			var consumable = m_referenceHost.Instance;
-			if (consumable == null) return;
-			consumable.Configuration = m_configuration;
+			var configurationHandler = m_referenceHost.Instance;
+			if (configurationHandler == null) return;
+			configurationHandler.Configuration = m_configuration;
 		}
 	}
 }
