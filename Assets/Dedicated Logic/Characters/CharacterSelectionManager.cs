@@ -10,11 +10,9 @@ namespace Shlashurai.Character
 		[SerializeField] private GameObject m_instance = null;
 		[SerializeField] private Transform m_parent = null;
 		[SerializeField] private Config m_currentConfig = null;
+		public Config CurrentConfig => m_currentConfig;
 
-		private void Awake()
-		{
-			m_camera.gameObject.SetActive(false);
-		}
+		private void Awake() => m_camera.gameObject.SetActive(false);
 
 		public void SelectConfig(Config config)
 		{
@@ -42,11 +40,7 @@ namespace Shlashurai.Character
 				renderer.gameObject.layer = layer;
 		}
 
-		public void ConfirmSelection()
-		{
-			DestroyInstance();
-
-		}
+		public void ConfirmSelection() => DestroyInstance();
 
 		private void DestroyInstance()
 		{
