@@ -10,7 +10,7 @@ namespace Shlashurai.Character
 		public void Handle(ISetting obj)
 		{
 			var model = obj as CharacterModelSetting;
-			Instantiate(model.CharacterModel, transform);
+			Instantiate(model.CharacterModel, transform, false);
 		}
 	}
 }
