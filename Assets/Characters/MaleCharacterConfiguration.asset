@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29122e71b85b47643a144f9b4cc971db, type: 3}
   m_Name: MaleCharacterConfiguration
   m_EditorClassIdentifier: 
+  m_displayName:
+    m_name: Male
   m_characterModel:
     m_characterModel: {fileID: 4199386640903879335, guid: c164ca717a3d31f43b100c0dc40b7150, type: 3}

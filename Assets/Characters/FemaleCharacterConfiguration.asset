@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29122e71b85b47643a144f9b4cc971db, type: 3}
-  m_Name: FemalCharacterConfiguration
+  m_Name: FemaleCharacterConfiguration
   m_EditorClassIdentifier: 
+  m_displayName:
+    m_name: Female
   m_characterModel:
     m_characterModel: {fileID: 6294002901156310329, guid: 12d9017565a3dcd46bee3b4b63bce787, type: 3}
