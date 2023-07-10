@@ -21,7 +21,7 @@ namespace Utilities.ReferenceHost
 			injectionPointCollection.Inject(m_injectionDefinitionDictionary);
 		}
 
-		[ContextMenu("GenerateInjectionDictionary")]
+#if UNITY_EDITOR
 		public void GenerateInjectionDictionary()
 		{
 			var rootGameObject = transform.root.gameObject;
@@ -46,5 +46,6 @@ namespace Utilities.ReferenceHost
 			InjectDefinitions.Clear();
 			InjectDefinitions.AddRange(baseInjectionDefinitionsList);
 		}
+#endif
 	}
 }

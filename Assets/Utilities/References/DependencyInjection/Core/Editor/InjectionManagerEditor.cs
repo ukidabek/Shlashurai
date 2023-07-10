@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace Utilities.ReferenceHost
 {
@@ -10,6 +11,13 @@ namespace Utilities.ReferenceHost
 		private void OnEnable()
 		{
 			m_manager = target as InjectionManager;	
+		}
+
+		public override void OnInspectorGUI()
+		{
+			base.OnInspectorGUI();
+			if (GUILayout.Button("Generate Injection Dictionary"))
+				m_manager.GenerateInjectionDictionary();
 		}
 	}
 }
