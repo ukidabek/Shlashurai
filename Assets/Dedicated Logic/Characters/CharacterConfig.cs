@@ -7,6 +7,7 @@ namespace Shlashurai.Character
 	[CreateAssetMenu(menuName = "Configuration/CharacterConfiguration", fileName = "CharacterConfiguration")]
 	public class CharacterConfig : Config
 	{
+		[SerializeField] private Name m_displayName = null;
 		[SerializeField] private CharacterModelSetting m_characterModel = null;
 		
 		private ISetting[] m_settings = null;
@@ -14,8 +15,9 @@ namespace Shlashurai.Character
 
 		private void OnEnable()
 		{
-			m_settings = new[]
+			m_settings = new ISetting[]
 			{
+				m_displayName,
 				m_characterModel,
 			};
 		}
