@@ -27,7 +27,7 @@ namespace Shlashurai.Input
 		}
 
 		public void OnSlash(InputValue value) => m_values.Slash = value.isPressed;
-		public void OnAttack(InputValue value) => m_values.Attack = value.isPressed;
+ 		public void OnAttack(InputValue value) => m_values.Attack = value.isPressed;
 		public void OnCast1(InputValue value) => m_values.Cast1 = value.isPressed;
 		public void OnCast2(InputValue value) => m_values.Cast2 = value.isPressed;
 		public void OnPause(InputValue value) => m_values.Pause = value.isPressed;

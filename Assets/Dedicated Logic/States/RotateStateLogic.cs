@@ -13,6 +13,7 @@ namespace Shlashurai.States
 
 		private Vector3 up = Vector3.up;
 		private Vector3 direction = Vector3.zero;
+
 		private readonly Vector3 zero = Vector3.zero;
 
 		public void OnUpdate(float deltaTime, float timeScale)

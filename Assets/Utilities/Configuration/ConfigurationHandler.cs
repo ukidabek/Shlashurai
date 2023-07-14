@@ -25,6 +25,8 @@ namespace Utilities.Configuration
 		private void Awake()
 		{
 			m_settingHandlers = m_settingsHandlers.OfType<ISettingHandler>();
+			if (ValidateConfiguration(m_configuration))
+				Configure(m_configuration);
 		}
 
 		public void Configure(Config configuration)
@@ -38,7 +40,7 @@ namespace Utilities.Configuration
 			}
 		}
 
-		protected virtual bool ValidateConfiguration(Config configuration) => true;
+		protected virtual bool ValidateConfiguration(Config configuration) => configuration != null;
 
 		[ContextMenu("Collect handlers")]
 		public void CollectHandlers()
