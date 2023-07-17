@@ -853,7 +853,6 @@ GameObject:
   - component: {fileID: 2369663041355631079}
   - component: {fileID: 7188242751932236825}
   - component: {fileID: 4693691647611709833}
-  - component: {fileID: 8815169657619630520}
   - component: {fileID: 3972326967741889624}
   - component: {fileID: 2406144077947368024}
   - component: {fileID: 6050584838393692905}
@@ -862,6 +861,7 @@ GameObject:
   - component: {fileID: 4962675793188153317}
   - component: {fileID: 4227533009368856635}
   - component: {fileID: 3312672784259043824}
+  - component: {fileID: 866411446333808294}
   - component: {fileID: 8589048244432588918}
   m_Layer: 6
   m_Name: Locomotion
@@ -918,7 +918,7 @@ MonoBehaviour:
   - m_injectDestination: {fileID: 4693691647611709833}
     m_fieldName: m_root
     m_injectionID: Model
-  - m_injectDestination: {fileID: 8815169657619630520}
+  - m_injectDestination: {fileID: 0}
     m_fieldName: m_animator
     m_injectionID: 
   - m_injectDestination: {fileID: 508945677073265577}
@@ -947,7 +947,7 @@ MonoBehaviour:
   m_logic:
   - {fileID: 2369663041355631079}
   - {fileID: 7188242751932236825}
-  - {fileID: 8815169657619630520}
+  - {fileID: 866411446333808294}
   - {fileID: 4693691647611709833}
   - {fileID: 3972326967741889624}
   - {fileID: 6050584838393692905}
@@ -986,9 +986,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 0}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
-  m_rotationSpeed: {x: 10, y: 10}
+  m_rotationSpeed: {x: 60, y: 60}
   m_topClamp: 70
-  m_bottomClamp: -30
+  m_bottomClamp: 5
 --- !u!114 &4693691647611709833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,23 +1004,6 @@ MonoBehaviour:
   m_root: {fileID: 0}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
   m_speed: 10
---- !u!114 &8815169657619630520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2701602578752361627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93843a8e712f8fe4bb54f5669bb3a7d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_animator: {fileID: 0}
-  m_movementParameterDefinition: {fileID: 11400000, guid: 4c2ca0a9ef7288f4680d4875ecec90ef, type: 2}
-  m_forwardMovementParameterDefinition: {fileID: 11400000, guid: fbd2dded4a97740498dcdac54139cc5a, type: 2}
-  m_rightMovementParameterDefinition: {fileID: 11400000, guid: 56fe2a5459aca344dbac4ae86808823f, type: 2}
-  m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
 --- !u!114 &3972326967741889624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,6 +1134,22 @@ MonoBehaviour:
   - {fileID: 8589048244432588918}
   m_returnOnEmpty: 0
   m_switchEnabled: 1
+--- !u!114 &866411446333808294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701602578752361627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6401bc005a4abe4598e3abe2a54a69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animator: {fileID: 0}
+  m_movementParameterDefinition: {fileID: 11400000, guid: 4c2ca0a9ef7288f4680d4875ecec90ef, type: 2}
+  m_forwardMovementParameterDefinition: {fileID: 11400000, guid: fbd2dded4a97740498dcdac54139cc5a, type: 2}
+  m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
 --- !u!114 &8589048244432588918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,17 +1301,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0.5, y: -0.4, z: 0}
-  VerticalArmLength: 0.4
+  ShoulderOffset: {x: 0, y: 0, z: 0}
+  VerticalArmLength: 1
   CameraSide: 1
   CameraDistance: 7.5
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 0
-  IgnoreTag: 
-  CameraRadius: 0.2
-  DampingIntoCollision: 0
-  DampingFromCollision: 2
+    m_Bits: 1
+  IgnoreTag: Player
+  CameraRadius: 0.4
+  DampingIntoCollision: 1.5
+  DampingFromCollision: 1.5
 --- !u!1 &4583661912326529503
 GameObject:
   m_ObjectHideFlags: 0
