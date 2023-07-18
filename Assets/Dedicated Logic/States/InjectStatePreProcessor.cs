@@ -11,6 +11,7 @@ namespace Shlashurai.States
 		{
 			if (!(state is Component component)) return;
 			var injectionPointCollection = component.GetComponent<InjectionPointCollection>();
+			if (injectionPointCollection == null) return;
 			m_injectionManager.Inject(injectionPointCollection);
 		}
 	}

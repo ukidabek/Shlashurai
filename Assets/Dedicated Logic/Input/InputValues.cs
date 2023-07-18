@@ -60,5 +60,12 @@ namespace Shlashurai.Input
 			get => m_inventory;
 			set => m_inventory = value;
 		}
+
+		[SerializeField] protected bool m_aim = false;
+		public bool Aim 
+		{ 
+			get => m_aim; 
+			set => m_aim = value; 
+		}
 	}
 }
