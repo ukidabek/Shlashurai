@@ -15,8 +15,8 @@ namespace Shlashurai.States
 
 		private Vector2 m_input = Vector2.zero;
 		private Vector3 m_newRotation = Vector3.zero;
-		private float m_yaw;
-		private float m_pitch;
+		private float m_yaw = 0f;
+		private float m_pitch = 0f;
 
 		public override void Activate()
 		{
@@ -46,6 +46,22 @@ namespace Shlashurai.States
 			if (angle < -360f) angle += 360f;
 			if (angle > 360f) angle -= 360f;
 			return Mathf.Clamp(angle, min, max);
+		}
+
+		private void OnDrawGizmos()
+		{
+			var transform = this.transform;
+			var position = transform.position;
+			var forward = transform.forward * 3f;
+			var rotation = Quaternion.Euler(m_topClamp, m_yaw, 0f);
+			var direction = rotation * forward;
+			Debug.DrawRay(position, direction, Color.yellow);
+			rotation = Quaternion.Euler(m_bottomClamp, m_yaw, 0f);
+			direction = rotation * forward;
+			Debug.DrawRay(position, direction, Color.yellow);
+
+			if (m_camera == null) return;
+			Debug.DrawRay(m_camera.position, m_camera.forward, Color.red);
 		}
 	}
 }
