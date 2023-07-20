@@ -31,7 +31,7 @@ namespace Shlashurai.States
 		{
 			m_input = m_inputValues.Look;
 
-			m_pitch += m_input.y * m_rotationSpeed.x * deltaTime * timeScale;
+			m_pitch += -m_input.y * m_rotationSpeed.x * deltaTime * timeScale;
 			m_yaw += m_input.x * m_rotationSpeed.y * deltaTime * timeScale;
 
 			m_pitch = ClampAngle(m_pitch, m_bottomClamp, m_topClamp);
