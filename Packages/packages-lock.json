@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "com.cooki.states": {
+      "version": "https://github.com/ukidabek/States.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.cooki.utilities": "1.0.0"
+      },
+      "hash": "562c0c10d5164d45a21d53d11038b1f2da2c1e9a"
+    },
+    "com.cooki.utilities": {
+      "version": "https://github.com/ukidabek/Utilities.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "54b1dc24dc25cc10facb7034d1b565e923dd8d2e"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
