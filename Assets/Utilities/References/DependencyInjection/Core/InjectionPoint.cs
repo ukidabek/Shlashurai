@@ -31,6 +31,9 @@ namespace Utilities.ReferenceHost
 
 		public void Initialize()
 		{
+			if (m_injectDestination == null)
+				return;
+
 			m_fieldInfo = m_injectDestination
 				.GetType()
 				.GetField(m_fieldName, Binding_Flags);
