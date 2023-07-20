@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _stateMachineInstance: {fileID: 0}
-  _stateToEnter: {fileID: 0}
+  _stateMachineInstance: {fileID: 5373612003491013128}
+  _stateToEnter: {fileID: 2604172270548308558}
   _conditionsObjects:
   - {fileID: 6325319862750318333}
   m_returnOnEmpty: 0
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_description: 
   _stateMachineObject: {fileID: 5373612003491013128}
-  m_state: {fileID: 0}
+  m_state: {fileID: 7866379477325140422}
   m_returnToPreviousState: 0
 --- !u!114 &7706072144975864666
 MonoBehaviour:
@@ -2944,8 +2944,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _stateMachineInstance: {fileID: 0}
-  _stateToEnter: {fileID: 0}
+  _stateMachineInstance: {fileID: 5373612003491013128}
+  _stateToEnter: {fileID: 7866379477325140422}
   _conditionsObjects:
   - {fileID: 5611397105231405353}
   m_returnOnEmpty: 0
@@ -3400,15 +3400,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6731116506438028241, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 35.5
       objectReference: {fileID: 0}
     - target: {fileID: 6731116506438028241, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 6731116506438028241, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 30.35
       objectReference: {fileID: 0}
     - target: {fileID: 6731116506438028241, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3449,6 +3449,10 @@ PrefabInstance:
     - target: {fileID: 6731116506438028242, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731116506438028242, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6731116506771022796, guid: 459f6fbcb36f4b24a8bdc9d1b90786f1, type: 3}
       propertyPath: m_Layer

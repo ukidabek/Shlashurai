@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &766541 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1761213760889157811, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-  m_PrefabInstance: {fileID: 1696664212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee49944bb1cd1ff4baa76d8c3b6ac02e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &101965435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,17 +453,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebdb877e7c859e409cee2960947ef92, type: 3}
---- !u!114 &176267154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5373612003491013128, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-  m_PrefabInstance: {fileID: 1696664212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2df7c80f2a42baab150959e96fd39c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,25 +1427,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7866379477325140422, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: _stateToEnter
-      value: 
-      objectReference: {fileID: 766541}
-    - target: {fileID: 7866379477325140422, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: _stateMachineInstance
-      value: 
-      objectReference: {fileID: 176267154}
     - target: {fileID: 8426016144193720357, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8426016144193720357, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8426016144193720358, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8426016144193720358, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1509,18 +1471,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _stateToEnter
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _stateMachineInstance
-      value: 
-      objectReference: {fileID: 176267154}
-    m_RemovedComponents:
-    - {fileID: 7307608762393138275, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-    - {fileID: 7726523213279146056, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
-    - {fileID: 8815169657619630520, guid: 8b08504624598f84dbd7c1c79843acff, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
