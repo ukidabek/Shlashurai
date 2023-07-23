@@ -15,16 +15,22 @@ namespace Shlashurai.States
 
 		private Vector2 m_input = Vector2.zero;
 		private Vector3 m_newRotation = Vector3.zero;
-		private float m_yaw = 0f;
-		private float m_pitch = 0f;
+
+		private static bool m_initialize = false;
+		private static float m_yaw = 0f;
+		private static float m_pitch = 0f;
 
 		public override void Activate()
 		{
 			base.Activate();
 
-			var eulerAngles = m_camera.eulerAngles;
-			m_yaw = eulerAngles.y;
-			m_pitch = eulerAngles.x;
+			if (m_initialize == false)
+			{
+				var eulerAngles = m_camera.eulerAngles;
+				m_yaw = eulerAngles.y;
+				m_pitch = eulerAngles.x;
+				m_initialize = true;
+			}
 		}
 
 		public void OnUpdate(float deltaTime, float timeScale)
