@@ -10,6 +10,7 @@ public class MovementSpeedApplyLogic : StatisticApplyLogic
 
 	public override void Apply()
 	{
+		if (m_playerMovementStateLogic == null) return;
 		m_playerMovementStateLogic.Speed = m_movementSpeedStatistic.Value;
 	}
 
