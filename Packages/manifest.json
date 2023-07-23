@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "com.cooki.states": "https://github.com/ukidabek/States.git",
+    "com.cooki.references": "https://github.com/ukidabek/References.git",
+    "com.cooki.states": "git+https://github.com/ukidabek/States.git#v1.0.1",
     "com.cooki.utilities": "https://github.com/ukidabek/Utilities.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "1.1.4",
