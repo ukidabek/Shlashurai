@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 9219437223701175363}
   - component: {fileID: 2494716160597846188}
   m_Layer: 0
-  m_Name: OverArmVirtualCamera
+  m_Name: AimVirtualCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1686,14 +1686,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_injectionPoints:
   - m_injectDestination: {fileID: 7351181324877445249}
-    m_fieldName: m_root
-    m_injectionID: Root
-  - m_injectDestination: {fileID: 7351181324877445249}
     m_fieldName: m_model
     m_injectionID: Model
   - m_injectDestination: {fileID: 7351181324877445249}
     m_fieldName: m_camera
     m_injectionID: Camera
+  - m_injectDestination: {fileID: 7351181324877445249}
+    m_fieldName: m_aimVirtualCamera
+    m_injectionID: AimVirtualCamera
+  - m_injectDestination: {fileID: 7351181324877445249}
+    m_fieldName: m_skillSpawnPoint
+    m_injectionID: SkillSpawnPoint
   - m_injectDestination: {fileID: 7351181324877445249}
     m_fieldName: m_rigidbody
     m_injectionID: 
@@ -1703,6 +1706,9 @@ MonoBehaviour:
   - m_injectDestination: {fileID: 3921459912345859396}
     m_fieldName: m_camera
     m_injectionID: Camera
+  - m_injectDestination: {fileID: 1459767032338290504}
+    m_fieldName: m_animator
+    m_injectionID: 
   m_isStatic: 1
 --- !u!114 &3410953651290889978
 MonoBehaviour:
@@ -1724,6 +1730,7 @@ MonoBehaviour:
   - {fileID: 3921459912345859396}
   - {fileID: 2014386139716064395}
   - {fileID: 5373612003491013128}
+  - {fileID: 5008179049327550786}
 --- !u!114 &7351181324877445249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,13 +1743,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda42017de6b1764f912ceb1df111021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_root: {fileID: 0}
   m_model: {fileID: 0}
   m_camera: {fileID: 0}
+  m_aimVirtualCamera: {fileID: 0}
+  m_skillSpawnPoint: {fileID: 0}
   m_rigidbody: {fileID: 0}
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
   m_speed: 4
   m_rotationSnapSpeed: 4
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &6562085898549039964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,7 +1834,7 @@ MonoBehaviour:
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
   m_rotationSpeed: {x: 60, y: 60}
   m_topClamp: 70
-  m_bottomClamp: 5
+  m_bottomClamp: -15
 --- !u!114 &2014386139716064395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,6 +1847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8d146700a2e2f4aab0c682a987da03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_statusHandlers: []
   m_gameObjectStatusHandlers:
   - m_status: 1
     m_managedObject: {fileID: 1318258064814489895}
@@ -2053,7 +2065,7 @@ MonoBehaviour:
   m_inputValues: {fileID: 11400000, guid: 279b5a94dc5ae664eaac0658215e5bec, type: 2}
   m_rotationSpeed: {x: 60, y: 60}
   m_topClamp: 70
-  m_bottomClamp: 5
+  m_bottomClamp: -15
 --- !u!114 &1603759509486034590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,6 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8d146700a2e2f4aab0c682a987da03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_statusHandlers: []
   m_gameObjectStatusHandlers:
   - m_status: 1
     m_managedObject: {fileID: 2326579097361392303}
@@ -2308,9 +2321,9 @@ MonoBehaviour:
   m_hitHandler: {fileID: 5276369738319225453}
   m_controller: {fileID: 3055578962736059095}
   m_root: {fileID: 0}
-  m_range: {fileID: 11400000, guid: 2592251f4c3b71e4a973c9cad79b4b71, type: 2}
-  m_slashSpeed: {fileID: 11400000, guid: 364c1dd0a293fa74992a5b015c14fb70, type: 2}
-  m_stopDistance: {fileID: 11400000, guid: 70a70569838f2ea4b895302e790d5d76, type: 2}
+  m_range: {fileID: 0}
+  m_slashSpeed: {fileID: 0}
+  m_stopDistance: {fileID: 0}
 --- !u!114 &7444925344929115397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,7 +2602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_root: {fileID: 0}
   m_lineRenderer: {fileID: 8426016143910942780}
-  m_range: {fileID: 11400000, guid: 2592251f4c3b71e4a973c9cad79b4b71, type: 2}
+  m_range: {fileID: 0}
   m_expandSpeed: 0.3
 --- !u!114 &4533905778542334455
 MonoBehaviour:
@@ -4077,6 +4090,14 @@ MonoBehaviour:
     - m_referenceID: 
       m_typeName: Animator
       m_objectToInject: {fileID: 6153377357425295013}
+      m_lock: 1
+    - m_referenceID: AimVirtualCamera
+      m_typeName: CinemachineVirtualCamera
+      m_objectToInject: {fileID: 2494716160597846188}
+      m_lock: 1
+    - m_referenceID: SkillSpawnPoint
+      m_typeName: Transform
+      m_objectToInject: {fileID: 968892435033922123}
       m_lock: 1
 --- !u!114 &5444988211416534113
 MonoBehaviour:
