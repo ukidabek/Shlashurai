@@ -16,7 +16,7 @@
       "dependencies": {
         "com.cooki.utilities": "1.0.0"
       },
-      "hash": "e531f0a8fad3ed2ec61db6e40b7874e054f91748"
+      "hash": "d3798e267939a6599557f3ccc11e24dc3e8c2c55"
     },
     "com.cooki.utilities": {
       "version": "https://github.com/ukidabek/Utilities.git",
@@ -37,6 +37,16 @@
       "source": "registry",
       "dependencies": {
         "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.animation.rigging": {
+      "version": "1.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.4.1",
+        "com.unity.test-framework": "1.1.24"
       },
       "url": "https://packages.unity.com"
     },
