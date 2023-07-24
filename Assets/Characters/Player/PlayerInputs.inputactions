@@ -277,6 +277,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c45b9e8b-f83a-403a-8485-e5b831f1aa8b",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7a2929e5-aa26-4cab-9dc7-aa1cf5944f95",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
