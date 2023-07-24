@@ -1,6 +1,5 @@
 ﻿using Cinemachine;
 using Shlashurai.Input;
-using Unity.Mathematics;
 using UnityEngine;
 using Utilities.ReferenceHost;
 using Utilities.States;

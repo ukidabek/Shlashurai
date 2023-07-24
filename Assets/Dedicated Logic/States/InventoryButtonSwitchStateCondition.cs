@@ -11,18 +11,29 @@ namespace Shlashurai.States
 		{
 			get
 			{
+				if(!m_isActivated) return false;
+
 				if (m_toggle == m_inputValues.Inventory)
 					m_toggle = true;
+				
 				return m_toggle && m_inputValues.Inventory;
 			}
 		}
 
-		private bool m_toggle = false;
+		[SerializeField] private bool m_toggle = false;
+		[SerializeField] private bool m_isActivated = false;
 
 		public override void Activate()
 		{
 			base.Activate();
+			m_isActivated = true;
 			m_toggle = false;
+		}
+
+		public override void Deactivate()
+		{
+			base.Deactivate();
+			m_toggle = m_isActivated = false;
 		}
 	}
 }
