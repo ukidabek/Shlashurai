@@ -10,13 +10,13 @@
       "hash": "9cddaa2b1aeb5c4950181424489ec27aa6d6d836"
     },
     "com.cooki.states": {
-      "version": "git+https://github.com/ukidabek/States.git#v1.0.1",
+      "version": "git+https://github.com/ukidabek/States.git#v1.0.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.cooki.utilities": "1.0.0"
       },
-      "hash": "3d6985a05030487a2dd11eb7d72fd06376fb9b54"
+      "hash": "f3753cca80abb9474a545cb4ff5adb8a5caac602"
     },
     "com.cooki.utilities": {
       "version": "https://github.com/ukidabek/Utilities.git",
