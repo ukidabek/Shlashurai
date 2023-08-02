@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.States
 {
-	public abstract class OnInputSwitchStateCondition : SwitchStateConditionBase
+	public abstract class OnInputSwitchStateCondition : SwitchStateCondition
 	{
 		[SerializeField] protected InputValues m_values = null;
 		[SerializeField] protected bool m_inputStatus = false;

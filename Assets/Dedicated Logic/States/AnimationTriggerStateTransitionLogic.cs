@@ -3,7 +3,7 @@ using Utilities.States;
 
 namespace Shlashurai.States
 {
-	public class AnimationTriggerStateTransitionLogic : StateTransitionLogicBase
+	public class AnimationTriggerStateTransitionLogic : StateTransitionLogic
 	{
 		[SerializeField] private Animator m_animator = null;
 		[SerializeField] private string m_triggerName = null;

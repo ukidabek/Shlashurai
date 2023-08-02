@@ -4,7 +4,7 @@ using Utilities.States;
 
 namespace Shlashurai.States
 {
-	public class ResourceSwitchStateCondition : SwitchStateConditionBase
+	public class ResourceSwitchStateCondition : SwitchStateCondition
 	{
 		public enum Mode
 		{
