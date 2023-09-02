@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shlashurai.Skill
+namespace Skills
 {
 	[CreateAssetMenu(menuName = "Skills/Templates/SkillTemplate", fileName = "SkillTemplate")]
 	public class SkillTemplate : SkillTemplateBase
@@ -43,13 +43,11 @@ namespace Shlashurai.Skill
 			}
 		}
 
-		[SerializeField] private Sprite m_image = null;
-
 		public override ISkill Create()
 		{
 			var effects = GenerateSkillEffects();
 			var cost = GenerateSkillCost();
-			
+
 			return new Skill(m_image, effects, cost);
 		}
 	}

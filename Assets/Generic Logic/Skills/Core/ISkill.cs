@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shlashurai.Skill
+namespace Skills
 {
 	public interface ISkill
 	{
@@ -10,10 +10,10 @@ namespace Shlashurai.Skill
 		IEnumerable<ISkillEffect> Effects { get; }
 		ISkillCost Cost { get; }
 		IEnumerable<ISkillStatus> Status { get; }
-	
+
 		event Action<ISkillStatus> SkillStatusAdded;
 		event Action<ISkillStatus> SkillStatusRemoved;
-		
+
 		void AddStatus(ISkillStatus status);
 		void RemoveStatus(ISkillStatus status);
 	}

@@ -1,4 +1,4 @@
-﻿namespace Shlashurai.Skill
+﻿namespace Skills
 {
 	public interface ISkilCostManager
 	{

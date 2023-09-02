@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Shlashurai.Skill
+namespace Skills
 {
 	public class SkillCastManager : MonoBehaviour
 	{
@@ -37,7 +37,7 @@ namespace Shlashurai.Skill
 			if (m_skillCostManager.CanCast(skill) == false)
 				return;
 
-			if(m_coroutine != null)
+			if (m_coroutine != null)
 				StopCoroutine(m_coroutine);
 
 			m_coroutine = StartCoroutine(CastCoroutine(skill));
@@ -59,10 +59,10 @@ namespace Shlashurai.Skill
 			OnSkillCastBegin?.Invoke(skill);
 			m_casting = true;
 
-			while (counter > 0) 
+			while (counter > 0)
 			{
 				counter -= Time.deltaTime;
-				OnSkillCastProgress?.Invoke(1 - (counter / castTime));
+				OnSkillCastProgress?.Invoke(1 - counter / castTime);
 				yield return null;
 			}
 

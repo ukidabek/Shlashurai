@@ -1,7 +1,6 @@
-﻿namespace Shlashurai.Skill
+﻿namespace Skills
 {
 	public abstract class SkillEffectTemplateBase : Template<ISkillEffect>
 	{
 	}
-
 }

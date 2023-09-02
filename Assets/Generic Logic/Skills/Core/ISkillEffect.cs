@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Shlashurai.Skill
+namespace Skills
 {
 	public interface ISkillEffect
-    {
+	{
 		void Affect(SkillCastManager skillCastManager, GameObject target);
 	}
 }

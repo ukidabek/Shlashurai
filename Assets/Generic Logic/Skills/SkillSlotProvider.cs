@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace Shlashurai.Skill
+namespace Skills
 {
 	public class SkillSlotProvider : MonoBehaviour
 	{
-		[SerializeField] private SkillTemplate [] m_skillTemplate = null;
+		[SerializeField] private SkillTemplate[] m_skillTemplate = null;
 		[SerializeField] private SkillHolder m_skillHolder = null;
 
 		private void Start()

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Shlashurai.Skill
+namespace Skills
 {
 	public abstract class SkillPostProcessor : MonoBehaviour
 	{
