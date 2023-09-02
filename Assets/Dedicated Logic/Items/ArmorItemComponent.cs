@@ -1,4 +1,6 @@
-﻿namespace Shlashurai.Items
+﻿using Items;
+
+namespace Shlashurai.Items
 {
 	public class ArmorItemComponent : IItemComponent, IArmor
 	{

@@ -1,4 +1,4 @@
-﻿using Shlashurai.Items;
+﻿using Items.Inventory;
 using UnityEngine;
 using Utilities.ReferenceHost;
 

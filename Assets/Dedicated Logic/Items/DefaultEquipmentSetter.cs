@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Items;
+using System.Linq;
 using UnityEngine;
 
 namespace Shlashurai.Items
@@ -7,7 +8,7 @@ namespace Shlashurai.Items
 	{
 		[SerializeField] private bool m_autoSet = false;
 		[SerializeField] private Object m_equipmentObject = null;
-		[SerializeField] private ItemTemplate[] m_defaultItems = null;
+		[SerializeField] private ItemTemplateBase[] m_defaultItems = null;
 
 		private IEquipment m_equipment = null;
 
@@ -19,7 +20,7 @@ namespace Shlashurai.Items
 			Set();
 		}
 
-		public IItem SpawnItem(ItemTemplate template)
+		public IItem SpawnItem(ItemTemplateBase template)
 		{
 			var item = template.Create();
 

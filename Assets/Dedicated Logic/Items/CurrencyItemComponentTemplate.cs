@@ -1,4 +1,5 @@
-﻿using Money;
+﻿using Items;
+using Money;
 using UnityEngine;
 
 namespace Shlashurai.Items

@@ -1,5 +1,5 @@
 ﻿using Utilities.Interactions;
-using Shlashurai.Items;
+using Items;
 
 namespace Shlashurai.PickUp
 {

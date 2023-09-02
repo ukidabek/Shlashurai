@@ -1,4 +1,5 @@
-﻿using Shlashurai.Items;
+﻿using Items;
+using Items.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
 

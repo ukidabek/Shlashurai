@@ -1,4 +1,5 @@
-﻿using Shlashurai.Consumable;
+﻿using Items;
+using Shlashurai.Consumable;
 using UnityEngine;
 
 namespace Shlashurai.Items

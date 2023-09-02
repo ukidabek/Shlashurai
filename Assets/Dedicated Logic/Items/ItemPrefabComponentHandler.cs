@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Items;
+using Items.Inventory;
+using UnityEngine;
 
 namespace Shlashurai.Items
 {

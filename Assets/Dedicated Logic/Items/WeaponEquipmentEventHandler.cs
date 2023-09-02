@@ -1,4 +1,5 @@
-﻿using Shlashurai.States;
+﻿using Items;
+using Shlashurai.States;
 using UnityEngine;
 
 namespace Shlashurai.Items

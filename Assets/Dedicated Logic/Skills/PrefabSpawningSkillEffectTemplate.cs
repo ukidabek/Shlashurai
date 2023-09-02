@@ -1,6 +1,6 @@
-﻿using Shlashurai.Skill;
-using Shlashurai.Skills.Utilities;
+﻿using Shlashurai.Skills.Utilities;
 using Shlashurai.Spawn;
+using Skills;
 using UnityEngine;
 
 namespace Shlashurai.Skills

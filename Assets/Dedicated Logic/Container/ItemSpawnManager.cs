@@ -1,4 +1,5 @@
-﻿using Shlashurai.Items;
+﻿using Items;
+using Shlashurai.Items;
 using Shlashurai.Spawn;
 using System;
 using System.Collections;

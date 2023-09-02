@@ -1,7 +1,7 @@
 ﻿using Utilities.States;
 using UnityEngine;
-using Shlashurai.Skill;
 using Shlashurai.Input;
+using Skills;
 
 namespace Shlashurai.States
 {

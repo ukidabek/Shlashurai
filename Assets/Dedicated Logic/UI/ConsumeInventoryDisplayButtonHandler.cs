@@ -1,4 +1,4 @@
-﻿using Shlashurai.Items;
+﻿using Items;
 using Shlashurai.References;
 using System.Collections.Generic;
 using System.Linq;

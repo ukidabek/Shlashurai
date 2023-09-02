@@ -1,4 +1,4 @@
-﻿using Shlashurai.Items;
+﻿using Items;
 using System.Linq;
 using UnityEngine;
 

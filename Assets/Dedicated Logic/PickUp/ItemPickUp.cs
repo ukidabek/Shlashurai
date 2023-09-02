@@ -1,4 +1,4 @@
-using Shlashurai.Items;
+using Items;
 using UnityEngine.Events;
 using Utilities.Interactions;
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Items;
+using System.Collections.Generic;
 using Utilities.Consumable;
 
 namespace Shlashurai.Items

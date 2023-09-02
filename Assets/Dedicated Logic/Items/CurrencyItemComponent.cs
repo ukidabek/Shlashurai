@@ -1,4 +1,5 @@
-﻿using Money;
+﻿using Items;
+using Money;
 
 namespace Shlashurai.Items
 {

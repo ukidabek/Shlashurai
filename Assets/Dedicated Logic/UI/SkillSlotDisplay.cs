@@ -1,5 +1,5 @@
-﻿using Shlashurai.Skill;
-using Shlashurai.Skills;
+﻿using Shlashurai.Skills;
+using Skills;
 using UnityEngine;
 using UnityEngine.UI;
 

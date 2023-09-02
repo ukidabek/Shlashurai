@@ -1,4 +1,4 @@
-﻿using Shlashurai.Items;
+﻿using Items.Inventory;
 using Utilities.ReferenceHost;
 
 namespace Shlashurai.References

@@ -1,4 +1,4 @@
-﻿using Shlashurai.Skill;
+﻿using Skills;
 using UnityEngine;
 
 namespace Shlashurai.Skills

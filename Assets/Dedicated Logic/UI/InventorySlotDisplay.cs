@@ -1,4 +1,6 @@
-﻿using Shlashurai.Items;
+﻿using Items;
+using Items.Inventory;
+using Shlashurai.Items;
 using System;
 using TMPro;
 using UnityEngine;
