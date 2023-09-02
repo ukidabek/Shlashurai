@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Shlashurai.Items
+namespace Items
 {
 	public static class ItemHelperClass
 	{
@@ -11,9 +11,11 @@ namespace Shlashurai.Items
 
 		public static IEnumerable<T> GetComponentsOfType<T>(this IItem item) => item.Components.OfType<T>();
 
-		public static void SetItemStatus(this IItem item, bool status) => item
-			.GetComponentsOfType<IManageableItemComponent>()
-			.ToList()
-			.ForEach(component => component.SetActive(status));
+		public static void SetItemStatus(this IItem item, bool status)
+		{
+			var manageableComponents = item.GetComponentsOfType<IManageableItemComponent>();
+			foreach (var component in manageableComponents) 
+				component.SetActive(status);
+		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Shlashurai.Items
+namespace Items
 {
 	public interface IItem
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Shlashurai.Items
+namespace Items.Inventory
 {
 	public class Inventory : IInventory
 	{
@@ -17,7 +17,7 @@ namespace Shlashurai.Items
 		public event Action<IItemSlot> OnItemAdded;
 		public event Action<IItemSlot> OnItemRemoved;
 
-		public Inventory(int maxSlotCount, 
+		public Inventory(int maxSlotCount,
 			IEnumerable<IItemComponentHandler> onAddComponentsHandlers,
 			IEnumerable<IItemComponentHandler> onRemoveComponentsHandlers)
 		{
@@ -33,9 +33,7 @@ namespace Shlashurai.Items
 
 			ItemSlot slot = null;
 			if (item.IsStackable)
-			{
 				slot = m_slots.FirstOrDefault(slot => slot.Item.ID == item.ID);
-			}
 
 			if (slot == null)
 			{
@@ -77,7 +75,7 @@ namespace Shlashurai.Items
 			OnItemRemoved?.Invoke(slot);
 		}
 
-		private IItemComponentHandler GetHandler(IEnumerable<IItemComponentHandler> handlers, IItemComponent component) 
+		private IItemComponentHandler GetHandler(IEnumerable<IItemComponentHandler> handlers, IItemComponent component)
 			=> handlers.FirstOrDefault(handler => handler.CanHandle(component));
 	}
 }

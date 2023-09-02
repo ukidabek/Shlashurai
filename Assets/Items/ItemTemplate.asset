@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7485023254349933382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91681ad9bcf347a4ba5b0c872d834d56, type: 3}
+  m_Name: ItemPrefabComponentTemplate
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+--- !u!114 &-3910375240136371537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086906d9c40ea504b8ca20a1a39ab976, type: 3}
+  m_Name: ItemImageComponentTemplate
+  m_EditorClassIdentifier: 
+  m_itemImage: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d98fc094be8850418a39e0b266a85b0, type: 3}
+  m_Name: ItemTemplate
+  m_EditorClassIdentifier: 
+  m_displayName: 
+  m_itemComponents:
+  - {fileID: -7485023254349933382}
+  - {fileID: -3910375240136371537}
+  m_isStackable: 0

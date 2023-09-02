@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shlashurai.Items
+namespace Items.Inventory
 {
 	public class InventoryManager : MonoBehaviour, IInventory
 	{
@@ -18,7 +18,7 @@ namespace Shlashurai.Items
 		private void Awake()
 		{
 			m_inventory = new Inventory(
-				m_maxSlotCount, 
+				m_maxSlotCount,
 				m_onAddComponentsHandlers,
 				m_onRemoveComponentsHandlers);
 

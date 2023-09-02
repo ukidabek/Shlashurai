@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Shlashurai.Items
+namespace Items
 {
 	[CreateAssetMenu(fileName = "ItemTemplate", menuName = "Items/Items/ItemTemplate")]
 	public class ItemTemplate : ItemTemplateBase

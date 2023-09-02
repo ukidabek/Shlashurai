@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Shlashurai.Items
+namespace Items.Inventory
 {
 	public interface IInventory
 	{

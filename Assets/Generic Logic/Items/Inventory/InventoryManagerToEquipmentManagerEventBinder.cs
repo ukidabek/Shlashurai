@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Shlashurai.Items;
+using UnityEngine;
 
-namespace Shlashurai.Items
+namespace Items.Inventory
 {
-	public class InventoryManagerToEquipmentManagerEventBinder : MonoBehaviour 
+	public class InventoryManagerToEquipmentManagerEventBinder : MonoBehaviour
 	{
 		[SerializeField] private InventoryManager m_inventoryManager = null;
 		[SerializeField] private EquipmentManager m_equipmentManager = null;

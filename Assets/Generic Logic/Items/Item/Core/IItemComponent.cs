@@ -1,4 +1,4 @@
-﻿namespace Shlashurai.Items
+﻿namespace Items
 {
 	public interface IItemComponent
 	{

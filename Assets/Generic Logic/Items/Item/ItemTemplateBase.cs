@@ -2,16 +2,17 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Shlashurai.Items
+namespace Items
 {
-	public abstract class ItemTemplateBase : TemplateBase<IItem>
+	public abstract class ItemTemplateBase : ScriptableObject
 	{
 		[SerializeField] protected string m_displayName = string.Empty;
-		[SerializeField] protected ItemComponentTemplate[] m_itemComponents = null;
+		[SerializeField, HideInInspector] protected ItemComponentTemplate[] m_itemComponents = null;
 
-		protected IEnumerable<IItemComponent> GetItemComponentInstances() 
+		public abstract IItem Create();
+		protected IEnumerable<IItemComponent> GetItemComponentInstances()
 			=> m_itemComponents
-				.Select(compoenetTemplate => compoenetTemplate.Create())
+				.Select(componentTemplate => componentTemplate.Create())
 				.ToArray();
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Shlashurai.Items
+namespace Items
 {
 	public abstract class ItemBinder : MonoBehaviour
 	{

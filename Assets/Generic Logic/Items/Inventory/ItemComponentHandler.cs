@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Shlashurai.Items
+namespace Items.Inventory
 {
 	public abstract class ItemComponentHandler : MonoBehaviour, IItemComponentHandler
 	{

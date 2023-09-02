@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Shlashurai.Items
+namespace Items
 {
 	public class Item : IItem
 	{
@@ -8,7 +8,7 @@ namespace Shlashurai.Items
 		public object ID => Template;
 		public string DisplayName { get; private set; }
 
-		public IEnumerable<IItemComponent> Components {get; private set;}
+		public IEnumerable<IItemComponent> Components { get; private set; }
 
 		public bool IsActive { get; set; }
 
